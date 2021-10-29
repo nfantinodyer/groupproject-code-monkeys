@@ -10,6 +10,7 @@ public enum EntityType {
 			case BARREL: return "barrel";
 			case WALL: return "wall";
 			case CHARACTER: return "character";
+			//test
 		}
 		return "n/a";
 	}
