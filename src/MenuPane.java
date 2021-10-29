@@ -9,23 +9,28 @@ public class MenuPane extends GraphicsPane {
 	private MainApplication program; 
 								
 	private GButton rect;
-	private final int BUTTON_SIZE = 50;
+	private GButton exit;
+	private final int BUTTON_SIZE = 60;
 
 	public MenuPane(MainApplication app) {
 		super();
 		program = app;
-		rect = new GButton("Next", app.getWidth()/2-BUTTON_SIZE/2, app.getHeight()/2-BUTTON_SIZE/2, BUTTON_SIZE, BUTTON_SIZE);
+		rect = new GButton("Play Game", app.getWidth()/2-BUTTON_SIZE*2, app.getHeight()/2+BUTTON_SIZE, BUTTON_SIZE, BUTTON_SIZE);
 		rect.setFillColor(Color.RED);
+		exit = new GButton("Exit Game", app.getWidth()/2-BUTTON_SIZE/2, app.getHeight()/2+BUTTON_SIZE, BUTTON_SIZE, BUTTON_SIZE);
+		exit.setFillColor(Color.RED);
 	}
 
 	@Override
 	public void showContents() {
 		program.add(rect);
+		program.add(exit);
 	}
 
 	@Override
 	public void hideContents() {
 		program.remove(rect);
+		program.remove(exit);
 	}
 
 	@Override
@@ -33,6 +38,10 @@ public class MenuPane extends GraphicsPane {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
 		if (obj == rect) {
 			program.switchToSome();
+		}
+		if(obj == exit)
+		{
+			System.exit(0);
 		}
 	}
 }
