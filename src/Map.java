@@ -39,7 +39,8 @@ public class Map {
 	}
 	
 	public void addEntity(EntityType type, int r, int c) {
-		
+		Entity e = new Entity(type, r, c);
+		character[r][c] = e;
 	}
 	
 	public void move(int nRow, int nCol) {
