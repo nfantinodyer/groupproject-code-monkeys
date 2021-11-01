@@ -10,31 +10,67 @@ public class LeaderBoard {
 		name = n;
 		mapSize = m;
 		score = s;
-		writeFile();
+		File f = new File("leaderboard.txt"); 
+		if(!f.exists())
+		{
+			makeFile();
+		}
+		else
+		{
+			writeFile();
+			readFile();
+		}
 	}
 	public static void main(String[] args) {
 		new LeaderBoard("name","small",25);
 	}
+	public void makeFile()
+	{
+		try
+		{
+			Writer output = null;
+		    File file = new File("leaderboard.txt");
+		    output = new BufferedWriter(new FileWriter(file));
+
+		    String toWrite = "\n"+name+" "+mapSize+" "+score+" "+"\n";
+		    output.append(toWrite);
+		        
+
+		    output.close();
+		    System.out.println("File has been written");
+		}catch(IOException ioe) {}
+		
+
+	    
+	}
 	public void writeFile()
 	{
-
-	    try
-	    {
-	        Writer output = null;
-	        File file = new File("leaderboard.txt");
-	        output = new BufferedWriter(new FileWriter(file));
-
-	        String toWrite = "\nIGNORE\n";
-	        output.append(toWrite);
-	        
-
-	        output.close();
-	        System.out.println("File has been written");
-
-	    }catch(Exception e)
-	    {
-	        System.out.println("Could not create file");
-	    }
+		try
+		{
+			String filename= "leaderboard.txt";
+		    FileWriter fw = new FileWriter(filename,true);
+		    fw.write("\n"+name+" "+mapSize+" "+score+" "+"\n");
+		    fw.close();
+		}catch(IOException ioe) {}
+		
+	}
+	public void readFile()
+	{
+		try
+		{
+			int ch = 0;
+			FileReader fr=null;
+	        fr = new FileReader("leaderboard.txt");
+	  
+	       while ((ch=fr.read())!=-1)
+	       {
+	    	   System.out.print((char)ch);
+	       }
+				    
+			
+		    fr.close();
+		}catch(IOException ioe) {}
+		
 	}
 	
 	public void setName(String n) {
