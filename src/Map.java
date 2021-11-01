@@ -48,6 +48,26 @@ public class Map {
 	}
 	
 	public boolean collision (Space s, EntityType type) {
+		if (character[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
+			return true;
+		}
+		
+		if (character[s.getRow()][s.getCol()].getType() == EntityType.BARREL) {
+			
+		}
+		
+		if (character[s.getRow()][s.getCol()].getType() == EntityType.BANANA) {
+			
+		}
+		
+		if (character[s.getRow()][s.getCol()].getType() == EntityType.CHERRY) {
+			
+		}
+		
+		if (character[s.getRow()][s.getCol()].getType() == EntityType.MANGO) {
+			
+		}
+		
 		return false;
 	}
 	
