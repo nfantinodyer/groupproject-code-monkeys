@@ -31,7 +31,7 @@ public class Map {
 	}
 	
 	public Entity getEnt(Space s) {
-		
+		return character[s.getRow()][s.getCol()];
 	}
 	
 	public int getNumEnt() {
