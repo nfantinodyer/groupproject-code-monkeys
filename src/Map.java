@@ -1,6 +1,14 @@
 
 public class Map {
-	Entity[][] character;
+	private Entity[][] character;
+	private int numRows;
+	private int numCols;
+	
+	public Map(int r, int c) {
+		character = new Entity[r][c];
+		numRows = r;
+		numCols = c;
+	}
 	
 	public boolean canMove(Space s, boolean isUp, boolean isRight) {
 		return false;
@@ -15,11 +23,11 @@ public class Map {
 	}
 	
 	public int getNumCols() {
-		return 0;
+		return numCols;
 	}
 	
 	public int getNumRows() {
-		return 0;
+		return numRows;
 	}
 	
 	public Entity getEnt(Space s) {
