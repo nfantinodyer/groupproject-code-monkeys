@@ -1,3 +1,4 @@
+import java.io.*;
 
 public class LeaderBoard {
 	private String name;
@@ -9,8 +10,32 @@ public class LeaderBoard {
 		name = n;
 		mapSize = m;
 		score = s;
+		writeFile();
 	}
-	
+	public static void main(String[] args) {
+		new LeaderBoard("name","small",25);
+	}
+	public void writeFile()
+	{
+
+	    try
+	    {
+	        Writer output = null;
+	        File file = new File("leaderboard.txt");
+	        output = new BufferedWriter(new FileWriter(file));
+
+	        String toWrite = "\nIGNORE\n";
+	        output.append(toWrite);
+	        
+
+	        output.close();
+	        System.out.println("File has been written");
+
+	    }catch(Exception e)
+	    {
+	        System.out.println("Could not create file");
+	    }
+	}
 	
 	public void setName(String n) {
 		name = n;
