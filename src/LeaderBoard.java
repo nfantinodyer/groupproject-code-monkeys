@@ -6,22 +6,22 @@ public class LeaderBoard {
 	
 
 	LeaderBoard(String n,String m, int s){
-		name=n;
-		mapSize=m;
-		score=s;
+		name = n;
+		mapSize = m;
+		score = s;
 	}
 	
 	
 	public void setName(String n) {
-		name =n;
+		name = n;
 	}
 	
 	public void setScore(int s) {
-		score=s;
+		score = s;
 	}
 	
 	public void setSize(String M) {
-		mapSize=M;
+		mapSize = M;
 	}
 	public String getName() {
 		return name;
