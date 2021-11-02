@@ -1,21 +1,29 @@
 
 public class Map {
-	private Entity[][] character;
+	private Entity[][] map;
+	private Entity character;
 	private int numRows;
 	private int numCols;
+	private int numEntities = 1;
 	
 	public Map(int r, int c) {
-		character = new Entity[r][c];
+		map = new Entity[r][c];
 		numRows = r;
 		numCols = c;
 	}
 	
 	public boolean canMove(Space s, boolean isUp, boolean isRight) {
-		return false;
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
+			return false;
+		}
+		return true;
 	}
 	
 	public boolean moveChara(Space s, boolean isUp, boolean isRight) {
-		return false;
+		if (canMove(s, isUp, isRight) == true) {
+			map[character.getRow()][character.getCol()].move(s.getRow(), s.getCol());
+		}
+		return canMove(s, isUp, isRight);
 	}
 	
 	public String toString() {
@@ -31,16 +39,24 @@ public class Map {
 	}
 	
 	public Entity getEnt(Space s) {
-		return character[s.getRow()][s.getCol()];
+		return map[s.getRow()][s.getCol()];
 	}
 	
 	public int getNumEnt() {
-		return 0;
+		return numEntities;
 	}
 	
 	public void addEntity(EntityType type, int r, int c) {
 		Entity e = new Entity(type, r, c);
-		character[r][c] = e;
+		map[r][c] = e;
+		
+		if (type == EntityType.BARREL) {
+			numEntities++;
+		}
+		
+		if (type == EntityType.CHARACTER) {
+			character = new Entity(type, r, c);
+		}
 	}
 	
 	public void move(int nRow, int nCol) {
@@ -48,23 +64,23 @@ public class Map {
 	}
 	
 	public boolean collision (Space s, EntityType type) {
-		if (character[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
 			return true;
 		}
 		
-		if (character[s.getRow()][s.getCol()].getType() == EntityType.BARREL) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.BARREL) {
 			
 		}
 		
-		if (character[s.getRow()][s.getCol()].getType() == EntityType.BANANA) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.BANANA) {
 			
 		}
 		
-		if (character[s.getRow()][s.getCol()].getType() == EntityType.CHERRY) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.CHERRY) {
 			
 		}
 		
-		if (character[s.getRow()][s.getCol()].getType() == EntityType.MANGO) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.MANGO) {
 			
 		}
 		
