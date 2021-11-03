@@ -85,47 +85,52 @@ public class LeaderBoard {
 		{
 			String filename= "leaderboard.txt";
 		    FileWriter fw = new FileWriter(filename,false);
-		    int i = 6;
+		    
 		    fw.write("Easy");
+		    
+		    int i = easy.size();
+		    
+		    
 		    for (Entry<Integer, String> mapElement : easy.entrySet()) {
 	            int key = mapElement.getKey();
 	            String value = (mapElement.getValue());
 	            i--;
-	            fw.write("\t"+i+". "+value+" "+key+"\t");
+	            
+	            if(i-5<0)
+			    {
+	            	fw.write("\t"+(i+1)+". "+value+" "+key+"\t");
+			    }
 	            
 	            
-	            if(i==1)
-	            {
-	            	break;
-	            }
 		    }
-		    i=6;
+		    
+		    i = medium.size();
+		    
+		    
 		    fw.write("\n\nMedium");
 		    for (Entry<Integer, String> mapElement : medium.entrySet()) {
 	            int key = mapElement.getKey();
 	            String value = (mapElement.getValue());
 	            i--;
-	            fw.write("\t"+i+". "+value+" "+key+"\t");
-	            
-	            
-	            if(i==1)
-	            {
-	            	break;
-	            }
+	            if(i-5<0)
+			    {
+	            	fw.write("\t"+(i+1)+". "+value+" "+key+"\t");
+			    }
 		    }
-		    i=6;
+		    
+		    
+		    i = hard.size();
+		   
 		    fw.write("\n\nHard");
 		    for (Entry<Integer, String> mapElement : hard.entrySet()) {
 	            int key = mapElement.getKey();
 	            String value = (mapElement.getValue());
 	            i--;
-	            fw.write("\t"+i+". "+value+" "+key+"\t");
 	            
-	            
-	            if(i==1)
-	            {
-	            	break;
-	            }
+	            if(i-5<0)
+			    {
+	            	fw.write("\t"+(i+1)+". "+value+" "+key+"\t");
+			    }
 		    }
 		    
 		    fw.close();
