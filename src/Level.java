@@ -4,6 +4,8 @@ public class Level {
 	Map map;
 	int barrelMove;
 	Space winSpace;
+	private int score = 0;
+	private int numLives = 3;
 	Vector<LeaderBoard> lead = new Vector<LeaderBoard>();
 	
 	
@@ -54,6 +56,22 @@ public class Level {
 		
 	}
 	public Boolean moveChara(Space s, int m){
+		//FIXME
+		//CHANGE SCORE TO ACTUAL FRUIT VALUES
+		if (map.wallCollision(s)) {
+			if (map.bananaCollision(s)) {
+				score += 0;
+			}
+			if (map.cherryCollision(s)) {
+				score += 0;
+			}
+			if (map.mangoCollision(s)) {
+				score += 0;
+			}
+			if (map.barrelCollision(s)) {
+				--numLives;
+			}
+		}
 		return false;
 	}
 	public int timer() {
