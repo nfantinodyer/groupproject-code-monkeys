@@ -77,28 +77,38 @@ public class Map {
 		
 	}
 	
-	public boolean collision (Space s, EntityType type) {
+	public boolean wallCollision (Space s, EntityType type) {
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
 			return true;
 		}
-		
-		if (map[s.getRow()][s.getCol()].getType() == EntityType.BARREL) {
-			
-		}
-		
-		if (map[s.getRow()][s.getCol()].getType() == EntityType.BANANA) {
-			
-		}
-		
-		if (map[s.getRow()][s.getCol()].getType() == EntityType.CHERRY) {
-			
-		}
-		
-		if (map[s.getRow()][s.getCol()].getType() == EntityType.MANGO) {
-			
-		}
-		
 		return false;
 	}
 	
+	public boolean barrelCollision(Space s, EntityType type) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.BARREL) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean bananaCollision(Space s, EntityType type) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.BANANA) {
+			return true;
+		}
+		return false;
+	}
+		
+	public boolean cherryCollision(Space s, EntityType type) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.CHERRY) {
+			return true;
+		}
+		return false;
+	}
+		
+	public boolean mangoCollision(Space s, EntityType type) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.MANGO) {
+			return true;
+		}
+		return false;
+	}
 }
