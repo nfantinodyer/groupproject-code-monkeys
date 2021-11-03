@@ -47,13 +47,13 @@ public class Level {
 		
 	}
 	public Space getWin() {
-		return null;
+		return winSpace;
 	}
 	public String toString() {
 		return null;
 	}
 	public void setWin(Space s) {
-		
+		map.setWinSpace(s);
 	}
 	public Boolean moveChara(Space s, int m){
 		//FIXME
