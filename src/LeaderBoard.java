@@ -3,9 +3,9 @@ import java.util.*;
 import java.util.Map.Entry;
 
 public class LeaderBoard {
-	private HashMap<Integer,String > easy = new HashMap<Integer,String>();
-	private HashMap<Integer,String> medium = new HashMap<Integer,String>();
-	private HashMap<Integer,String> hard = new HashMap<Integer,String>();
+	private TreeMap<Integer,String > easy = new TreeMap<Integer,String>();
+	private TreeMap<Integer,String> medium = new TreeMap<Integer,String>();
+	private TreeMap<Integer,String> hard = new TreeMap<Integer,String>();
 
 	LeaderBoard(String n,String m, int s){
 		
@@ -40,7 +40,6 @@ public class LeaderBoard {
 		{
 			hard.put(s,n);
 		}
-		sort();
 		
 		File f = new File("leaderboard.txt"); 
 		if(!f.exists())
@@ -147,8 +146,4 @@ public class LeaderBoard {
 		
 	}
 	
-	public void sort()
-	{
-		
-	}
 }
