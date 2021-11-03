@@ -58,18 +58,22 @@ public class Level {
 	public Boolean moveChara(Space s, int m){
 		//FIXME
 		//CHANGE SCORE TO ACTUAL FRUIT VALUES
-		if (map.wallCollision(s)) {
+		if (!map.wallCollision(s)) {
 			if (map.bananaCollision(s)) {
 				score += 0;
+				return true;
 			}
 			if (map.cherryCollision(s)) {
 				score += 0;
+				return true;
 			}
 			if (map.mangoCollision(s)) {
 				score += 0;
+				return true;
 			}
 			if (map.barrelCollision(s)) {
 				--numLives;
+				return true;
 				//FIXME
 				/*
 				 either give cooldown and keep player in same space,
