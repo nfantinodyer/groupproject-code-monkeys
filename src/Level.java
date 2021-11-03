@@ -4,6 +4,7 @@ public class Level {
 	Map map;
 	int barrelMove;
 	Space winSpace;
+	Vector<LeaderBoard> lead= new Vector<LeaderBoard>();
 	
 	public Level createLevel(String s) {
 		return null;
