@@ -9,6 +9,7 @@ public class LeaderBoard {
 
 	LeaderBoard(String n,String m, int s){
 		
+		//Scores that will be on the leaderboard so it's not empty
 		easy.put(20, "jj");
 		easy.put(23, "hat");
 		easy.put(19, "iop");
@@ -52,9 +53,13 @@ public class LeaderBoard {
 			readFile();
 		}
 	}
+	
+	
 	public static void main(String[] args) {
-		new LeaderBoard("name","easy",25);
+		new LeaderBoard("huk","easy",25);
 	}
+	
+	
 	public void makeFile()
 	{
 		try
@@ -80,44 +85,44 @@ public class LeaderBoard {
 		{
 			String filename= "leaderboard.txt";
 		    FileWriter fw = new FileWriter(filename,false);
-		    int i = 0;
+		    int i = 6;
 		    fw.write("Easy");
 		    for (Entry<Integer, String> mapElement : easy.entrySet()) {
 	            int key = mapElement.getKey();
 	            String value = (mapElement.getValue());
-	            i++;
+	            i--;
 	            fw.write("\t"+i+". "+value+" "+key+"\t");
 	            
 	            
-	            if(i==5)
+	            if(i==1)
 	            {
 	            	break;
 	            }
 		    }
-		    i=0;
+		    i=6;
 		    fw.write("\n\nMedium");
 		    for (Entry<Integer, String> mapElement : medium.entrySet()) {
 	            int key = mapElement.getKey();
 	            String value = (mapElement.getValue());
-	            i++;
+	            i--;
 	            fw.write("\t"+i+". "+value+" "+key+"\t");
 	            
 	            
-	            if(i==5)
+	            if(i==1)
 	            {
 	            	break;
 	            }
 		    }
-		    i=0;
+		    i=6;
 		    fw.write("\n\nHard");
 		    for (Entry<Integer, String> mapElement : hard.entrySet()) {
 	            int key = mapElement.getKey();
 	            String value = (mapElement.getValue());
-	            i++;
+	            i--;
 	            fw.write("\t"+i+". "+value+" "+key+"\t");
 	            
 	            
-	            if(i==5)
+	            if(i==1)
 	            {
 	            	break;
 	            }
