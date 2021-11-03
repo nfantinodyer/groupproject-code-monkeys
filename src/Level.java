@@ -12,15 +12,15 @@ public class Level {
 		mapSize = s;
 		
 		if(s == "small") {
-			map = new Map(7,7);
-			winSpace = new Space(0,0);
+			map = new Map(5,6);
+			winSpace = new Space(0,6);
 			setUpLevelEasy();
 		}else if(s == "medium") {
-			map = new Map(14,14);
-			winSpace = new Space(0,0);
+			map = new Map(8,9);
+			winSpace = new Space(8,0);
 			setUpLevelMed();
 		}else if(s == "large"){
-			map = new Map(21,21);
+			map = new Map(10,10);
 			winSpace = new Space(0,0);
 			setUpLevelHard();
 		}else {
@@ -31,7 +31,12 @@ public class Level {
 		return null;
 	}
 	public void setUpLevelEasy(){
-		
+		for(int i = 0; i < 4; i++) {
+			map.addEntity(EntityType.WALL, 1, 6-i, false);
+		}
+		for(int i = 0; i < 4; i++) {
+			map.addEntity(EntityType.WALL, 3, i, false);
+		}
 	}
 	public void setUpLevelMed(){
 		
