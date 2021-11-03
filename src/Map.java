@@ -77,35 +77,35 @@ public class Map {
 		
 	}
 	
-	public boolean wallCollision (Space s, EntityType type) {
+	public boolean wallCollision (Space s) {
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
 			return true;
 		}
 		return false;
 	}
 	
-	public boolean barrelCollision(Space s, EntityType type) {
+	public boolean barrelCollision(Space s) {
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.BARREL) {
 			return true;
 		}
 		return false;
 	}
 	
-	public boolean bananaCollision(Space s, EntityType type) {
+	public boolean bananaCollision(Space s) {
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.BANANA) {
 			return true;
 		}
 		return false;
 	}
 		
-	public boolean cherryCollision(Space s, EntityType type) {
+	public boolean cherryCollision(Space s) {
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.CHERRY) {
 			return true;
 		}
 		return false;
 	}
 		
-	public boolean mangoCollision(Space s, EntityType type) {
+	public boolean mangoCollision(Space s) {
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.MANGO) {
 			return true;
 		}
