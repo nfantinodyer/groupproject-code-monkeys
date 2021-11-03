@@ -70,6 +70,13 @@ public class Level {
 			}
 			if (map.barrelCollision(s)) {
 				--numLives;
+				//FIXME
+				/*
+				 either give cooldown and keep player in same space,
+				 allowing them to move past
+				 OR
+				 reset player to start of map
+				 */
 			}
 		}
 		return false;
