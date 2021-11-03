@@ -6,6 +6,7 @@ public class Map {
 	private int numRows;
 	private int numCols;
 	private int numEntities = 0;
+	private Space winningSpace;
 	ArrayList<Entity> barrels;
 	
 	public Map(int r, int c) {
@@ -51,8 +52,12 @@ public class Map {
 		return numEntities;
 	}
 	
-	public void addEntity(EntityType type, int r, int c) {
-		Entity e = new Entity(type, r, c);
+	public void setWinSpace(Space winningSpace) {
+		this.winningSpace = winningSpace;
+	}
+	
+	public void addEntity(EntityType type, int r, int c, boolean b) {
+		Entity e = new Entity(type, r, c, b);
 		map[r][c] = e;
 		
 		if (type != EntityType.WALL) {
@@ -64,11 +69,11 @@ public class Map {
 		}
 		
 		if (type == EntityType.CHARACTER) {
-			character = new Entity(type, r, c);
+			character = new Entity(type, r, c, b);
 		}
 	}
 	
-	public void move(int nRow, int nCol) {
+	public void moveBarrels(int nRow, int nCol) {
 		
 	}
 	
