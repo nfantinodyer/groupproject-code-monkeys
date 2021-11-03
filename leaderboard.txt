@@ -1,3 +1,0 @@
-Easy	iop 19		jj 20		hat 23		name 25	
-Medium	tate 32		uop 35		yike 37		pet 31	
-Hard	bad 38		red 55		kil 45		chris 47	

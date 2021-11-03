@@ -12,16 +12,21 @@ public class LeaderBoard {
 		easy.put(20, "jj");
 		easy.put(23, "hat");
 		easy.put(19, "iop");
+		easy.put(22, "koi");
+		easy.put(26, "gep");
 		
 		medium.put(35, "uop");
 		medium.put(37, "yike");
 		medium.put(31, "pet");
 		medium.put(32, "tate");
+		medium.put(30, "gom");
 		
 		hard.put(45, "kil");
+		hard.put(46, "huy");
+		hard.put(48, "ruy");
 		hard.put(38, "bad");
 		hard.put(47,"chris");
-		hard.put(55, "red");
+		
 		
 		if(m=="easy")
 		{
@@ -76,26 +81,47 @@ public class LeaderBoard {
 		{
 			String filename= "leaderboard.txt";
 		    FileWriter fw = new FileWriter(filename,false);
+		    int i = 0;
 		    fw.write("Easy");
 		    for (Entry<Integer, String> mapElement : easy.entrySet()) {
 	            int key = mapElement.getKey();
 	            String value = (mapElement.getValue());
-	  
-	            fw.write("\t"+value+" "+key+"\t");
+	            i++;
+	            fw.write("\t"+i+". "+value+" "+key+"\t");
+	            
+	            
+	            if(i==5)
+	            {
+	            	break;
+	            }
 		    }
-		    fw.write("\nMedium");
+		    i=0;
+		    fw.write("\n\nMedium");
 		    for (Entry<Integer, String> mapElement : medium.entrySet()) {
 	            int key = mapElement.getKey();
 	            String value = (mapElement.getValue());
-	  
-	            fw.write("\t"+value+" "+key+"\t");
+	            i++;
+	            fw.write("\t"+i+". "+value+" "+key+"\t");
+	            
+	            
+	            if(i==5)
+	            {
+	            	break;
+	            }
 		    }
-		    fw.write("\nHard");
+		    i=0;
+		    fw.write("\n\nHard");
 		    for (Entry<Integer, String> mapElement : hard.entrySet()) {
 	            int key = mapElement.getKey();
 	            String value = (mapElement.getValue());
-	  
-	            fw.write("\t"+value+" "+key+"\t");
+	            i++;
+	            fw.write("\t"+i+". "+value+" "+key+"\t");
+	            
+	            
+	            if(i==5)
+	            {
+	            	break;
+	            }
 		    }
 		    
 		    fw.close();
