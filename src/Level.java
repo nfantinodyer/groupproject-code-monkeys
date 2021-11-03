@@ -4,9 +4,30 @@ public class Level {
 	Map map;
 	int barrelMove;
 	Space winSpace;
-	Vector<LeaderBoard> lead= new Vector<LeaderBoard>();
+	Vector<LeaderBoard> lead = new Vector<LeaderBoard>();
+	
+	
 	
 	public Level createLevel(String s) {
+		mapSize = s;
+		
+		if(s == "small") {
+			map = new Map(7,7);
+			winSpace = new Space(0,0);
+			setUpLevelEasy();
+		}else if(s == "medium") {
+			map = new Map(14,14);
+			winSpace = new Space(0,0);
+			setUpLevelMed();
+		}else if(s == "large"){
+			map = new Map(21,21);
+			winSpace = new Space(0,0);
+			setUpLevelHard();
+		}else {
+			map = new Map(0,0);
+			winSpace = new Space(0,0);
+		}
+		
 		return null;
 	}
 	public void setUpLevelEasy(){
