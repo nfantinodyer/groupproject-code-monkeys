@@ -16,9 +16,6 @@ public class Map {
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
 			return false;
 		}
-		if (s.getRow() > numRows || s.getCol() > numCols) {
-			return false;
-		}
 		return true;
 	}
 	
