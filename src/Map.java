@@ -1,10 +1,12 @@
+import java.util.ArrayList;
 
 public class Map {
 	private Entity[][] map;
 	private Entity character;
 	private int numRows;
 	private int numCols;
-	private int numEntities = 1;
+	private int numEntities = 0;
+	ArrayList<Entity> barrels;
 	
 	public Map(int r, int c) {
 		map = new Entity[r][c];
@@ -14,9 +16,6 @@ public class Map {
 	
 	public boolean canMove(Space s, boolean isUp, boolean isRight) {
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
-			return false;
-		}
-		if (s.getRow() > numRows || s.getCol() > numCols) {
 			return false;
 		}
 		return true;
@@ -53,8 +52,12 @@ public class Map {
 		Entity e = new Entity(type, r, c);
 		map[r][c] = e;
 		
-		if (type == EntityType.BARREL) {
+		if (type != EntityType.WALL) {
 			numEntities++;
+		}
+		
+		if (type == EntityType.BARREL) {
+			barrels.add(e);
 		}
 		
 		if (type == EntityType.CHARACTER) {
