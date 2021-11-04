@@ -45,7 +45,7 @@ public class MenuPane extends GraphicsPane {
 		if (obj == rect) {
 			program.switchToSome();
 		}
-		if(obj == exit)
+		else if(obj == exit)
 		{
 			System.exit(0);
 		}
