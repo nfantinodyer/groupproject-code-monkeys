@@ -21,6 +21,10 @@ public class Entity {
 		return space;
 	}
 	
+	public void setSpace(int r, int c) {
+		space = new Space(r, c);
+	}
+	
 	public int getRow() {
 		return space.getRow();
 	}
