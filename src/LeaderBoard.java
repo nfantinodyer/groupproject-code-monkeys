@@ -69,6 +69,17 @@ public class LeaderBoard {
 		new LeaderBoard("huk","easy",25);
 	}
 	
+	public void add(String userName,String size, int score) {
+		if(size == "easy") {
+			easy.put(score,userName);
+		}else if(size == "medium") {
+			medium.put(score,userName);
+		}else{
+			hard.put(score,userName);
+		}
+		
+	}
+	
 	
 	public void makeFile()
 	{
