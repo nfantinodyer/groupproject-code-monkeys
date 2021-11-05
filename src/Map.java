@@ -65,6 +65,10 @@ public class Map {
 		return startSpace;
 	}
 	
+	public void resetChara() {
+		character.setSpace(startSpace.getRow(), startSpace.getCol());
+	}
+	
 	public void addEntity(EntityType type, int r, int c, boolean b) {
 		Entity e = new Entity(type, r, c, b);
 		map[r][c] = e;
