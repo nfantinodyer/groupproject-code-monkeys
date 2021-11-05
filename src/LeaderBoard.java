@@ -79,7 +79,7 @@ public class LeaderBoard {
 		}
 		
 	}
-	//test
+	
 	
 	public void makeFile()
 	{
@@ -233,15 +233,15 @@ public class LeaderBoard {
     }
 
 
-	//public String getPlayerName(String winnername, int winnerscore, String board, Object scorelabel1, bool setText) {
-		//if (board.isEmpty())
-		//{
-		   // label1.setName(winnername);
-		   // scorelabel1.setScore(winnerscore);
-		//}
+    public String getPlayerName(String winnername, int winnerscore, String board, Object scorelabel1, bool setText) {
+		if (board.isEmpty())
+	   {
+		   label1.setName(winnername);
+		   scorelabel1.setScore(winnerscore);
+	  }
 
-		//return playerName;
-	//}
+		return playerName;
+	  }
 
 
 	public void setPlayerName(String playerName) {
