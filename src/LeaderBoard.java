@@ -206,5 +206,11 @@ public class LeaderBoard {
 			fr.close();
 		}catch(IOException ioe) {}
 	}
+
+    public void Leaderboard(String name, int score)
+    {
+        String playerId = name;
+        int playerScore = score;
+    }
 	
 }
