@@ -62,8 +62,6 @@ public class Level {
 		return numLives;
 	}
 	public Boolean moveChara(Space s, int m){
-		//FIXME
-		//CHANGE SCORE TO ACTUAL FRUIT VALUES
 		if (!map.wallCollision(s)) {
 			if (map.bananaCollision(s)) {
 				score += 5;
@@ -79,14 +77,8 @@ public class Level {
 			}
 			if (map.barrelCollision(s)) {
 				--numLives;
+				map.resetChara();
 				return true;
-				//FIXME
-				/*
-				 either give cooldown and keep player in same space,
-				 allowing them to move past
-				 OR
-				 reset player to start of map
-				 */
 			}
 		}
 		return false;
