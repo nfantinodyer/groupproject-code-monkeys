@@ -258,4 +258,55 @@ public class LeaderBoard {
 		this.playerScore = playerScore;
 	}
 	
+	public String getValues()
+	{
+		String st="";
+		st+=("Easy");
+	    
+	    int i = easy.size();
+	    
+	    
+	    for (Entry<Integer, String> mapElement : easy.entrySet()) {
+            int key = mapElement.getKey();
+            String value = (mapElement.getValue());
+            i--;
+            
+            if(i-5<0)
+		    {
+            	st+=("\t"+(i+1)+". "+value+" "+key+"\t");
+		    }
+            
+	    }
+	    
+	    i = medium.size();
+	    
+	    
+	    st+=("\n\nMedium");
+	    for (Entry<Integer, String> mapElement : medium.entrySet()) {
+            int key = mapElement.getKey();
+            String value = (mapElement.getValue());
+            i--;
+            if(i-5<0)
+		    {
+            	st+=("\t"+(i+1)+". "+value+" "+key+"\t");
+		    }
+	    }
+	    
+	    
+	    i = hard.size();
+	   
+	    st+=("\n\nHard");
+	    for (Entry<Integer, String> mapElement : hard.entrySet()) {
+            int key = mapElement.getKey();
+            String value = (mapElement.getValue());
+            i--;
+            
+            if(i-5<0)
+		    {
+            	st+=("\t"+(i+1)+". "+value+" "+key+"\t");
+		    }
+	    }
+		return st;
+	}
+	
 }
