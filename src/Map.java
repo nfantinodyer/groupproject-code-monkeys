@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Map {
 	private Entity[][] map;
 	private Entity character;
+	private Space startSpace;
 	private int numRows;
 	private int numCols;
 	private int numEntities = 0;
@@ -56,6 +57,10 @@ public class Map {
 		this.winningSpace = winningSpace;
 	}
 	
+	public Space getStartSpace() {
+		return startSpace;
+	}
+	
 	public void addEntity(EntityType type, int r, int c, boolean b) {
 		Entity e = new Entity(type, r, c, b);
 		map[r][c] = e;
@@ -70,6 +75,7 @@ public class Map {
 		
 		if (type == EntityType.CHARACTER) {
 			character = new Entity(type, r, c, b);
+			startSpace = new Space(r, c);
 		}
 	}
 	
