@@ -91,8 +91,8 @@ public class Level {
 	public int moveBarrel(int i) {
 		return 0;
 	}
-	public int getMapSize() {
-		return 0;
+	public String getMapSize() {
+		return mapSize;
 	}
 	
 	//to add
