@@ -57,6 +57,10 @@ public class Map {
 		this.winningSpace = winningSpace;
 	}
 	
+	public Space getWinSPace() {
+		return winningSpace;
+	}
+	
 	public Space getStartSpace() {
 		return startSpace;
 	}
