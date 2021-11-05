@@ -3,7 +3,7 @@ import java.util.*;
 import java.util.Map.Entry;
 
 public class LeaderBoard {
-	private String playerId;
+	private String playerName;
 	private int playerScore;
 	
 	
@@ -213,18 +213,18 @@ public class LeaderBoard {
 
     public void Leaderboard(String name, int score)
     {
-        String playerId = name;
+        String playerName = name;
         int playerScore = score;
     }
 
 
-	public String getPlayerId() {
-		return playerId;
+	public String getPlayerName() {
+		return playerName;
 	}
 
 
-	public void setPlayerId(String playerId) {
-		this.playerId = playerId;
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
 	}
 
 
