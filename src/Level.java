@@ -55,20 +55,26 @@ public class Level {
 	public void setWin(Space s) {
 		map.setWinSpace(s);
 	}
+	public int getScore() {
+		return score;
+	}
+	public int getLives() {
+		return numLives;
+	}
 	public Boolean moveChara(Space s, int m){
 		//FIXME
 		//CHANGE SCORE TO ACTUAL FRUIT VALUES
 		if (!map.wallCollision(s)) {
 			if (map.bananaCollision(s)) {
-				score += 0;
+				score += 5;
 				return true;
 			}
 			if (map.cherryCollision(s)) {
-				score += 0;
+				score += 2;
 				return true;
 			}
 			if (map.mangoCollision(s)) {
-				score += 0;
+				score += 1;
 				return true;
 			}
 			if (map.barrelCollision(s)) {
