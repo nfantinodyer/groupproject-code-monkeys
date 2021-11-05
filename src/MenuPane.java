@@ -8,9 +8,11 @@ public class MenuPane extends GraphicsPane {
 	
 	// you will use program to get access to all of the GraphicsProgram calls
 	private MainApplication program; 
+	private LeaderboardPane lp;
 								
 	private GButton rect;
 	private GButton exit;
+	private GButton lead;
 	private GImage img;
 	private final int BUTTON_SIZE = 60;
 
@@ -21,7 +23,8 @@ public class MenuPane extends GraphicsPane {
 		rect.setFillColor(Color.RED);
 		exit = new GButton("Exit Game", app.getWidth()/2-BUTTON_SIZE/2, app.getHeight()/2+BUTTON_SIZE, BUTTON_SIZE, BUTTON_SIZE);
 		exit.setFillColor(Color.RED);
-		
+		lead = new GButton("Leaderboard", 675, 500, BUTTON_SIZE, BUTTON_SIZE);
+		lead.setFillColor(Color.RED);
 		img = new GImage("codemonjey.png", 250, 150);
 	}
 
@@ -30,6 +33,7 @@ public class MenuPane extends GraphicsPane {
 		program.add(rect);
 		program.add(exit);
 		program.add(img);
+		program.add(lead);
 	}
 
 	@Override
@@ -37,6 +41,7 @@ public class MenuPane extends GraphicsPane {
 		program.remove(rect);
 		program.remove(exit);
 		program.remove(img);
+		program.remove(lead);
 	}
 
 	@Override
@@ -48,6 +53,10 @@ public class MenuPane extends GraphicsPane {
 		else if(obj == exit)
 		{
 			System.exit(0);
+		}
+		else if(obj==lead)
+		{
+			program.switchToLead();
 		}
 	}
 }
