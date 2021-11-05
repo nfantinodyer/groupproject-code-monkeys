@@ -3,6 +3,7 @@ import java.util.*;
 import java.util.Map.Entry;
 
 public class LeaderBoard {
+	private static final String label1 = null;
 	private String playerName;
 	private int playerScore;
 	
@@ -37,6 +38,7 @@ public class LeaderBoard {
 			hard.put(48, "ruy");
 			hard.put(38, "bad");
 			hard.put(47,"chris");
+		
 			
 			
 			if(m=="easy")
@@ -60,6 +62,7 @@ public class LeaderBoard {
 		}
 		readOnly();
 	}
+	
 	
 	
 	public static void main(String[] args) {
@@ -210,6 +213,7 @@ public class LeaderBoard {
 			fr.close();
 		}catch(IOException ioe) {}
 	}
+	
 
     public void Leaderboard(String name, int score)
     {
@@ -218,9 +222,15 @@ public class LeaderBoard {
     }
 
 
-	public String getPlayerName() {
-		return playerName;
-	}
+	//public String getPlayerName(String winnername, int winnerscore, String board, Object scorelabel1, bool setText) {
+		//if (board.isEmpty())
+		//{
+		   // label1.setName(winnername);
+		   // scorelabel1.setScore(winnerscore);
+		//}
+
+		//return playerName;
+	//}
 
 
 	public void setPlayerName(String playerName) {
