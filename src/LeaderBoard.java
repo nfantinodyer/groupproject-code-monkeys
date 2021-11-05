@@ -3,6 +3,10 @@ import java.util.*;
 import java.util.Map.Entry;
 
 public class LeaderBoard {
+	private String playerId;
+	private int playerScore;
+	
+	
 	private TreeMap<Integer,String > easy = new TreeMap<Integer,String>();
 	private TreeMap<Integer,String> medium = new TreeMap<Integer,String>();
 	private TreeMap<Integer,String> hard = new TreeMap<Integer,String>();
@@ -212,5 +216,25 @@ public class LeaderBoard {
         String playerId = name;
         int playerScore = score;
     }
+
+
+	public String getPlayerId() {
+		return playerId;
+	}
+
+
+	public void setPlayerId(String playerId) {
+		this.playerId = playerId;
+	}
+
+
+	public int getPlayerScore() {
+		return playerScore;
+	}
+
+
+	public void setPlayerScore(int playerScore) {
+		this.playerScore = playerScore;
+	}
 	
 }
