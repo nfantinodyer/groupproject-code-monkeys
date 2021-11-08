@@ -87,8 +87,16 @@ public class Map {
 		}
 	}
 	
-	public void moveBarrels(int nRow, int nCol) {
-		
+	public void moveBarrels(int nSpaces, boolean vertical) {
+		for (Entity i: barrels) {
+			if (vertical) {
+				nSpaces = 10;
+			}
+			
+			else { 
+				nSpaces = 20;
+			}
+		}
 	}
 	
 	public boolean wallCollision (Space s) {
