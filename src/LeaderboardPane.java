@@ -12,6 +12,7 @@ public class LeaderboardPane extends GraphicsPane {
 	private GParagraph para;
 	private GParagraph score;
 	private GButton rect;
+	
 
 	public LeaderboardPane(MainApplication app) {
 		this.program = app;
@@ -21,8 +22,8 @@ public class LeaderboardPane extends GraphicsPane {
 		rect = new GButton("Back", 25, 25, 60, 60);
 		rect.setFillColor(Color.RED);
 		
-		score = new GParagraph(l.getValues(),50,150);
-		score.setFont("Arial-30");
+		score = new GParagraph(l.getValues(),40,215);
+		score.setFont("Arial-23");
 	}
 
 	@Override

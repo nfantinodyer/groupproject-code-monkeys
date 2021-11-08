@@ -272,7 +272,7 @@ public class LeaderBoard {
             
             if(i-5<0)
 		    {
-            	st+=("\t"+(i+1)+". "+value+" "+key+"\t");
+            	st+=("   "+(i+1)+". "+value+" "+key+"   ");
 		    }
             
 	    }
@@ -280,21 +280,21 @@ public class LeaderBoard {
 	    i = medium.size();
 	    
 	    
-	    st+=("\n\nMedium");
+	    st+=("\n\n\n\nMedium");
 	    for (Entry<Integer, String> mapElement : medium.entrySet()) {
             int key = mapElement.getKey();
             String value = (mapElement.getValue());
             i--;
             if(i-5<0)
 		    {
-            	st+=("\t"+(i+1)+". "+value+" "+key+"\t");
+            	st+=("   "+(i+1)+". "+value+" "+key+"   ");
 		    }
 	    }
 	    
 	    
 	    i = hard.size();
 	   
-	    st+=("\n\nHard");
+	    st+=("\n\n\n\nHard");
 	    for (Entry<Integer, String> mapElement : hard.entrySet()) {
             int key = mapElement.getKey();
             String value = (mapElement.getValue());
@@ -302,7 +302,7 @@ public class LeaderBoard {
             
             if(i-5<0)
 		    {
-            	st+=("\t"+(i+1)+". "+value+" "+key+"\t");
+            	st+=("   "+(i+1)+". "+value+" "+key+"   ");
 		    }
 	    }
 		return st;
