@@ -233,11 +233,10 @@ public class LeaderBoard {
     }
 
 
-    public String getPlayerName(String winnername, int winnerscore, String board, Object scorelabel1, bool setText) {
+    public String getPlayerName(String winnername, int winnerscore, String board, Object scorelabel1, boolean setText) {
 		if (board.isEmpty())
 	   {
-		   label1.setName(winnername);
-		   scorelabel1.setScore(winnerscore);
+		   
 	  }
 
 		return playerName;

@@ -22,6 +22,7 @@ public class LeaderboardPane extends GraphicsPane {
 		rect.setFillColor(Color.RED);
 		
 		score = new GParagraph(l.getValues(),50,150);
+		score.setFont("Arial-30");
 	}
 
 	@Override
