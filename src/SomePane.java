@@ -14,7 +14,7 @@ public class SomePane extends GraphicsPane {
 
 	public SomePane(MainApplication app) {
 		this.program = app;
-		para = new GParagraph("Character Select", 300, 50);
+		para = new GParagraph("Character Select", app.getWidth() / 2.3, app.getHeight() / 10);
 		para.setFont("Arial-26");
 		
 		rect = new GButton("Back", 25, 25, 60, 60);
