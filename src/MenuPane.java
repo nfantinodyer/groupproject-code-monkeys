@@ -23,9 +23,9 @@ public class MenuPane extends GraphicsPane {
 		rect.setFillColor(Color.RED);
 		exit = new GButton("Exit Game", app.getWidth()/2-BUTTON_SIZE/2, app.getHeight()/2+BUTTON_SIZE, BUTTON_SIZE, BUTTON_SIZE);
 		exit.setFillColor(Color.RED);
-		lead = new GButton("Leaderboard", 675, 500, BUTTON_SIZE, BUTTON_SIZE);
+		lead = new GButton("Leaderboard", app.getWidth() - app.getWidth() / 4, app.getHeight() - app.getHeight() / 4, BUTTON_SIZE, BUTTON_SIZE);
 		lead.setFillColor(Color.RED);
-		img = new GImage("codemonjey.png", 250, 150);
+		img = new GImage("codemonjey.png", app.getWidth() / 2.5, app.getHeight() / 3.5);
 	}
 
 	@Override
