@@ -1,14 +1,17 @@
-import java.util.*;
-public class Level {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Vector;
+import javax.swing.Timer;
+
+public class Level implements ActionListener {
 	String mapSize;
 	Map map;
-	int barrelMove;
+	int barrelMove = 0;
 	Space winSpace;
 	private int score = 0;
 	private int numLives = 3;
 	Vector<LeaderBoard> lead = new Vector<LeaderBoard>();
-	
-	
+	private Timer myFirstTimer = new Timer(1000, this);
 	
 	public Level createLevel(String s) {
 		mapSize = s;
@@ -16,14 +19,17 @@ public class Level {
 		if(s == "small") {
 			map = new Map(10,10);
 			winSpace = new Space(9,5);
+			barrelMove = 2;
 			setUpLevelEasy();
 		}else if(s == "medium") {
 			map = new Map(15,15);
 			winSpace = new Space(14,7);
+			barrelMove = 4;
 			setUpLevelMed();
 		}else if(s == "large"){
 			map = new Map(25,25);
 			winSpace = new Space(24,11);
+			barrelMove = 6;
 			setUpLevelHard();
 		}else {
 			map = new Map(0,0);
@@ -222,6 +228,11 @@ public class Level {
 	}
 	public String getMapSize() {
 		return mapSize;
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		map.moveBarrels(barrelMove, false);
 	}
 	
 	//to add
