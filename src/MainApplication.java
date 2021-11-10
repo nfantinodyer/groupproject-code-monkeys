@@ -4,8 +4,8 @@ import acm.program.GraphicsProgram;
 
 public class MainApplication extends GraphicsProgram {
 	
-	public static final int WINDOW_WIDTH = 800;
-	public static final int WINDOW_HEIGHT = 600;
+	public static final int WINDOW_WIDTH = 1600;
+	public static final int WINDOW_HEIGHT = 800;
 	public static final String MUSIC_FOLDER = "sounds";
 
 	private GraphicsPane curScreen;
