@@ -8,9 +8,9 @@ public class LeaderBoard {
 	private int playerScore;
 	
 	
-	private TreeMap<Integer,String > easy = new TreeMap<Integer,String>();
-	private TreeMap<Integer,String> medium = new TreeMap<Integer,String>();
-	private TreeMap<Integer,String> hard = new TreeMap<Integer,String>();
+	private TreeMap<Integer,String > easy = new TreeMap<Integer,String>(Collections.reverseOrder());
+	private TreeMap<Integer,String> medium = new TreeMap<Integer,String>(Collections.reverseOrder());
+	private TreeMap<Integer,String> hard = new TreeMap<Integer,String>(Collections.reverseOrder());
 
 	LeaderBoard(String n,String m, int s){
 		
@@ -108,49 +108,51 @@ public class LeaderBoard {
 		    
 		    fw.write("Easy");
 		    
-		    int i = easy.size();
+		    int i = 0;
 		    
 		    
 		    for (Entry<Integer, String> mapElement : easy.entrySet()) {
 	            int key = mapElement.getKey();
 	            String value = (mapElement.getValue());
-	            i--;
 	            
-	            if(i-5<0)
+	            
+	            if(i<5)
 			    {
 	            	fw.write("\t"+(i+1)+". "+value+" "+key+"\t");
 			    }
-	            
+	            i++;
 	            
 		    }
 		    
-		    i = medium.size();
+		    i = 0;
 		    
 		    
 		    fw.write("\n\nMedium");
 		    for (Entry<Integer, String> mapElement : medium.entrySet()) {
 	            int key = mapElement.getKey();
 	            String value = (mapElement.getValue());
-	            i--;
-	            if(i-5<0)
+	            
+	            if(i<5)
 			    {
 	            	fw.write("\t"+(i+1)+". "+value+" "+key+"\t");
 			    }
+	            i++;
 		    }
 		    
 		    
-		    i = hard.size();
+		    i = 0;
 		   
 		    fw.write("\n\nHard");
 		    for (Entry<Integer, String> mapElement : hard.entrySet()) {
 	            int key = mapElement.getKey();
 	            String value = (mapElement.getValue());
-	            i--;
 	            
-	            if(i-5<0)
+	            
+	            if(i<5)
 			    {
 	            	fw.write("\t"+(i+1)+". "+value+" "+key+"\t");
 			    }
+	            i++;
 		    }
 		    
 		    fw.close();
@@ -262,48 +264,50 @@ public class LeaderBoard {
 		String st="";
 		st+=("Easy");
 	    
-	    int i = easy.size();
+	    int i = 0;
 	    
 	    
 	    for (Entry<Integer, String> mapElement : easy.entrySet()) {
             int key = mapElement.getKey();
             String value = (mapElement.getValue());
-            i--;
             
-            if(i-5<0)
+            
+            if(i<5)
 		    {
             	st+=("   "+(i+1)+". "+value+" "+key+"   ");
 		    }
-            
+            i++;
 	    }
 	    
-	    i = medium.size();
+	    i = 0;
 	    
 	    
 	    st+=("\n\n\n\nMedium");
 	    for (Entry<Integer, String> mapElement : medium.entrySet()) {
             int key = mapElement.getKey();
             String value = (mapElement.getValue());
-            i--;
-            if(i-5<0)
+            
+            if(i<5)
 		    {
             	st+=("   "+(i+1)+". "+value+" "+key+"   ");
 		    }
+            i++;
 	    }
 	    
 	    
-	    i = hard.size();
+	    i = 0;
 	   
 	    st+=("\n\n\n\nHard");
 	    for (Entry<Integer, String> mapElement : hard.entrySet()) {
             int key = mapElement.getKey();
             String value = (mapElement.getValue());
-            i--;
             
-            if(i-5<0)
+            
+            if(i<5)
 		    {
             	st+=("   "+(i+1)+". "+value+" "+key+"   ");
 		    }
+            i++;
 	    }
 		return st;
 	}
