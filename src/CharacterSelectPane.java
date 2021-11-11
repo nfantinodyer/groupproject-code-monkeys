@@ -11,6 +11,7 @@ public class CharacterSelectPane extends GraphicsPane {
 	private GLabel orangLabel;
 	private GLabel gorillaLabel;
 	private GLabel monkeyLabel;
+	private GButton charSelect;
 	private GImage charOrang;
 	private GImage charGorilla;
 	private GImage charMonkey;
@@ -26,9 +27,9 @@ public class CharacterSelectPane extends GraphicsPane {
 		rect = new GButton("Back", 25, 25, 60, 60);
 		rect.setFillColor(Color.RED);
 		
-		charMonkey = new GImage("Chimp_Cartoon.jpg", 250, 200);
-		charGorilla = new GImage("Gorilla_Cartoon.jpg", 650, 200);
-		charOrang = new GImage ("Orangutan_Cartoon.jpg", 950, 200);
+		//charMonkey = new GImage("Chimp_Cartoon.jpg", 250, 200);
+		//charGorilla = new GImage("Gorilla_Cartoon.jpg", 650, 200);
+		//charOrang = new GImage ("Orangutan_Cartoon.jpg", 950, 200);
 		
 		monkeyLabel = new GLabel("Monkey", 375, 525);
 		gorillaLabel = new GLabel("Gorilla", 700, 525);
@@ -63,6 +64,15 @@ public class CharacterSelectPane extends GraphicsPane {
 		if (obj == rect) {
 			program.switchToMenu();
 		}
-		
+		if (obj == orangLabel) {
+			charSelect = new GButton("SELECTED", 100, 100, 100, 100);
+		}
+		if (obj == gorillaLabel) {
+			charSelect = new GButton("SELECTED", 100, 100, 100, 100);
+		}
+		if (obj == monkeyLabel) {
+			charSelect = new GButton("SELECTED", 100, 100, 100, 100);
+		}
+		program.add(charSelect);
 	}
 }
