@@ -16,14 +16,14 @@ public class LeaderboardPane extends GraphicsPane {
 
 	public LeaderboardPane(MainApplication app) {
 		this.program = app;
-		para = new GParagraph("Leaderboard", 300, 50);
-		para.setFont("Arial-26");
+		para = new GParagraph("Leaderboard", app.getWidth()/2-150, 50);
+		para.setFont("Arial-35");
 		
 		rect = new GButton("Back", 25, 25, 60, 60);
 		rect.setFillColor(Color.RED);
 		
-		score = new GParagraph(l.getValues(),40,215);
-		score.setFont("Arial-23");
+		score = new GParagraph(l.getValues(),40,250);
+		score.setFont("Arial-35");
 	}
 
 	@Override
