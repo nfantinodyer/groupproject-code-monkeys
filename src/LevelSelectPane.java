@@ -22,10 +22,7 @@ public class LevelSelectPane extends GraphicsPane {
 		rect = new GButton("Back", 25, 25, 60, 60);
 		rect.setFillColor(Color.RED);
 		
-		
-			
-		
-	}
+		}
 
 	@Override
 	public void showContents() {
