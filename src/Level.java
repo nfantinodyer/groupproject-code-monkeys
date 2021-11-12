@@ -1,9 +1,13 @@
+import java.util.*;
+import javax.swing.Timer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Vector;
-import javax.swing.Timer;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.*;
+import acm.program.*;
 
-public class Level implements ActionListener {
+public class Level extends GraphicsProgram implements EventListener, ActionListener,KeyListener {
 	String mapSize;
 	Map map;
 	int barrelMove = 0;
@@ -11,7 +15,23 @@ public class Level implements ActionListener {
 	private int score = 0;
 	private int numLives = 3;
 	Vector<LeaderBoard> lead = new Vector<LeaderBoard>();
-	private Timer myFirstTimer = new Timer(1000, this);
+	Timer barrel = new Timer(1000, this);
+	
+
+	public void run() {
+		System.out.println("hey boyi i'm workng here");
+		barrel.start();
+	}
+	
+	public static void main(String[] args) {
+		new Level().start();
+	}
+	
+	public void init() {
+		addKeyListeners();
+		addMouseListeners();
+		requestFocus();
+	}
 	
 	public Level createLevel(String s) {
 		mapSize = s;
@@ -233,6 +253,30 @@ public class Level implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		map.moveBarrels(barrelMove, false);
+	}
+
+	
+	
+	@Override
+	public void keyPressed(KeyEvent e) {
+
+	    int key = e.getKeyCode();
+
+	    if (key == KeyEvent.VK_LEFT) {
+	        System.out.println("going left");
+	    }
+
+	    if (key == KeyEvent.VK_RIGHT) {
+	    	System.out.println("going right");
+	    }
+
+	    if (key == KeyEvent.VK_UP) {
+	    	System.out.println("going up");
+	    }
+
+	    if (key == KeyEvent.VK_DOWN) {
+	    	System.out.println("going down");
+	    }
 	}
 	
 	//to add
