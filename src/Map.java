@@ -16,21 +16,21 @@ public class Map {
 		numCols = c;
 	}
 	
-	public boolean canMove(Space s, boolean isUp, boolean isRight) {
+	public boolean canMove(Space s) {
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
 			return false;
 		}
-		if (s.getRow() > numRows || s.getCol() > numCols) {
+		else if (s.getRow() > numRows || s.getCol() > numCols) {
 			return false;
 		}
 		return true;
 	}
 	
 	public boolean moveChara(Space s, boolean isUp, boolean isRight) {
-		if (canMove(s, isUp, isRight) == true) {
+		if (canMove(s)) {
 			map[character.getRow()][character.getCol()].move(s.getRow(), s.getCol());
 		}
-		return canMove(s, isUp, isRight);
+		return canMove(s);
 	}
 	
 	public String toString() {

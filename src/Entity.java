@@ -14,7 +14,7 @@ public class Entity {
 	}
 	
 	void move(int nRow, int nCol){
-		space  = new Space(getRow()+nRow,getCol()+nCol);
+		space  = new Space(nRow, nCol);
 	}
 	
 	public Space getSpace() {
