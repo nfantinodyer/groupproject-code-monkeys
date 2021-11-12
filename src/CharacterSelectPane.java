@@ -93,7 +93,7 @@ public class CharacterSelectPane extends GraphicsPane {
 			program.add(next);
 		}
 		if (obj == next) {
-			program.switchToMenu();
+			program.switchToLevelSelect();
 		}
 		if (obj == rect) {
 			program.switchToMenu();
