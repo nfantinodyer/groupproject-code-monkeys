@@ -44,9 +44,9 @@ public class CharacterSelectPane extends GraphicsPane {
 	public void showContents() {
 		program.add(para);
 		program.add(rect);
-		program.add(charOrang);
-		program.add(charGorilla);
-		program.add(charMonkey);
+		//program.add(charOrang);
+		//program.add(charGorilla);
+		//program.add(charMonkey);
 		program.add(gorillaLabel);
 		program.add(monkeyLabel);
 		program.add(orangLabel);
@@ -56,6 +56,9 @@ public class CharacterSelectPane extends GraphicsPane {
 	public void hideContents() {
 		program.remove(para);
 		program.remove(rect);
+		program.remove(gorillaLabel);
+		program.remove(monkeyLabel);
+		program.remove(orangLabel);
 	}
 
 	@Override
@@ -64,6 +67,7 @@ public class CharacterSelectPane extends GraphicsPane {
 		if (obj == rect) {
 			program.switchToMenu();
 		}
+		/*
 		if (obj == orangLabel) {
 			charSelect = new GButton("SELECTED", 100, 100, 100, 100);
 		}
@@ -73,6 +77,6 @@ public class CharacterSelectPane extends GraphicsPane {
 		if (obj == monkeyLabel) {
 			charSelect = new GButton("SELECTED", 100, 100, 100, 100);
 		}
-		program.add(charSelect);
+		program.add(charSelect);*/
 	}
 }
