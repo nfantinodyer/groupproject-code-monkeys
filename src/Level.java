@@ -259,26 +259,33 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
-
+		Space movenment;
 	    int key = e.getKeyCode();
 
 	    if (key == KeyEvent.VK_LEFT) {
 	        System.out.println("going left");
+	        movenment = new Space(map.getCharacterRow(),map.getCharacterCol()-1);
+	        map.moveChara(movenment);
 	    }
 
 	    if (key == KeyEvent.VK_RIGHT) {
 	    	System.out.println("going right");
+	    	movenment = new Space(map.getCharacterRow(),map.getCharacterCol()+1);
+	    	map.moveChara(movenment);
 	    }
 
 	    if (key == KeyEvent.VK_UP) {
 	    	System.out.println("going up");
+	    	movenment = new Space(map.getCharacterRow()+1,map.getCharacterCol());
+	    	map.moveChara(movenment);
 	    }
 
 	    if (key == KeyEvent.VK_DOWN) {
 	    	System.out.println("going down");
+	    	movenment = new Space(map.getCharacterRow()-1,map.getCharacterCol());
+	    	map.moveChara(movenment);
 	    }
 	}
-	
 	//to add
 	//incorpate keyboard listeners from interfacable.java
 
