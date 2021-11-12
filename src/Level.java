@@ -218,27 +218,28 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	public int getLives() {
 		return numLives;
 	}
-	public Boolean moveChara(Space s, int m){
+	public void collision(Space s){
 		if (!map.wallCollision(s)) {
 			if (map.bananaCollision(s)) {
-				score += 5;
-				return true;
+				score += 10;
+				System.out.println("Banana collected!! +10 points");
 			}
 			if (map.cherryCollision(s)) {
-				score += 2;
-				return true;
+				score += 7;
+				System.out.println("Cherry collected!! +7 points");
 			}
 			if (map.mangoCollision(s)) {
-				score += 1;
-				return true;
+				System.out.println("Cherry collected!! +7 points");
+				score += 5;
+				
 			}
 			if (map.barrelCollision(s)) {
+				System.out.println("Barrel collsion detected!!!");
 				--numLives;
 				map.resetChara();
-				return true;
+				
 			}
 		}
-		return false;
 	}
 	public int timer() {
 		return 0;
@@ -264,26 +265,58 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 
 	    if (key == KeyEvent.VK_LEFT) {
 	        System.out.println("going left");
-	        movenment = new Space(map.getCharacterRow(),map.getCharacterCol()-1);
-	        map.moveChara(movenment);
+	        //movenment = new Space(map.getCharacterRow(),map.getCharacterCol()-1);
+	        //map.moveChara(movenment);
+	        //collision(movenemnt);
 	    }
 
 	    if (key == KeyEvent.VK_RIGHT) {
 	    	System.out.println("going right");
-	    	movenment = new Space(map.getCharacterRow(),map.getCharacterCol()+1);
-	    	map.moveChara(movenment);
+	    	//movenment = new Space(map.getCharacterRow(),map.getCharacterCol()+1);
+	    	//map.moveChara(movenment);
 	    }
 
 	    if (key == KeyEvent.VK_UP) {
 	    	System.out.println("going up");
-	    	movenment = new Space(map.getCharacterRow()+1,map.getCharacterCol());
-	    	map.moveChara(movenment);
+	    	//movenment = new Space(map.getCharacterRow()+1,map.getCharacterCol());
+	    	//map.moveChara(movenment);
 	    }
 
 	    if (key == KeyEvent.VK_DOWN) {
 	    	System.out.println("going down");
-	    	movenment = new Space(map.getCharacterRow()-1,map.getCharacterCol());
-	    	map.moveChara(movenment);
+	    	//movenment = new Space(map.getCharacterRow()-1,map.getCharacterCol());
+	    	//map.moveChara(movenment);
+	    	//collision(movenemnt);
+	    }
+	    
+	    
+	    
+	    if (key == KeyEvent.VK_A) {
+	        System.out.println("going left (WASD)");
+	        //movenment = new Space(map.getCharacterRow(),map.getCharacterCol()-1);
+	        //map.moveChara(movenment);
+	        //collision(movenemnt);
+	    }
+
+	    if (key == KeyEvent.VK_D) {
+	    	System.out.println("going right (WASD)");
+	    	//movenment = new Space(map.getCharacterRow(),map.getCharacterCol()+1);
+	    	//map.moveChara(movenment);
+	    	//collision(movenemnt);
+	    }
+
+	    if (key == KeyEvent.VK_W) {
+	    	System.out.println("going up (WASD)");
+	    	//movenment = new Space(map.getCharacterRow()+1,map.getCharacterCol());
+	    	//map.moveChara(movenment);
+	    	//collision(movenemnt);
+	    }
+
+	    if (key == KeyEvent.VK_S) {
+	    	System.out.println("going down (WASD)");
+	    	//movenment = new Space(map.getCharacterRow()-1,map.getCharacterCol());
+	    	//map.moveChara(movenment);
+	    	//collision(movenemnt);
 	    }
 	}
 	//to add
