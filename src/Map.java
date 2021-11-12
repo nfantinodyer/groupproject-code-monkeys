@@ -26,7 +26,7 @@ public class Map {
 		return true;
 	}
 	
-	public boolean moveChara(Space s, boolean isUp, boolean isRight) {
+	public boolean moveChara(Space s) {
 		if (canMove(s)) {
 			map[character.getRow()][character.getCol()].move(s.getRow(), s.getCol());
 		}

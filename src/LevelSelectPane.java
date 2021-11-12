@@ -7,10 +7,6 @@ import acm.graphics.GObject;
 public class LevelSelectPane extends GraphicsPane {
 	// you will use program to get access to all of the GraphicsProgram calls
 	private MainApplication program; 
-
-	private GImage charOrang;
-	private GImage charGorilla;
-	private GImage charChimp;
 	private GParagraph para;
 	private GButton rect;
 
