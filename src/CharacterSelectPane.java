@@ -11,7 +11,8 @@ public class CharacterSelectPane extends GraphicsPane {
 	private GLabel orangLabel;
 	private GLabel gorillaLabel;
 	private GLabel monkeyLabel;
-	private GButton charSelect;
+	private GButton charSelect = new GButton("SELECTED", 0, 0, 0, 0);
+	private GButton next = new GButton("NEXT", 1400, 700, 60, 60);
 	private GImage charOrang;
 	private GImage charGorilla;
 	private GImage charMonkey;
@@ -62,24 +63,40 @@ public class CharacterSelectPane extends GraphicsPane {
 		program.remove(charOrang);
 		program.remove(charGorilla);
 		program.remove(charMonkey);
+		program.remove(charSelect);
+		program.remove(next);
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
+		
+		if (charSelect.isVisible()) {
+			program.remove(charSelect);
+			program.remove(next);
+		}
+		if (obj == charOrang || obj == orangLabel) {
+			charSelect = new GButton("SELECTED", 1054, 575, 100, 50);
+		}
+		if (obj == charGorilla || obj == gorillaLabel) {
+			charSelect = new GButton("SELECTED", 703, 575, 100, 50);
+		}
+		if (obj == charMonkey || obj == monkeyLabel) {
+			charSelect = new GButton("SELECTED", 384, 575, 100, 50);
+		}
+		charSelect.setFillColor(Color.RED);
+		next.setFillColor(Color.RED);
+		program.add(charSelect);
+		program.add(next);
+		
+		if (charSelect.isVisible()) {
+			program.add(next);
+		}
+		if (obj == next) {
+			program.switchToMenu();
+		}
 		if (obj == rect) {
 			program.switchToMenu();
 		}
-		/*
-		if (obj == orangLabel) {
-			charSelect = new GButton("SELECTED", 100, 100, 100, 100);
-		}
-		if (obj == gorillaLabel) {
-			charSelect = new GButton("SELECTED", 100, 100, 100, 100);
-		}
-		if (obj == monkeyLabel) {
-			charSelect = new GButton("SELECTED", 100, 100, 100, 100);
-		}
-		program.add(charSelect);*/
 	}
 }
