@@ -69,6 +69,14 @@ public class Map {
 		return character.getSpace();
 	}
 	
+	public int getCharacterRow() {
+		return character.getRow();
+	}
+	
+	public int getCharacterCol() {
+		return character.getCol();
+	}
+	
 	public void resetChara() {
 		character.setSpace(startSpace.getRow(), startSpace.getCol());
 	}
