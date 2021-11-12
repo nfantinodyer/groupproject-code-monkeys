@@ -8,7 +8,9 @@ public class LevelSelectPane extends GraphicsPane {
 	// you will use program to get access to all of the GraphicsProgram calls
 	private MainApplication program; 
 
-	private GImage img;
+	private GImage charOrang;
+	private GImage charGorilla;
+	private GImage charChimp;
 	private GParagraph para;
 	private GButton rect;
 
@@ -20,20 +22,19 @@ public class LevelSelectPane extends GraphicsPane {
 		rect = new GButton("Back", 25, 25, 60, 60);
 		rect.setFillColor(Color.RED);
 		
-		//img = new GImage("robot head.jpg", 0, 0);
+		
+			
 		
 	}
 
 	@Override
 	public void showContents() {
-		//program.add(img);
 		program.add(para);
 		program.add(rect);
 	}
 
 	@Override
 	public void hideContents() {
-		//program.remove(img);
 		program.remove(para);
 		program.remove(rect);
 	}

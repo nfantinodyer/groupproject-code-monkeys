@@ -27,10 +27,10 @@ public class CharacterSelectPane extends GraphicsPane {
 		rect = new GButton("Back", 25, 25, 60, 60);
 		rect.setFillColor(Color.RED);
 		
-		//charMonkey = new GImage("Chimp_Cartoon.jpg", 250, 200);
-		//charGorilla = new GImage("Gorilla_Cartoon.jpg", 650, 200);
-		//charOrang = new GImage ("Orangutan_Cartoon.jpg", 950, 200);
-		
+		charMonkey = new GImage("Chimp_Cartoon.jpg", 250, 200);
+		charGorilla = new GImage("Gorilla_Cartoon.jpg", 650, 200);
+		charOrang = new GImage ("Orangutan_Cartoon.jpg", 950, 200);
+
 		monkeyLabel = new GLabel("Monkey", 375, 525);
 		gorillaLabel = new GLabel("Gorilla", 700, 525);
 		orangLabel =  new GLabel("Orangutan", 1025, 525);
@@ -44,9 +44,9 @@ public class CharacterSelectPane extends GraphicsPane {
 	public void showContents() {
 		program.add(para);
 		program.add(rect);
-		//program.add(charOrang);
-		//program.add(charGorilla);
-		//program.add(charMonkey);
+		program.add(charOrang);
+		program.add(charGorilla);
+		program.add(charMonkey);
 		program.add(gorillaLabel);
 		program.add(monkeyLabel);
 		program.add(orangLabel);
@@ -59,6 +59,9 @@ public class CharacterSelectPane extends GraphicsPane {
 		program.remove(gorillaLabel);
 		program.remove(monkeyLabel);
 		program.remove(orangLabel);
+		program.remove(charOrang);
+		program.remove(charGorilla);
+		program.remove(charMonkey);
 	}
 
 	@Override
