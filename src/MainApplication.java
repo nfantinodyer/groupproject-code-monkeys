@@ -104,6 +104,7 @@ public class MainApplication extends GraphicsProgram {
 	public void run() {
 		System.out.println("Let's make something awesome!");
 		characterSelectPane = new CharacterSelectPane(this);
+		levelSelectPane = new LevelSelectPane(this);
 		menu = new MenuPane(this);
 		leadPane = new LeaderboardPane(this);
 		setupInteractions();
