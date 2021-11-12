@@ -10,6 +10,7 @@ public class MainApplication extends GraphicsProgram {
 
 	private GraphicsPane curScreen;
 	private CharacterSelectPane characterSelectPane;
+	private LevelSelectPane levelSelectPane;
 	private MenuPane menu;
 	private LeaderboardPane leadPane;
 	//test
@@ -113,8 +114,12 @@ public class MainApplication extends GraphicsProgram {
 		switchToScreen(menu);
 	}
 
-	public void switchToSome() {
+	public void switchToCharSelect() {
 		switchToScreen(characterSelectPane);
+	}
+	
+	public void switchToLevelSelect() {
+		switchToScreen(levelSelectPane);
 	}
 	
 	public void switchToLead() {
