@@ -39,6 +39,10 @@ public class CharacterSelectPane extends GraphicsPane {
 		monkeyLabel.setFont(LABEL_FONT);
 		gorillaLabel.setFont(LABEL_FONT);
 		orangLabel.setFont(LABEL_FONT);
+		
+		monkeyLabel.setColor(Color.DARK_GRAY);
+		gorillaLabel.setColor(Color.LIGHT_GRAY);
+		orangLabel.setColor(Color.ORANGE);
 	}
 
 	@Override
