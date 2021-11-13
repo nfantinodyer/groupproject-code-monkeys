@@ -242,10 +242,11 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		}
 	}
 	public int timer() {
-		return 0;
+		return barrel.getDelay();
 	}
 	public int moveBarrel(int i) {
-		return 0;
+		barrelMove = i;
+		return barrelMove;
 	}
 	public String getMapSize() {
 		return mapSize;
