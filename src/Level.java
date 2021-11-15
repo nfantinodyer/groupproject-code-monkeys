@@ -11,11 +11,13 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	String mapSize;
 	Map map;
 	int barrelMove = 0;
+	int barrelAmount =0;
 	Space winSpace;
 	private int score = 0;
 	private int numLives = 3;
 	Vector<LeaderBoard> lead = new Vector<LeaderBoard>();
 	Timer barrel = new Timer(1000, this);
+	Vector<Space> path = new Vector<Space>();
 	
 
 	public void run() {
@@ -59,22 +61,25 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		return null;
 	}
 	public void setUpLevelEasy(){
+		barrelAmount = 3;
 		for(int i = 0; i < 4; i++) {
 			map.addEntity(EntityType.WALL, 1, 6-i, false);
 		}
 		for(int i = 0; i < 4; i++) {
 			map.addEntity(EntityType.WALL, 3, i, false);
 		}
+		
+		//add barrell
+		
+		
 	}
 	public void setUpLevelMed(){
+		// chacater
 		map.addEntity(EntityType.CHARACTER, 7, 0, false);
 		//0 horizintal
-		for (int i =0; i < 14;i++) {
 			map.addEntity(EntityType.WALL, 6, 0, false);
 			map.addEntity(EntityType.WALL, 10, 0, false);
-		}
 		//1 hori
-		for (int i =0; i < 14;i++) {
 			map.addEntity(EntityType.WALL, 0, 1, false);
 			map.addEntity(EntityType.WALL, 1, 1, false);
 			map.addEntity(EntityType.WALL, 2, 1, false);
@@ -86,15 +91,12 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 			map.addEntity(EntityType.WALL, 11, 1, false);
 			map.addEntity(EntityType.WALL, 12, 1, false);
 			map.addEntity(EntityType.WALL, 13, 1, false);
-		}
+		
 		//2 hori 
-		for (int i =0; i < 14;i++) {
 			map.addEntity(EntityType.WALL, 4, 2, false);
 			map.addEntity(EntityType.WALL, 8, 2, false);
 			map.addEntity(EntityType.WALL, 10, 2, false);
-		}
 		//3 hori
-		for (int i =0; i < 14;i++) {
 			map.addEntity(EntityType.WALL, 1, 3, false);
 			map.addEntity(EntityType.WALL, 2, 3, false);
 			map.addEntity(EntityType.WALL, 4, 3, false);
@@ -104,18 +106,14 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 			map.addEntity(EntityType.WALL, 10, 3, false);
 			map.addEntity(EntityType.WALL, 12, 3, false);
 			map.addEntity(EntityType.WALL, 14, 3, false);
-		}
 		//4 hori
-		for (int i =0; i < 14;i++) {
 			map.addEntity(EntityType.WALL, 1, 4, false);
 			map.addEntity(EntityType.WALL, 2, 4, false);
 			map.addEntity(EntityType.WALL, 4, 4, false);
 			map.addEntity(EntityType.WALL, 10, 4, false);
 			map.addEntity(EntityType.WALL, 12, 4, false);
 			map.addEntity(EntityType.WALL, 14, 4, false);
-		}
 		//5 hori
-		for (int i =0; i < 14;i++) {
 			map.addEntity(EntityType.WALL, 5, 1, false);
 			map.addEntity(EntityType.WALL, 5, 2, false);
 			map.addEntity(EntityType.WALL, 5, 4, false);
@@ -127,14 +125,10 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 			map.addEntity(EntityType.WALL, 5, 12, false);
 			map.addEntity(EntityType.WALL, 5, 13, false);
 			map.addEntity(EntityType.WALL, 5, 14, false);
-		}
 		//6 hori
-		for (int i =0; i < 14;i++) {
 			map.addEntity(EntityType.WALL, 6, 6, false);
 			map.addEntity(EntityType.WALL, 8, 6, false);
-		}
-		//7 hori 
-		for (int i =0; i < 14;i++) {
+		//7 hori
 			map.addEntity(EntityType.WALL, 1, 7, false);
 			map.addEntity(EntityType.WALL, 4, 7, false);
 			map.addEntity(EntityType.WALL, 6, 7, false);
@@ -143,26 +137,20 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 			map.addEntity(EntityType.WALL, 11, 7, false);
 			map.addEntity(EntityType.WALL, 12, 7, false);
 			map.addEntity(EntityType.WALL, 13, 7, false);
-		}
 		//8 hori 
-		for (int i =0; i < 14;i++) {
 			map.addEntity(EntityType.WALL, 1, 8, false);
 			map.addEntity(EntityType.WALL, 3, 8, false);
 			map.addEntity(EntityType.WALL, 4, 8, false);
 			map.addEntity(EntityType.WALL, 8, 8, false);
 			map.addEntity(EntityType.WALL, 10, 8, false);
 			map.addEntity(EntityType.WALL, 11, 8, false);
-		}
 		//9 hori
-		for (int i =0; i < 14;i++) {
 			map.addEntity(EntityType.WALL, 1, 9, false);
 			map.addEntity(EntityType.WALL, 3, 9, false);
 			map.addEntity(EntityType.WALL, 8, 9, false);
 			map.addEntity(EntityType.WALL, 12, 9, false);
 			map.addEntity(EntityType.WALL, 14, 9, false);
-		}
 		//10 hori
-		for (int i =0; i < 14;i++) {
 			map.addEntity(EntityType.WALL, 1, 10, false);
 			map.addEntity(EntityType.WALL, 2, 10, false);
 			map.addEntity(EntityType.WALL, 3, 10, false);
@@ -174,14 +162,10 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 			map.addEntity(EntityType.WALL, 9, 10, false);
 			map.addEntity(EntityType.WALL, 11, 10, false);
 			map.addEntity(EntityType.WALL, 13, 10, false);
-		}
 		//11 hori
-		for (int i =0; i < 14;i++) {
 			map.addEntity(EntityType.WALL, 11, 11, false);
 			map.addEntity(EntityType.WALL, 13, 11, false);
-		}
 		//12 hori
-		for (int i =0; i < 14;i++) {
 			map.addEntity(EntityType.WALL, 1, 12, false);
 			map.addEntity(EntityType.WALL, 2, 12, false);
 			map.addEntity(EntityType.WALL, 3, 12, false);
@@ -192,26 +176,18 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 			map.addEntity(EntityType.WALL, 10, 12, false);
 			map.addEntity(EntityType.WALL, 11, 12, false);
 			map.addEntity(EntityType.WALL, 13, 12, false);
-		}
 		//13 hori
-		for (int i =0; i < 14;i++) {
 			map.addEntity(EntityType.WALL, 1, 13, false);
 			map.addEntity(EntityType.WALL, 3, 13, false);
 			map.addEntity(EntityType.WALL, 5, 13, false);
 			map.addEntity(EntityType.WALL, 8, 13, false);
 			map.addEntity(EntityType.WALL, 10, 13, false);
 			map.addEntity(EntityType.WALL, 13, 13, false);
-		}
-		//14 hopri
-		for (int i =0; i < 14;i++) {
+		//14 hori
 			map.addEntity(EntityType.WALL, 3, 14, false);
 			map.addEntity(EntityType.WALL, 5, 14, false);
 			map.addEntity(EntityType.WALL, 6, 14, false);
 			map.addEntity(EntityType.WALL, 8, 14, false);
-		}
-	 
-		
-	}
 	public void setUpLevelHard(){
 		
 		//player
@@ -390,6 +366,10 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	public int moveBarrel(int i) {
 		barrelMove = i;
 		return barrelMove;
+	}
+	
+	public void addPath() {
+		
 	}
 	public String getMapSize() {
 		return mapSize;
