@@ -96,7 +96,7 @@ public class LevelSelectPane extends GraphicsPane {
 			program.add(next);
 		}
 		if (obj == next) {
-			if (levelSelect.getX() == 230) {
+			/*if (levelSelect.getX() == 230) {
 				game.setupEasy();
 			}
 			else if (levelSelect.getX() == 730) {
@@ -104,7 +104,7 @@ public class LevelSelectPane extends GraphicsPane {
 			}
 			else {
 				game.setupHard();
-			}
+			}*/
 			program.switchToGame();
 		}
 		if (obj == rect) {
