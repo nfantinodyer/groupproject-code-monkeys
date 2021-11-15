@@ -5,7 +5,7 @@ import acm.graphics.GLabel;
 public class GraphicsGame extends GraphicsPane {
 	// you will use program to get access to all of the GraphicsProgram calls
 	private MainApplication program; 
-	//private Level level;
+	private Level level = new Level();
 	
 	private GLabel lives = new GLabel("LIVES:", 10, 25);
 	private GLabel score = new GLabel("SCORE:", 1250, 25);
@@ -16,7 +16,7 @@ public class GraphicsGame extends GraphicsPane {
 		lives.setFont("Arial-26");
 		score.setFont("Arial-26");
 	}
-	/*
+	
 	public void setupEasy() {
 		level.createLevel("small");
 	}
@@ -27,7 +27,7 @@ public class GraphicsGame extends GraphicsPane {
 	
 	public void setupHard() {
 		level.createLevel("large");
-	}*/
+	}
 
 	@Override
 	public void showContents() {

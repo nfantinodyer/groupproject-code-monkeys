@@ -25,9 +25,6 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		barrel.start();
 	}
 	
-	public static void main(String[] args) {
-		new Level().start();
-	}
 	
 	public void init() {
 		addKeyListeners();
@@ -188,6 +185,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 			map.addEntity(EntityType.WALL, 5, 14, false);
 			map.addEntity(EntityType.WALL, 6, 14, false);
 			map.addEntity(EntityType.WALL, 8, 14, false);
+	}
 	public void setUpLevelHard(){
 		
 		//player
