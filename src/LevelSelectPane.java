@@ -30,7 +30,7 @@ public class LevelSelectPane extends GraphicsPane {
 		
 		easyLevel = new GImage("EasyMap.png", 130, 250);
 		mediumLevel = new GImage("MediumMap.png", 630, 255);
-		hardLevel = new GImage("HardMap.png", 1130, 275);
+		hardLevel = new GImage("HardMap.png", 1130, 240);
 		
 		easyLabel.setFont("Arial-26");
 		easyLabel.setColor(Color.YELLOW);
@@ -95,8 +95,7 @@ public class LevelSelectPane extends GraphicsPane {
 			program.add(next);
 		}
 		if (obj == next) {
-			//START LEVEL
-			program.switchToMenu();
+			program.switchToGame();
 		}
 		if (obj == rect) {
 			program.switchToCharSelect();
