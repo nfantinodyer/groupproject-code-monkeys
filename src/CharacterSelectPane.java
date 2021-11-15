@@ -18,6 +18,7 @@ public class CharacterSelectPane extends GraphicsPane {
 	private GImage charMonkey;
 	private GParagraph para;
 	private GButton rect;
+	private boolean monkey,orang,gorilla = false;
 	private static final String LABEL_FONT = "Arial-Bold-32";
 
 	public CharacterSelectPane(MainApplication app) {
@@ -43,6 +44,23 @@ public class CharacterSelectPane extends GraphicsPane {
 		monkeyLabel.setColor(Color.DARK_GRAY);
 		gorillaLabel.setColor(Color.LIGHT_GRAY);
 		orangLabel.setColor(Color.ORANGE);
+	}
+	
+	public char getChar()
+	{
+		if(monkey)
+		{
+			return 'm';
+		}
+		else if(gorilla)
+		{
+			return 'g';
+		}
+		else if(orang)
+		{
+			return 'o';
+		}
+		return ' ';
 	}
 
 	@Override
@@ -81,12 +99,15 @@ public class CharacterSelectPane extends GraphicsPane {
 		}
 		if (obj == charOrang || obj == orangLabel) {
 			charSelect = new GButton("SELECTED", 1054, 575, 100, 50);
+			orang = true;
 		}
 		if (obj == charGorilla || obj == gorillaLabel) {
 			charSelect = new GButton("SELECTED", 703, 575, 100, 50);
+			gorilla = true;
 		}
 		if (obj == charMonkey || obj == monkeyLabel) {
 			charSelect = new GButton("SELECTED", 384, 575, 100, 50);
+			monkey = true;
 		}
 		charSelect.setFillColor(Color.RED);
 		next.setFillColor(Color.RED);
@@ -102,5 +123,6 @@ public class CharacterSelectPane extends GraphicsPane {
 		if (obj == rect) {
 			program.switchToMenu();
 		}
+		
 	}
 }
