@@ -59,44 +59,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		return null;
 	}
 	public void setUpLevelEasy(){
-		//player
-		map.addEntity(EntityType.CHARACTER, 2, 0, false);
 		
-		//WALLS
-		//Three Horizontal
-		for(int i = 0; i < 3; i++) {
-			map.addEntity(EntityType.WALL, 5+i, 0, false);
-			map.addEntity(EntityType.WALL, 5+i, 2, false);
-			map.addEntity(EntityType.WALL, 1+i, 2, false);
-			map.addEntity(EntityType.WALL, 7+i, 4, false);
-			map.addEntity(EntityType.WALL, 3+i, 5, false);
-			map.addEntity(EntityType.WALL, 1+i, 6, false);
-			map.addEntity(EntityType.WALL, 3+i, 8, false);
-		}
-		//Others
-		for(int i = 1; i < 4; i++) 
-		{map.addEntity(EntityType.WALL, 0+i, 0, false);}
-		for(int i = 1; i < 3; i++) 
-		{
-			map.addEntity(EntityType.WALL, 9, 1+i, false);
-			map.addEntity(EntityType.WALL, 7, 4+i, false);
-			map.addEntity(EntityType.WALL, 3, 1+i, false);
-			map.addEntity(EntityType.WALL, 1, 3+i, false);
-		}
-		for(int i = 1; i < 2; i++) 
-		{
-			map.addEntity(EntityType.WALL, 3, 5+i, false);
-			map.addEntity(EntityType.WALL, 1, 7+i, false);
-			map.addEntity(EntityType.WALL, 1+i, 2, false);
-			map.addEntity(EntityType.WALL, 7+i, 8, false);
-		}
-		
-		
-		//Singles
-		map.addEntity(EntityType.WALL, 7, 1,false);
-		map.addEntity(EntityType.WALL, 9, 6,false);
-		map.addEntity(EntityType.WALL, 5, 7,false);
-		map.addEntity(EntityType.WALL, 5, 9,false);
 	}
 	public void setUpLevelMed(){
 		
