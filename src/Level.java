@@ -58,49 +58,158 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		
 		return null;
 	}
-	public void setUpLevelEasy()
-	{
-		//player
-		map.addEntity(EntityType.CHARACTER, 2, 0, false);
-				
-		//WALLS
-		//Three Horizontal
-		for(int i = 0; i < 3; i++) 
-		{
-			map.addEntity(EntityType.WALL, 5+i, 0, false);
-			map.addEntity(EntityType.WALL, 5+i, 2, false);
-			map.addEntity(EntityType.WALL, 1+i, 2, false);
-			map.addEntity(EntityType.WALL, 7+i, 4, false);
-			map.addEntity(EntityType.WALL, 3+i, 5, false);
-			map.addEntity(EntityType.WALL, 1+i, 6, false);
-			map.addEntity(EntityType.WALL, 3+i, 8, false);
+	public void setUpLevelEasy(){
+		for(int i = 0; i < 4; i++) {
+			map.addEntity(EntityType.WALL, 1, 6-i, false);
 		}
-		//Others
-		for(int i = 1; i < 4; i++) 
-		{map.addEntity(EntityType.WALL, 0+i, 0, false);}
-		for(int i = 1; i < 3; i++) 
-		{
-			map.addEntity(EntityType.WALL, 9, 1+i, false);
-			map.addEntity(EntityType.WALL, 7, 4+i, false);
-			map.addEntity(EntityType.WALL, 3, 1+i, false);
-			map.addEntity(EntityType.WALL, 1, 3+i, false);
+		for(int i = 0; i < 4; i++) {
+			map.addEntity(EntityType.WALL, 3, i, false);
 		}
-		for(int i = 1; i < 2; i++) 
-		{
-			map.addEntity(EntityType.WALL, 3, 5+i, false);
-			map.addEntity(EntityType.WALL, 1, 7+i, false);
-			map.addEntity(EntityType.WALL, 1+i, 2, false);
-			map.addEntity(EntityType.WALL, 7+i, 8, false);
-		}
-				
-				
-		//Singles
-		map.addEntity(EntityType.WALL, 7, 1,false);
-		map.addEntity(EntityType.WALL, 9, 6,false);
-		map.addEntity(EntityType.WALL, 5, 7,false);
-		map.addEntity(EntityType.WALL, 5, 9,false);
 	}
 	public void setUpLevelMed(){
+		map.addEntity(EntityType.CHARACTER, 7, 0, false);
+		//0 horizintal
+		for (int i =0; i < 14;i++) {
+			map.addEntity(EntityType.WALL, 6, 0, false);
+			map.addEntity(EntityType.WALL, 10, 0, false);
+		}
+		//1 hori
+		for (int i =0; i < 14;i++) {
+			map.addEntity(EntityType.WALL, 0, 1, false);
+			map.addEntity(EntityType.WALL, 1, 1, false);
+			map.addEntity(EntityType.WALL, 2, 1, false);
+			map.addEntity(EntityType.WALL, 4, 1, false);
+			map.addEntity(EntityType.WALL, 6, 1, false);
+			map.addEntity(EntityType.WALL, 7, 1, false);
+			map.addEntity(EntityType.WALL, 8, 1, false);
+			map.addEntity(EntityType.WALL, 10, 1, false);
+			map.addEntity(EntityType.WALL, 11, 1, false);
+			map.addEntity(EntityType.WALL, 12, 1, false);
+			map.addEntity(EntityType.WALL, 13, 1, false);
+		}
+		//2 hori 
+		for (int i =0; i < 14;i++) {
+			map.addEntity(EntityType.WALL, 4, 2, false);
+			map.addEntity(EntityType.WALL, 8, 2, false);
+			map.addEntity(EntityType.WALL, 10, 2, false);
+		}
+		//3 hori
+		for (int i =0; i < 14;i++) {
+			map.addEntity(EntityType.WALL, 1, 3, false);
+			map.addEntity(EntityType.WALL, 2, 3, false);
+			map.addEntity(EntityType.WALL, 4, 3, false);
+			map.addEntity(EntityType.WALL, 6, 3, false);
+			map.addEntity(EntityType.WALL, 7, 3, false);
+			map.addEntity(EntityType.WALL, 8, 3, false);
+			map.addEntity(EntityType.WALL, 10, 3, false);
+			map.addEntity(EntityType.WALL, 12, 3, false);
+			map.addEntity(EntityType.WALL, 14, 3, false);
+		}
+		//4 hori
+		for (int i =0; i < 14;i++) {
+			map.addEntity(EntityType.WALL, 1, 4, false);
+			map.addEntity(EntityType.WALL, 2, 4, false);
+			map.addEntity(EntityType.WALL, 4, 4, false);
+			map.addEntity(EntityType.WALL, 10, 4, false);
+			map.addEntity(EntityType.WALL, 12, 4, false);
+			map.addEntity(EntityType.WALL, 14, 4, false);
+		}
+		//5 hori
+		for (int i =0; i < 14;i++) {
+			map.addEntity(EntityType.WALL, 5, 1, false);
+			map.addEntity(EntityType.WALL, 5, 2, false);
+			map.addEntity(EntityType.WALL, 5, 4, false);
+			map.addEntity(EntityType.WALL, 5, 5, false);
+			map.addEntity(EntityType.WALL, 5, 6, false);
+			map.addEntity(EntityType.WALL, 5, 8, false);
+			map.addEntity(EntityType.WALL, 5, 9, false);
+			map.addEntity(EntityType.WALL, 5, 10, false);
+			map.addEntity(EntityType.WALL, 5, 12, false);
+			map.addEntity(EntityType.WALL, 5, 13, false);
+			map.addEntity(EntityType.WALL, 5, 14, false);
+		}
+		//6 hori
+		for (int i =0; i < 14;i++) {
+			map.addEntity(EntityType.WALL, 6, 6, false);
+			map.addEntity(EntityType.WALL, 8, 6, false);
+		}
+		//7 hori 
+		for (int i =0; i < 14;i++) {
+			map.addEntity(EntityType.WALL, 1, 7, false);
+			map.addEntity(EntityType.WALL, 4, 7, false);
+			map.addEntity(EntityType.WALL, 6, 7, false);
+			map.addEntity(EntityType.WALL, 8, 7, false);
+			map.addEntity(EntityType.WALL, 10, 7, false);
+			map.addEntity(EntityType.WALL, 11, 7, false);
+			map.addEntity(EntityType.WALL, 12, 7, false);
+			map.addEntity(EntityType.WALL, 13, 7, false);
+		}
+		//8 hori 
+		for (int i =0; i < 14;i++) {
+			map.addEntity(EntityType.WALL, 1, 8, false);
+			map.addEntity(EntityType.WALL, 3, 8, false);
+			map.addEntity(EntityType.WALL, 4, 8, false);
+			map.addEntity(EntityType.WALL, 8, 8, false);
+			map.addEntity(EntityType.WALL, 10, 8, false);
+			map.addEntity(EntityType.WALL, 11, 8, false);
+		}
+		//9 hori
+		for (int i =0; i < 14;i++) {
+			map.addEntity(EntityType.WALL, 1, 9, false);
+			map.addEntity(EntityType.WALL, 3, 9, false);
+			map.addEntity(EntityType.WALL, 8, 9, false);
+			map.addEntity(EntityType.WALL, 12, 9, false);
+			map.addEntity(EntityType.WALL, 14, 9, false);
+		}
+		//10 hori
+		for (int i =0; i < 14;i++) {
+			map.addEntity(EntityType.WALL, 1, 10, false);
+			map.addEntity(EntityType.WALL, 2, 10, false);
+			map.addEntity(EntityType.WALL, 3, 10, false);
+			map.addEntity(EntityType.WALL, 4, 10, false);
+			map.addEntity(EntityType.WALL, 5, 10, false);
+			map.addEntity(EntityType.WALL, 6, 10, false);
+			map.addEntity(EntityType.WALL, 7, 10, false);
+			map.addEntity(EntityType.WALL, 8, 10, false);
+			map.addEntity(EntityType.WALL, 9, 10, false);
+			map.addEntity(EntityType.WALL, 11, 10, false);
+			map.addEntity(EntityType.WALL, 13, 10, false);
+		}
+		//11 hori
+		for (int i =0; i < 14;i++) {
+			map.addEntity(EntityType.WALL, 11, 11, false);
+			map.addEntity(EntityType.WALL, 13, 11, false);
+		}
+		//12 hori
+		for (int i =0; i < 14;i++) {
+			map.addEntity(EntityType.WALL, 1, 12, false);
+			map.addEntity(EntityType.WALL, 2, 12, false);
+			map.addEntity(EntityType.WALL, 3, 12, false);
+			map.addEntity(EntityType.WALL, 5, 12, false);
+			map.addEntity(EntityType.WALL, 7, 12, false);
+			map.addEntity(EntityType.WALL, 8, 12, false);
+			map.addEntity(EntityType.WALL, 9, 12, false);
+			map.addEntity(EntityType.WALL, 10, 12, false);
+			map.addEntity(EntityType.WALL, 11, 12, false);
+			map.addEntity(EntityType.WALL, 13, 12, false);
+		}
+		//13 hori
+		for (int i =0; i < 14;i++) {
+			map.addEntity(EntityType.WALL, 1, 13, false);
+			map.addEntity(EntityType.WALL, 3, 13, false);
+			map.addEntity(EntityType.WALL, 5, 13, false);
+			map.addEntity(EntityType.WALL, 8, 13, false);
+			map.addEntity(EntityType.WALL, 10, 13, false);
+			map.addEntity(EntityType.WALL, 13, 13, false);
+		}
+		//14 hopri
+		for (int i =0; i < 14;i++) {
+			map.addEntity(EntityType.WALL, 3, 14, false);
+			map.addEntity(EntityType.WALL, 5, 14, false);
+			map.addEntity(EntityType.WALL, 6, 14, false);
+			map.addEntity(EntityType.WALL, 8, 14, false);
+		}
+	 
 		
 	}
 	public void setUpLevelHard(){
@@ -300,61 +409,59 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 
 	    if (key == KeyEvent.VK_LEFT) {
 	        System.out.println("going left");
-	        //movenment = new Space(map.getCharacterRow(),map.getCharacterCol()-1);
-	        //map.moveChara(movenment);
-	        //collision(movenemnt);
+	        movenment = new Space(map.getCharacterRow(),map.getCharacterCol()-1);
+	        map.moveChara(movenment);
+	        collision(movenment);
 	    }
 
 	    if (key == KeyEvent.VK_RIGHT) {
 	    	System.out.println("going right");
-	    	//movenment = new Space(map.getCharacterRow(),map.getCharacterCol()+1);
-	    	//map.moveChara(movenment);
+	    	movenment = new Space(map.getCharacterRow(),map.getCharacterCol()+1);
+	    	map.moveChara(movenment);
 	    }
 
 	    if (key == KeyEvent.VK_UP) {
 	    	System.out.println("going up");
-	    	//movenment = new Space(map.getCharacterRow()+1,map.getCharacterCol());
-	    	//map.moveChara(movenment);
+	    	movenment = new Space(map.getCharacterRow()+1,map.getCharacterCol());
+	    	map.moveChara(movenment);
 	    }
 
 	    if (key == KeyEvent.VK_DOWN) {
 	    	System.out.println("going down");
-	    	//movenment = new Space(map.getCharacterRow()-1,map.getCharacterCol());
-	    	//map.moveChara(movenment);
-	    	//collision(movenemnt);
+	    	movenment = new Space(map.getCharacterRow()-1,map.getCharacterCol());
+	    	map.moveChara(movenment);
+	    	collision(movenment);
 	    }
 	    
 	    
 	    
 	    if (key == KeyEvent.VK_A) {
 	        System.out.println("going left (WASD)");
-	        //movenment = new Space(map.getCharacterRow(),map.getCharacterCol()-1);
-	        //map.moveChara(movenment);
-	        //collision(movenemnt);
+	        movenment = new Space(map.getCharacterRow(),map.getCharacterCol()-1);
+	        map.moveChara(movenment);
+	        collision(movenment);
 	    }
 
 	    if (key == KeyEvent.VK_D) {
 	    	System.out.println("going right (WASD)");
-	    	//movenment = new Space(map.getCharacterRow(),map.getCharacterCol()+1);
-	    	//map.moveChara(movenment);
-	    	//collision(movenemnt);
+	    	movenment = new Space(map.getCharacterRow(),map.getCharacterCol()+1);
+	    	map.moveChara(movenment);
+	    	collision(movenment);
 	    }
 
 	    if (key == KeyEvent.VK_W) {
 	    	System.out.println("going up (WASD)");
-	    	//movenment = new Space(map.getCharacterRow()+1,map.getCharacterCol());
-	    	//map.moveChara(movenment);
-	    	//collision(movenemnt);
+	    	movenment = new Space(map.getCharacterRow()+1,map.getCharacterCol());
+	    	map.moveChara(movenment);
+	    	collision(movenment);
 	    }
 
 	    if (key == KeyEvent.VK_S) {
 	    	System.out.println("going down (WASD)");
-	    	//movenment = new Space(map.getCharacterRow()-1,map.getCharacterCol());
-	    	//map.moveChara(movenment);
-	    	//collision(movenemnt);
+	    	movenment = new Space(map.getCharacterRow()-1,map.getCharacterCol());
+	    	map.moveChara(movenment);
+	    	collision(movenment);
 	    }
 	}
-	//to add
-	//incorpate keyboard listeners from interfacable.java
-
+	
 }
