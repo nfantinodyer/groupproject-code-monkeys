@@ -87,9 +87,9 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 			barrelSpace = new Space(locMin+randNum.nextInt(locMax),locMin+randNum.nextInt(locMax));
 			if(barrelCreate(barrelSpace)== false) {
 				map.addEntity(EntityType.BARREL, barrelSpace.getRow(), barrelSpace.getCol(), false);
-				System.out.println("Barrel #" + i + " created!");
+				System.out.println("Barrel #" + (i +1) + " created!");
 			}else {
-				System.out.println("NO BARREL CREATED< COLLSION DETECTED");
+				System.out.println("NO BARREL CREATED, COLLSION DETECTED");
 			}
 		}
 		
@@ -366,7 +366,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		return map.getNumCols();
 	}
 	public boolean barrelCreate(Space s) {
-		if (map.wallCollision(s)) {
+		if (map.wallCollision(s)== true) {
 			return true;
 		}
 		return false;
@@ -408,11 +408,11 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	public String getMapSize() {
 		return mapSize;
 	}
-	
-	@Override
+	//REMOVE COMMENT
+	/*@Override
 	public void actionPerformed(ActionEvent e) {
 		map.moveBarrels(barrelMove, false);
-	}
+	}*/
 
 	
 	
