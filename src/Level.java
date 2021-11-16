@@ -12,6 +12,9 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	Map map;
 	int barrelMove = 0;
 	int barrelAmount =0;
+	int min = 0;
+	int max = 0;
+	Random randNum = new Random();
 	Space winSpace;
 	private int score = 0;
 	private int numLives = 3;
@@ -23,6 +26,9 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	public void run() {
 		System.out.println("hey boyi i'm workng here");
 		barrel.start();
+		for (int i = 0; i < 10;i++) {
+		setUpLevelEasy();
+		}
 	}
 	
 	
@@ -35,10 +41,8 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	public Level createLevel(String s) {
 		mapSize = s;
 		
-		if(s == "small") {
-			map = new Map(10,10);
-			winSpace = new Space(9,5);
-			barrelMove = 2;
+		//made created of small level as defualt for testing purposes "SO REMOVE THIS LATER ON WITH s= "small""
+		if(1 == 1) {
 			setUpLevelEasy();
 		}else if(s == "medium") {
 			map = new Map(15,15);
@@ -58,16 +62,36 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		return null;
 	}
 	public void setUpLevelEasy(){
-		barrelAmount = 3;
+		max = 3;
+		min = 1;
+		int locMin = 1;
+		int locMax = 6;
+		map = new Map(10,10);
+		winSpace = new Space(9,5);
+		barrelMove = 2;
+		
+		map.addEntity(EntityType.CHARACTER, 0, 0, false);
+		
 		for(int i = 0; i < 4; i++) {
-			map.addEntity(EntityType.WALL, 1, 6-i, false);
+			//map.addEntity(EntityType.WALL, 1, 6-i, false);
 		}
 		for(int i = 0; i < 4; i++) {
-			map.addEntity(EntityType.WALL, 3, i, false);
+			//map.addEntity(EntityType.WALL, 3, i, false);
 		}
 		
 		//add barrell
-		
+		barrelAmount =min+randNum.nextInt(max);
+		System.out.println("now making barrels");
+		Space barrelSpace = null;
+		for (int i  = 0; i < barrelAmount;i++) {
+			barrelSpace = new Space(locMin+randNum.nextInt(locMax),locMin+randNum.nextInt(locMax));
+			if(barrelCreate(barrelSpace)== false) {
+				map.addEntity(EntityType.BARREL, barrelSpace.getRow(), barrelSpace.getCol(), false);
+				System.out.println("Barrel #" + i + " created!");
+			}else {
+				System.out.println("NO BARREL CREATED< COLLSION DETECTED");
+			}
+		}
 		
 	}
 	public void setUpLevelMed(){
@@ -341,6 +365,12 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	public int getNumCols() {
 		return map.getNumCols();
 	}
+	public boolean barrelCreate(Space s) {
+		if (map.wallCollision(s)) {
+			return true;
+		}
+		return false;
+	}
 	public void collision(Space s){
 		if (!map.wallCollision(s)) {
 			if (map.bananaCollision(s)) {
@@ -446,6 +476,10 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	    	map.moveChara(movenment);
 	    	collision(movenment);
 	    }
+	}
+	
+	public static void main(String[] args) {
+		new Level().start();
 	}
 	
 }
