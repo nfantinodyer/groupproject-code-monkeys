@@ -8,7 +8,7 @@ public class Map {
 	private int numCols;
 	private int numEntities = 0;
 	private Space winningSpace;
-	ArrayList<Entity> barrels;
+	ArrayList<Entity> barrels = new ArrayList<Entity>();
 	
 	public Map(int r, int c) {
 		map = new Entity[r][c];
@@ -113,7 +113,7 @@ public class Map {
 	
 	public boolean wallCollision (Space s) {
 		if (map[s.getRow()][s.getCol()] == null) {
-			return true;
+			return false;
 		}
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
 			return true;
