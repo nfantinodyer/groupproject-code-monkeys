@@ -112,6 +112,9 @@ public class Map {
 	}
 	
 	public boolean wallCollision (Space s) {
+		if (map[s.getRow()][s.getCol()] == null) {
+			return true;
+		}
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
 			return true;
 		}
@@ -119,7 +122,7 @@ public class Map {
 	}
 	
 	public boolean barrelCollision(Space s) {
-		if (map[s.getRow()][s.getCol()].getType() == EntityType.BARREL) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
 			return true;
 		}
 		return false;
@@ -140,6 +143,9 @@ public class Map {
 	}
 		
 	public boolean mangoCollision(Space s) {
+		if(map[s.getRow()][s.getCol()] ==  null) {
+			return false;
+		}
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.MANGO) {
 			return true;
 		}
