@@ -56,12 +56,12 @@ public class GraphicsGame extends GraphicsPane {
 		{num=10;}
 		for (int i = 0; i < num; ++i) {
 			
-			GLine gridLine = new GLine(spaceWidth() * i, 0, spaceWidth() * i, WINDOW_WIDTH);
+			GLine gridLine = new GLine(0, spaceHeight()*i, WINDOW_WIDTH, spaceHeight()*i);
 			gridLines.add(gridLine);
 		}
 		for (int i = 0; i < num; ++i) {
 			
-			GLine gridLine = new GLine(0, spaceHeight() * i, WINDOW_HEIGHT, spaceHeight() * i);
+			GLine gridLine = new GLine(spaceWidth()*i, 0, spaceWidth()*i,WINDOW_HEIGHT );
 			gridLines.add(gridLine);
 		}
 		for(GLine l:gridLines)
