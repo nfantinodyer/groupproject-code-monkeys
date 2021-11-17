@@ -112,6 +112,18 @@ public class MainApplication extends GraphicsProgram {
 		setupInteractions();
 		switchToMenu();
 	}
+	/*public class Format{  
+		public static void main(String args[]){  
+		String name = ""; 
+		String score = "";
+		String sf1 = String.format("Easy %s, %d",name, score);  
+		String sf2 = String.format("Medium %s, %d",3);  
+		String sf3 = String.format("Hard %s, %d",3);
+		  
+		System.out.println(sf1);  
+		System.out.println(sf2);  
+		System.out.println(sf3);  
+		}}  */
 
 	public void switchToMenu() {
 		switchToScreen(menu);
@@ -135,5 +147,14 @@ public class MainApplication extends GraphicsProgram {
 
 	public static void main(String[] args) {
 		new MainApplication().start();
+		String name = ""; 
+		String score = "";
+		String sf1 = String.format("Easy %s, %d",name, score);  
+		String sf2 = String.format("Medium %s, %d",3);  
+		String sf3 = String.format("Hard %s, %d",3);
+		  
+		System.out.println(sf1);  
+		System.out.println(sf2);  
+		System.out.println(sf3);  
 	}
 }
