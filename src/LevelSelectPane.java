@@ -8,7 +8,6 @@ import acm.graphics.GObject;
 public class LevelSelectPane extends GraphicsPane {
 	// you will use program to get access to all of the GraphicsProgram calls
 	private MainApplication program;
-	GraphicsGame game = new GraphicsGame(program);
 	
 	private GParagraph para;
 	private GButton rect;
@@ -96,6 +95,7 @@ public class LevelSelectPane extends GraphicsPane {
 			program.add(next);
 		}
 		if (obj == next) {
+			GraphicsGame game = new GraphicsGame(program);
 			if (levelSelect.getX() == 230) {
 				game.setupEasy();
 			}
