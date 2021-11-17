@@ -81,8 +81,10 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		
 		//add barrell
 		barrelAmount =min+randNum.nextInt(max);
-		System.out.println("now making barrels");
+		System.out.println("now making "+ barrelAmount +" barrels");
+		
 		Space barrelSpace = null;
+		
 		for (int i  = 0; i < barrelAmount;i++) {
 			barrelSpace = new Space(locMin+randNum.nextInt(locMax),locMin+randNum.nextInt(locMax));
 			if(barrelCreate(barrelSpace)== false) {
