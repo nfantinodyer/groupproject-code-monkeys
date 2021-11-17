@@ -15,6 +15,9 @@ public class GraphicsGame extends GraphicsPane {
 	private GLabel lives = new GLabel("LIVES:", 10, 25);
 	private GLabel score = new GLabel("SCORE:", 1250, 25);
 	
+	private String s = "";
+	
+	
 	private ArrayList<GLine> gridLines = new ArrayList<GLine>();
 
 	public GraphicsGame(MainApplication app) {
@@ -26,51 +29,89 @@ public class GraphicsGame extends GraphicsPane {
 	
 	public void setupEasy() {
 		level.createLevel("small");
+		s="easy";
 	}
 	
 	public void setupMedium() {
 		level.createLevel("medium");
+		s="medium";
 	}
 	
 	public void setupHard() {
 		level.createLevel("large");
+		s="hard";
 	}
 	
-	private void setupLevel() {
-		drawGridLines();
+	private void setupLevel(String s) {
+		drawGridLines(s);
 	}
 	
-	private void drawGridLines() {
-		GLine gridLine;
-		
-		for (int i = 1; i < level.getNumCols(); ++i) {
-			gridLine = new GLine(spaceWidth() * i, 0, spaceWidth() * i, WINDOW_WIDTH);
+	private void drawGridLines(String s) {
+		int num = 0;
+		if(s=="hard")
+		{num = 25;}
+		else if(s=="medium")
+		{num = 15;}
+		else
+		{num=10;}
+		for (int i = 0; i < num; ++i) {
+			
+			GLine gridLine = new GLine(spaceWidth() * i, 0, spaceWidth() * i, WINDOW_WIDTH);
 			gridLines.add(gridLine);
 		}
-		for (int i = 1; i < level.getNumRows(); ++i) {
-			gridLine = new GLine(0, spaceHeight() * i, WINDOW_HEIGHT, spaceHeight() * i);
+		for (int i = 0; i < num; ++i) {
+			
+			GLine gridLine = new GLine(0, spaceHeight() * i, WINDOW_HEIGHT, spaceHeight() * i);
 			gridLines.add(gridLine);
+		}
+		for(GLine l:gridLines)
+		{
+			program.add(l);
+		}
+	}
+	
+	public void removeGridLines()
+	{
+		for(GLine l:gridLines)
+		{
+			program.remove(l);
 		}
 	}
 	
 	private double spaceWidth() {
-		return WINDOW_WIDTH / level.getNumCols();
+		int num = 0;
+		if(s=="hard")
+		{num = 25;}
+		else if(s=="medium")
+		{num = 15;}
+		else
+		{num=10;}
+		return WINDOW_WIDTH / num;
 	}
 	
 	private double spaceHeight() {
-		return WINDOW_HEIGHT / level.getNumRows();
+		int num = 0;
+		if(s=="hard")
+		{num = 25;}
+		else if(s=="medium")
+		{num = 15;}
+		else
+		{num=10;}
+		return WINDOW_HEIGHT / num;
 	}
 
 	@Override
 	public void showContents() {
 		program.add(lives);
 		program.add(score);
+		drawGridLines(s);
 	}
 
 	@Override
 	public void hideContents() {
 		program.remove(lives);
 		program.remove(score);
+		removeGridLines();
 	}
 
 	@Override
