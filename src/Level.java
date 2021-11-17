@@ -40,9 +40,9 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	
 	public Level createLevel(String s) {
 		mapSize = s;
-		
+		setUpLevelEasy();
 		//made created of small level as defualt for testing purposes "SO REMOVE THIS LATER ON WITH s= "small""
-		if(1 == 1) {
+		if(s== "small") {
 			setUpLevelEasy();
 		}else if(s == "medium") {
 			map = new Map(15,15);
@@ -73,10 +73,10 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		map.addEntity(EntityType.CHARACTER, 0, 0, false);
 		
 		for(int i = 0; i < 4; i++) {
-			//map.addEntity(EntityType.WALL, 1, 6-i, false);
+			map.addEntity(EntityType.WALL, 1, 6-i, false);
 		}
 		for(int i = 0; i < 4; i++) {
-			//map.addEntity(EntityType.WALL, 3, i, false);
+			map.addEntity(EntityType.WALL, 3, i, false);
 		}
 		
 		//add barrell
@@ -90,6 +90,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 			if(barrelCreate(barrelSpace)== false) {
 				map.addEntity(EntityType.BARREL, barrelSpace.getRow(), barrelSpace.getCol(), false);
 				System.out.println("Barrel #" + (i +1) + " created!");
+				System.out.println("Location is at row "+barrelSpace.getRow()+", col "+ barrelSpace.getCol());
 			}else {
 				System.out.println("NO BARREL CREATED, COLLSION DETECTED");
 			}
@@ -368,10 +369,17 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		return map.getNumCols();
 	}
 	public boolean barrelCreate(Space s) {
-		if (map.wallCollision(s)== true) {
-			return true;
+		// FOR TESTING ONLY
+		if(map.getEnt(s)==null) {
+			System.out.println("nuthing to worry here");
+		}else {
+			System.out.println("Uh-oh check out put");
 		}
-		return false;
+		if (map.wallCollision(s)) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 	public void collision(Space s){
 		if (!map.wallCollision(s)) {
