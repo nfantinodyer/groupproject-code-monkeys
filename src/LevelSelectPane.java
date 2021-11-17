@@ -105,7 +105,7 @@ public class LevelSelectPane extends GraphicsPane {
 			else {
 				game.setupHard();
 			}
-			program.switchToGame();
+			program.switchToGame(game);
 		}
 		if (obj == rect) {
 			program.switchToCharSelect();

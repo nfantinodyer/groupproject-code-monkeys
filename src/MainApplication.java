@@ -11,7 +11,7 @@ public class MainApplication extends GraphicsProgram {
 	private GraphicsPane curScreen;
 	private CharacterSelectPane characterSelectPane;
 	private LevelSelectPane levelSelectPane;
-	private GraphicsGame graphicsGame;
+	//private GraphicsGame graphicsGame;
 	private MenuPane menu;
 	private LeaderboardPane leadPane;
 	//test
@@ -106,24 +106,12 @@ public class MainApplication extends GraphicsProgram {
 		System.out.println("Let's make something awesome!");
 		characterSelectPane = new CharacterSelectPane(this);
 		levelSelectPane = new LevelSelectPane(this);
-		graphicsGame = new GraphicsGame(this);
+		//graphicsGame = new GraphicsGame(this);
 		menu = new MenuPane(this);
 		leadPane = new LeaderboardPane(this);
 		setupInteractions();
 		switchToMenu();
 	}
-	/*public class Format{  
-		public static void main(String args[]){  
-		String name = ""; 
-		String score = "";
-		String sf1 = String.format("Easy %s, %d",name, score);  
-		String sf2 = String.format("Medium %s, %d",3);  
-		String sf3 = String.format("Hard %s, %d",3);
-		  
-		System.out.println(sf1);  
-		System.out.println(sf2);  
-		System.out.println(sf3);  
-		}}  */
 
 	public void switchToMenu() {
 		switchToScreen(menu);
@@ -137,7 +125,7 @@ public class MainApplication extends GraphicsProgram {
 		switchToScreen(levelSelectPane);
 	}
 	
-	public void switchToGame() {
+	public void switchToGame(GraphicsGame graphicsGame) {
 		switchToScreen(graphicsGame);
 	}
 	
@@ -147,14 +135,5 @@ public class MainApplication extends GraphicsProgram {
 
 	public static void main(String[] args) {
 		new MainApplication().start();
-		String name = ""; 
-		String score = "";
-		String sf1 = String.format("Easy %s, %d",name, score);  
-		String sf2 = String.format("Medium %s, %d",3);  
-		String sf3 = String.format("Hard %s, %d",3);
-		  
-		System.out.println(sf1);  
-		System.out.println(sf2);  
-		System.out.println(sf3);  
 	}
 }
