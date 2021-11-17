@@ -235,14 +235,14 @@ public class LeaderBoard {
     }
 
 
-    public String getPlayerName(String winnername, int winnerscore, String board, Object scorelabel1, boolean setText) {
+   /* public String getPlayerName(String winnername, int winnerscore, String board, Object scorelabel1, boolean setText) {
 		if (board.isEmpty())
 	   {
 		   
 	  }
 
 		return playerName;
-	  }
+	  } */
 
 
 	public void setPlayerName(String playerName) {
