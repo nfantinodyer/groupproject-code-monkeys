@@ -20,7 +20,8 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	private int numLives = 3;
 	Vector<LeaderBoard> lead = new Vector<LeaderBoard>();
 	Timer barrel = new Timer(1000, this);
-	Vector<Space> path = new Vector<Space>();
+	Vector<Boolean> switcher = null;
+	Vector<Boolean> vertic = null;
 	
 
 	public void run() {
@@ -62,6 +63,8 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		return null;
 	}
 	public void setUpLevelEasy(){
+		switcher = new Vector<Boolean>();
+		//DELETE
 		max = 3;
 		min = 1;
 		int locMin = 1;
@@ -71,16 +74,73 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		barrelMove = 2;
 		
 		map.addEntity(EntityType.CHARACTER, 0, 0, false);
-		
-		for(int i = 0; i < 4; i++) {
-			map.addEntity(EntityType.WALL, 1, 6-i, false);
-		}
-		for(int i = 0; i < 4; i++) {
-			map.addEntity(EntityType.WALL, 3, i, false);
-		}
+		//0 hori
+		map.addEntity(EntityType.WALL, 0, 0, false);
+		//1 hori
+		map.addEntity(EntityType.WALL, 0, 1, false);
+		map.addEntity(EntityType.WALL, 2, 1, false);
+		map.addEntity(EntityType.WALL, 3, 1, false);
+		map.addEntity(EntityType.WALL, 4, 1, false);
+		map.addEntity(EntityType.WALL, 6, 1, false);
+		map.addEntity(EntityType.WALL, 7, 1, false);
+		map.addEntity(EntityType.WALL, 8, 1, false);
+		//2 hori
+		map.addEntity(EntityType.WALL, 0, 2, false);
+		map.addEntity(EntityType.WALL, 2, 2, false);
+		map.addEntity(EntityType.WALL, 6, 2, false);
+		//3 hori
+		map.addEntity(EntityType.WALL, 0, 3, false);
+		map.addEntity(EntityType.WALL, 1, 3, false);
+		map.addEntity(EntityType.WALL, 2, 3, false);
+		map.addEntity(EntityType.WALL, 3, 3, false);
+		map.addEntity(EntityType.WALL, 5, 3, false);
+		map.addEntity(EntityType.WALL, 6, 3, false);
+		map.addEntity(EntityType.WALL, 8, 3, false);
+		//4 hori
+		map.addEntity(EntityType.WALL, 5, 4, false);
+		map.addEntity(EntityType.WALL, 8, 4, false);
+		//5 hori
+		map.addEntity(EntityType.WALL, 0, 5, false);
+		map.addEntity(EntityType.WALL, 2, 5, false);
+		map.addEntity(EntityType.WALL, 3, 5, false);
+		map.addEntity(EntityType.WALL, 4, 5, false);
+		map.addEntity(EntityType.WALL, 5, 5, false);
+		map.addEntity(EntityType.WALL, 7, 5, false);
+		map.addEntity(EntityType.WALL, 8, 5, false);
+		map.addEntity(EntityType.WALL, 9, 5, false);
+		//6 hori 
+		map.addEntity(EntityType.WALL, 0, 6, false);
+		map.addEntity(EntityType.WALL, 2, 6, false);
+		//7 hori 8
+		map.addEntity(EntityType.WALL, 0, 7, false);
+		map.addEntity(EntityType.WALL, 1, 7, false);
+		map.addEntity(EntityType.WALL, 2, 7, false);
+		map.addEntity(EntityType.WALL, 4, 7, false);
+		map.addEntity(EntityType.WALL, 5, 7, false);
+		map.addEntity(EntityType.WALL, 6, 7, false);
+		map.addEntity(EntityType.WALL, 7, 7, false);
+		map.addEntity(EntityType.WALL, 8, 7, false);
+		//8 hori
+		map.addEntity(EntityType.WALL, 4, 8, false);
+		map.addEntity(EntityType.WALL, 8, 8, false);
+		// 9 hori
+		map.addEntity(EntityType.WALL, 1, 9, false);
+		map.addEntity(EntityType.WALL, 2, 9, false);
+		map.addEntity(EntityType.WALL, 3, 9, false);
+		map.addEntity(EntityType.WALL, 4, 9, false);
+		map.addEntity(EntityType.WALL, 6, 9, false);
 		
 		//add barrell
-		barrelAmount =min+randNum.nextInt(max);
+		map.addEntity(EntityType.BARREL, 9,0 ,false);
+		switcher.add(false);
+		vertic.add(false);
+		map.addEntity(EntityType.BARREL, 4, 4,true);
+		switcher.add(false);
+		vertic.add(true);
+		map.addEntity(EntityType.BARREL, 9, 6,true);
+		switcher.add(false);
+		switcher.add(true);
+		/*barrelAmount =min+randNum.nextInt(max);
 		System.out.println("now making "+ barrelAmount +" barrels");
 		
 		Space barrelSpace = null;
@@ -94,7 +154,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 			}else {
 				System.out.println("NO BARREL CREATED, COLLSION DETECTED");
 			}
-		}
+		}*/
 		
 	}
 	public void setUpLevelMed(){
@@ -350,7 +410,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	public Space getWin() {
 		return winSpace;
 	}
-	public String toString() {
+	publixring toString() {
 		return null;
 	}
 	public void setWin(Space s) {
@@ -368,6 +428,8 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	public int getNumCols() {
 		return map.getNumCols();
 	}
+	//DELETE
+	/*
 	public boolean barrelCreate(Space s) {
 		// FOR TESTING ONLY
 		if(map.getEnt(s)==null) {
@@ -380,7 +442,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		}else {
 			return false;
 		}
-	}
+		*/	
 	public void collision(Space s){
 		if (!map.wallCollision(s)) {
 			if (map.bananaCollision(s)) {
@@ -412,17 +474,57 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		return barrelMove;
 	}
 	
-	public void addPath() {
-		
+	public void checkPath() {
+		ArrayList<Entity> checking = map.barrels;
+		int o = 0;
+		Boolean catcher = null;
+		for(Entity i: checking) {
+			
+			if(vertic.elementAt(o)) {
+				if(switcher.elementAt(o)) {
+					if(map.wallCollision(new Space(i.getRow(),i.getCol()-1))) {
+						catcher= !switcher.elementAt(o);
+						switcher.setElementAt(catcher,o);
+					}else {
+						continue;
+					}
+				}else {
+					if(map.wallCollision(new Space(i.getRow(),i.getCol()+1))) {
+						catcher= !switcher.elementAt(o);
+						switcher.setElementAt(catcher,o);
+					}else {
+						continue;
+					}
+				}
+				
+			}else {
+				if(switcher.elementAt(o)) {
+					if(map.wallCollision(new Space(i.getRow()-1,i.getCol()))) {
+						catcher= !switcher.elementAt(o);
+						switcher.setElementAt(catcher,o);
+					}else {
+						continue;
+					}
+				}else {
+					if(map.wallCollision(new Space(i.getRow()+1,i.getCol()))) {
+						catcher= !switcher.elementAt(o);
+						switcher.setElementAt(catcher,o);
+					}else {
+						continue;
+					}
+				}
+			}
+		}
 	}
 	public String getMapSize() {
 		return mapSize;
 	}
 	//REMOVE COMMENT
-	/*@Override
+	@Override
 	public void actionPerformed(ActionEvent e) {
-		map.moveBarrels(barrelMove, false);
-	}*/
+		checkPath();
+		map.moveBarrels(1, vertic,switcher);
+	}
 
 	
 	
