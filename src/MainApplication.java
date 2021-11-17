@@ -11,7 +11,7 @@ public class MainApplication extends GraphicsProgram {
 	private GraphicsPane curScreen;
 	private CharacterSelectPane characterSelectPane;
 	private LevelSelectPane levelSelectPane;
-	//private GraphicsGame graphicsGame;
+	private GraphicsGame graphicsGame;
 	private MenuPane menu;
 	private LeaderboardPane leadPane;
 	//test
@@ -106,7 +106,7 @@ public class MainApplication extends GraphicsProgram {
 		System.out.println("Let's make something awesome!");
 		characterSelectPane = new CharacterSelectPane(this);
 		levelSelectPane = new LevelSelectPane(this);
-		//graphicsGame = new GraphicsGame(this);
+		graphicsGame = new GraphicsGame(this);
 		menu = new MenuPane(this);
 		leadPane = new LeaderboardPane(this);
 		setupInteractions();
@@ -126,7 +126,7 @@ public class MainApplication extends GraphicsProgram {
 	}
 	
 	public void switchToGame(GraphicsGame graphicsGame) {
-		switchToScreen(graphicsGame);
+		switchToScreen(this.graphicsGame);
 	}
 	
 	public void switchToLead() {

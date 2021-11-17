@@ -51,16 +51,6 @@ public class GraphicsGame extends GraphicsPane {
 			gridLine = new GLine(0, spaceHeight() * i, WINDOW_HEIGHT, spaceHeight() * i);
 			gridLines.add(gridLine);
 		}
-		
-		for (GLine l:gridLines) {
-			program.add(l);
-		}
-	}
-	
-	private void removeGridLines() {
-		for (GLine l:gridLines) {
-			program.remove(l);
-		}
 	}
 	
 	private double spaceWidth() {
@@ -73,14 +63,12 @@ public class GraphicsGame extends GraphicsPane {
 
 	@Override
 	public void showContents() {
-		drawGridLines();
 		program.add(lives);
 		program.add(score);
 	}
 
 	@Override
 	public void hideContents() {
-		removeGridLines();
 		program.remove(lives);
 		program.remove(score);
 	}
