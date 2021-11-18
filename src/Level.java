@@ -41,7 +41,6 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	
 	public Level createLevel(String s) {
 		mapSize = s;
-		setUpLevelEasy();
 		//made created of small level as defualt for testing purposes "SO REMOVE THIS LATER ON WITH s= "small""
 		if(s== "small") {
 			setUpLevelEasy();
@@ -410,7 +409,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	public Space getWin() {
 		return winSpace;
 	}
-	publixring toString() {
+	public String toString() {
 		return null;
 	}
 	public void setWin(Space s) {
@@ -523,7 +522,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		checkPath();
-		map.moveBarrels(1, vertic,switcher);
+		//map.moveBarrels(1, vertic,switcher);
 	}
 
 	
