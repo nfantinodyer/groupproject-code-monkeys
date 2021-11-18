@@ -63,6 +63,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	}
 	public void setUpLevelEasy(){
 		switcher = new Vector<Boolean>();
+		vertic = new Vector<Boolean>();
 		//DELETE
 		max = 3;
 		min = 1;
@@ -137,24 +138,8 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		switcher.add(false);
 		vertic.add(true);
 		map.addEntity(EntityType.BARREL, 9, 6,true);
+		vertic.add(false);
 		switcher.add(false);
-		switcher.add(true);
-		/*barrelAmount =min+randNum.nextInt(max);
-		System.out.println("now making "+ barrelAmount +" barrels");
-		
-		Space barrelSpace = null;
-		
-		for (int i  = 0; i < barrelAmount;i++) {
-			barrelSpace = new Space(locMin+randNum.nextInt(locMax),locMin+randNum.nextInt(locMax));
-			if(barrelCreate(barrelSpace)== false) {
-				map.addEntity(EntityType.BARREL, barrelSpace.getRow(), barrelSpace.getCol(), false);
-				System.out.println("Barrel #" + (i +1) + " created!");
-				System.out.println("Location is at row "+barrelSpace.getRow()+", col "+ barrelSpace.getCol());
-			}else {
-				System.out.println("NO BARREL CREATED, COLLSION DETECTED");
-			}
-		}*/
-		
 	}
 	public void setUpLevelMed(){
 		// chacater
@@ -477,6 +462,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		ArrayList<Entity> checking = map.barrels;
 		int o = 0;
 		Boolean catcher = null;
+		System.out.println("Now checking all barrel apths");
 		for(Entity i: checking) {
 			
 			if(vertic.elementAt(o)) {
@@ -521,8 +507,10 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	//REMOVE COMMENT
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		System.out.println("now checking movenment");
 		checkPath();
-		//map.moveBarrels(1, vertic,switcher);
+		System.out.println("Now moving narrels");
+		map.moveBarrels(1, vertic,switcher);
 	}
 
 	
