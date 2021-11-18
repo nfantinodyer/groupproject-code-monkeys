@@ -121,6 +121,9 @@ public class Map {
 	}
 	
 	public boolean wallCollision (Space s) {
+		if(s.getRow()>=numRows||s.getCol()>=numCols) {
+			return true;
+		}
 		if (map[s.getRow()][s.getCol()] == null) {
 			return false;
 		}
