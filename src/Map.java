@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Vector;
 
 public class Map {
 	private Entity[][] map;
@@ -99,15 +100,23 @@ public class Map {
 		}
 	}
 	
-	public void moveBarrels(int nSpaces, boolean vertical) {
+	public void moveBarrels(int nSpaces, Vector<Boolean> vertical, Vector<Boolean>switchy) {
+		int p =0;
 		for (Entity i: barrels) {
-			if (vertical) {
-				nSpaces = 10;
+			if (vertical.elementAt(p)) {
+				if(switchy.elementAt(p)) {
+					i.setSpace(i.getRow(), i.getCol()-1);
+				}else {
+					i.setSpace(i.getRow(), i.getCol()+1);
+				}
+			}else { 
+				if(switchy.elementAt(p)) {
+					i.setSpace(i.getRow()-1, i.getCol());
+				}else {
+					i.setSpace(i.getRow()+1, i.getCol());
+				}
 			}
-			
-			else { 
-				nSpaces = 20;
-			}
+			p++;
 		}
 	}
 	
