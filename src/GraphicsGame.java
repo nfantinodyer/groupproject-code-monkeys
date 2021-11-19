@@ -17,6 +17,7 @@ public class GraphicsGame extends GraphicsPane {
 	private GLabel score = new GLabel("SCORE:", 1250, 25);
 	GRect winSpace;
 	
+	private int monkey = 0;
 	private String s = "";
 	
 	
@@ -27,6 +28,14 @@ public class GraphicsGame extends GraphicsPane {
 		
 		lives.setFont("Arial-26");
 		score.setFont("Arial-26");
+	}
+	
+	public void setMonkey(int monkey) {
+		this.monkey = monkey;
+	}
+	
+	public int getMonkey() {
+		return monkey;
 	}
 	
 	public void setupEasy() {

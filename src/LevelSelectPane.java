@@ -19,8 +19,9 @@ public class LevelSelectPane extends GraphicsPane {
 	private GImage hardLevel;
 	private GButton levelSelect = new GButton("SELECTED", 0, 0, 0, 0);
 	private GButton next = new GButton("NEXT", 1400, 700, 60, 60);
+	private int monkey = 0;
 
-	public LevelSelectPane(MainApplication app) {
+	public LevelSelectPane(MainApplication app, int choice) {
 		this.program = app;
 		para = new GParagraph("Level Select", 700, 75);
 		para.setFont("Arial-26");
@@ -40,6 +41,8 @@ public class LevelSelectPane extends GraphicsPane {
 		
 		hardLabel.setFont("Arial-26");
 		hardLabel.setColor(Color.RED);
+		
+		monkey = choice;
 		}
 
 	@Override
@@ -96,6 +99,7 @@ public class LevelSelectPane extends GraphicsPane {
 		}
 		if (obj == next) {
 			GraphicsGame game = new GraphicsGame(program);
+			game.setMonkey(monkey);
 			if (levelSelect.getX() == 230) {
 				game.setupEasy();
 			}

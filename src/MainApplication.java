@@ -121,8 +121,8 @@ public class MainApplication extends GraphicsProgram {
 		switchToScreen(characterSelectPane);
 	}
 	
-	public void switchToLevelSelect() {
-		switchToScreen(levelSelectPane);
+	public void switchToLevelSelect(LevelSelectPane levelSelect) {
+		switchToScreen(levelSelect);
 	}
 	
 	public void switchToGame(GraphicsGame g) {

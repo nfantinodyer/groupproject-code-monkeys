@@ -20,6 +20,8 @@ public class CharacterSelectPane extends GraphicsPane {
 	private GButton rect;
 	private boolean monkey,orang,gorilla = false;
 	private static final String LABEL_FONT = "Arial-Bold-32";
+	
+	private int choice = 0;
 
 	public CharacterSelectPane(MainApplication app) {
 		this.program = app;
@@ -100,14 +102,17 @@ public class CharacterSelectPane extends GraphicsPane {
 		if (obj == charOrang || obj == orangLabel) {
 			charSelect = new GButton("SELECTED", 1054, 575, 100, 50);
 			orang = true;
+			choice = 3;
 		}
 		if (obj == charGorilla || obj == gorillaLabel) {
 			charSelect = new GButton("SELECTED", 703, 575, 100, 50);
 			gorilla = true;
+			choice = 2;
 		}
 		if (obj == charMonkey || obj == monkeyLabel) {
 			charSelect = new GButton("SELECTED", 384, 575, 100, 50);
 			monkey = true;
+			choice = 1;
 		}
 		charSelect.setFillColor(Color.RED);
 		next.setFillColor(Color.RED);
@@ -118,7 +123,8 @@ public class CharacterSelectPane extends GraphicsPane {
 			program.add(next);
 		}
 		if (obj == next) {
-			program.switchToLevelSelect();
+			LevelSelectPane levelSelect = new LevelSelectPane(program, choice);
+			program.switchToLevelSelect(levelSelect);
 		}
 		if (obj == rect) {
 			program.switchToMenu();
