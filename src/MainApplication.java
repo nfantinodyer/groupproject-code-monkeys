@@ -7,6 +7,8 @@ public class MainApplication extends GraphicsProgram {
 	public static final int WINDOW_WIDTH = 1600;
 	public static final int WINDOW_HEIGHT = 800;
 	public static final String MUSIC_FOLDER = "sounds";
+	
+	public int score = 0;
 
 	private GraphicsPane curScreen;
 	private CharacterSelectPane characterSelectPane;
