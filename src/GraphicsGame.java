@@ -4,16 +4,19 @@ import java.util.ArrayList;
 
 import acm.graphics.GLabel;
 import acm.graphics.GLine;
+import acm.graphics.GOval;
 import acm.graphics.GRect;
 
 public class GraphicsGame extends GraphicsPane {
 	// you will use program to get access to all of the GraphicsProgram calls
 	private MainApplication program;
+	private static final int LIFE_WIDTH = 40;
+	private static final int LIFE_HEIGHT = 40;
 	public static final int WINDOW_WIDTH = 1600;
 	public static final int WINDOW_HEIGHT = 800;
 	private Level level = new Level();
 	
-	private GLabel lives = new GLabel("LIVES:", 10, 25);
+	private GLabel lives = new GLabel("LIVES:", 10, 30);
 	private GLabel score = new GLabel("SCORE:", 1250, 25);
 	GRect winSpace;
 	
@@ -52,6 +55,26 @@ public class GraphicsGame extends GraphicsPane {
 	public void setupHard() {
 		level.createLevel("large");
 		s="hard";
+	}
+	
+private void drawLives() {
+		
+		GOval lifeOne = new GOval(100, 5, LIFE_WIDTH, LIFE_HEIGHT);
+		GOval lifeTwo = new GOval(150, 5, LIFE_WIDTH, LIFE_HEIGHT);
+		GOval lifeThree = new GOval(200, 5, LIFE_WIDTH, LIFE_HEIGHT);
+		
+		lifeOne.setFilled(true);
+		lifeTwo.setFilled(true);
+		lifeThree.setFilled(true);
+		
+		lifeOne.setFillColor(Color.red);
+		lifeTwo.setFillColor(Color.red);
+		lifeThree.setFillColor(Color.red);
+		
+		program.add(lifeOne);
+		program.add(lifeTwo);
+		program.add(lifeThree); 
+		
 	}
 	
 	private void drawWinningSpace() {
@@ -124,6 +147,7 @@ public class GraphicsGame extends GraphicsPane {
 		program.add(score);
 		drawGridLines(s);
 		drawWinningSpace();
+		drawLives();
 	}
 
 	@Override
