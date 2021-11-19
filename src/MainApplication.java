@@ -114,6 +114,14 @@ public class MainApplication extends GraphicsProgram {
 		setupInteractions();
 		switchToMenu();
 	}
+	
+	public void addScore(int score) {
+		this.score += score;
+	}
+	
+	public int getScore() {
+		return score;
+	}
 
 	public void switchToMenu() {
 		switchToScreen(menu);

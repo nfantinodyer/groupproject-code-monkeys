@@ -18,6 +18,7 @@ public class GraphicsGame extends GraphicsPane {
 	GRect winSpace;
 	
 	private int monkey = 0;
+	private int points = 0;
 	private String s = "";
 	
 	
