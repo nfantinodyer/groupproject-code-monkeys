@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.Vector;
 
 import acm.graphics.GLabel;
 import acm.graphics.GLine;
@@ -22,6 +23,11 @@ public class GraphicsGame extends GraphicsPane {
 	
 	private int monkey = 0;
 	private int points = 0;
+	Vector<EntityType> barrels = new Vector<EntityType>();
+	Vector<EntityType> walls = new Vector<EntityType>();
+	Vector<EntityType> bananas = new Vector<EntityType>();
+	Vector<EntityType> cherries = new Vector<EntityType>();
+	Vector<EntityType> mangos = new Vector<EntityType>();
 	private String s = "";
 	
 	
@@ -57,8 +63,13 @@ public class GraphicsGame extends GraphicsPane {
 		s="hard";
 	}
 	
-private void drawLives() {
-		
+	private void drawEntities() {
+		//initialize vectors to entity vectors in level
+		//then draw entities within each space
+		//will need images in folder for barrels and fruits
+	}
+	
+	private void drawLives() {	
 		GOval lifeOne = new GOval(100, 5, LIFE_WIDTH, LIFE_HEIGHT);
 		GOval lifeTwo = new GOval(150, 5, LIFE_WIDTH, LIFE_HEIGHT);
 		GOval lifeThree = new GOval(200, 5, LIFE_WIDTH, LIFE_HEIGHT);
