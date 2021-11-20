@@ -125,18 +125,12 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		walls.add(new Entity(EntityType.CHARACTER, 0, 0, false));
 		walls.add(new Entity(EntityType.CHARACTER, 0, 0, false));
 		// 9 hori
-		map.addEntity(EntityType.WALL, 1, 9, false);
-		map.addEntity(EntityType.WALL, 2, 9, false);
-		map.addEntity(EntityType.WALL, 3, 9, false);
-		map.addEntity(EntityType.WALL, 4, 9, false);
-		map.addEntity(EntityType.WALL, 6, 9, false);
-		walls.add(new Entity(EntityType.CHARACTER, 0, 0, false));
-		walls.add(new Entity(EntityType.CHARACTER, 0, 0, false));
-		walls.add(new Entity(EntityType.CHARACTER, 0, 0, false));
-		walls.add(new Entity(EntityType.CHARACTER, 0, 0, false));
-		walls.add(new Entity(EntityType.CHARACTER, 0, 0, false));
-		
-		
+		for (int i = 0; i < 10; i++) {
+			if(i==1||i==2||i==3||i==4||i==6) {
+				map.addEntity(EntityType.WALL, i, 9, false);
+				walls.add(new Entity(EntityType.CHARACTER, i, 9, false));
+			}
+		}
 		
 		//add barrell
 		map.addEntity(EntityType.BARREL, 9,0 ,false);
