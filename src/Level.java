@@ -22,6 +22,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	Timer barrel = new Timer(1000, this);
 	Vector<Boolean> switcher = null;
 	Vector<Boolean> vertic = null;
+	Vector<Entity> walls = null;
 	
 
 	public void run() {
@@ -62,13 +63,9 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		return null;
 	}
 	public void setUpLevelEasy(){
+		walls = new Vector<Entity>();
 		switcher = new Vector<Boolean>();
 		vertic = new Vector<Boolean>();
-		//DELETE
-		max = 3;
-		min = 1;
-		int locMin = 1;
-		int locMax = 6;
 		map = new Map(10,10);
 		winSpace = new Space(9,5);
 		barrelMove = 2;
@@ -76,59 +73,70 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		map.addEntity(EntityType.CHARACTER, 0, 0, false);
 		//0 hori
 		map.addEntity(EntityType.WALL, 0, 0, false);
+		walls.add(new Entity(EntityType.CHARACTER, 0, 0, false));
 		//1 hori
-		map.addEntity(EntityType.WALL, 0, 1, false);
-		map.addEntity(EntityType.WALL, 2, 1, false);
-		map.addEntity(EntityType.WALL, 3, 1, false);
-		map.addEntity(EntityType.WALL, 4, 1, false);
-		map.addEntity(EntityType.WALL, 6, 1, false);
-		map.addEntity(EntityType.WALL, 7, 1, false);
-		map.addEntity(EntityType.WALL, 8, 1, false);
+		for (int i = 0; i < 10; i++) {
+			if(i==0||i==2||i==3||i==4||i==6||i==7||i==8) {
+				map.addEntity(EntityType.WALL, i, 1, false);
+				walls.add(new Entity(EntityType.CHARACTER, i, 1, false));
+			}
+		}
 		//2 hori
-		map.addEntity(EntityType.WALL, 0, 2, false);
-		map.addEntity(EntityType.WALL, 2, 2, false);
-		map.addEntity(EntityType.WALL, 6, 2, false);
+		for (int i = 0; i < 10; i++) {
+			if(i==0||i==2||i==6) {
+				map.addEntity(EntityType.WALL, i, 2, false);
+				walls.add(new Entity(EntityType.CHARACTER, i, 2, false));
+			}	
+		}
 		//3 hori
-		map.addEntity(EntityType.WALL, 0, 3, false);
-		map.addEntity(EntityType.WALL, 1, 3, false);
-		map.addEntity(EntityType.WALL, 2, 3, false);
-		map.addEntity(EntityType.WALL, 3, 3, false);
-		map.addEntity(EntityType.WALL, 5, 3, false);
-		map.addEntity(EntityType.WALL, 6, 3, false);
-		map.addEntity(EntityType.WALL, 8, 3, false);
+		for (int i = 0; i < 10; i++) {
+			if(i==0||i==1||i==2||i==3||i==5||i==6||i==8) {
+				map.addEntity(EntityType.WALL, i, 3, false);
+				walls.add(new Entity(EntityType.CHARACTER, i, 3, false));	
+			}
+		}
 		//4 hori
 		map.addEntity(EntityType.WALL, 5, 4, false);
 		map.addEntity(EntityType.WALL, 8, 4, false);
+		walls.add(new Entity(EntityType.CHARACTER, 5, 4, false));
+		walls.add( new Entity(EntityType.CHARACTER, 8, 4, false));
 		//5 hori
-		map.addEntity(EntityType.WALL, 0, 5, false);
-		map.addEntity(EntityType.WALL, 2, 5, false);
-		map.addEntity(EntityType.WALL, 3, 5, false);
-		map.addEntity(EntityType.WALL, 4, 5, false);
-		map.addEntity(EntityType.WALL, 5, 5, false);
-		map.addEntity(EntityType.WALL, 7, 5, false);
-		map.addEntity(EntityType.WALL, 8, 5, false);
-		map.addEntity(EntityType.WALL, 9, 5, false);
+		for (int i = 0; i < 10; i++) {
+			if(i==0||i==2||i==3||i==4||i==5||i==7||i==8||i==9) {
+				map.addEntity(EntityType.WALL, i, 5, false);
+				walls.add(new Entity(EntityType.CHARACTER, i, 5, false));	
+			}
+		}
 		//6 hori 
 		map.addEntity(EntityType.WALL, 0, 6, false);
 		map.addEntity(EntityType.WALL, 2, 6, false);
+		walls.add(new Entity(EntityType.CHARACTER, 0, 6, false));
+		walls.add(new Entity(EntityType.CHARACTER, 2, 6, false));
 		//7 hori 8
-		map.addEntity(EntityType.WALL, 0, 7, false);
-		map.addEntity(EntityType.WALL, 1, 7, false);
-		map.addEntity(EntityType.WALL, 2, 7, false);
-		map.addEntity(EntityType.WALL, 4, 7, false);
-		map.addEntity(EntityType.WALL, 5, 7, false);
-		map.addEntity(EntityType.WALL, 6, 7, false);
-		map.addEntity(EntityType.WALL, 7, 7, false);
-		map.addEntity(EntityType.WALL, 8, 7, false);
+		for (int i = 0; i < 10; i++) {
+			if(i==0||i==1||i==2||i==4||i==5||i==6||i==7||i==8) {
+				map.addEntity(EntityType.WALL, i, 7, false);
+				walls.add(new Entity(EntityType.CHARACTER, i, 7, false));	
+			}
+		}
 		//8 hori
 		map.addEntity(EntityType.WALL, 4, 8, false);
 		map.addEntity(EntityType.WALL, 8, 8, false);
+		walls.add(new Entity(EntityType.CHARACTER, 0, 0, false));
+		walls.add(new Entity(EntityType.CHARACTER, 0, 0, false));
 		// 9 hori
 		map.addEntity(EntityType.WALL, 1, 9, false);
 		map.addEntity(EntityType.WALL, 2, 9, false);
 		map.addEntity(EntityType.WALL, 3, 9, false);
 		map.addEntity(EntityType.WALL, 4, 9, false);
 		map.addEntity(EntityType.WALL, 6, 9, false);
+		walls.add(new Entity(EntityType.CHARACTER, 0, 0, false));
+		walls.add(new Entity(EntityType.CHARACTER, 0, 0, false));
+		walls.add(new Entity(EntityType.CHARACTER, 0, 0, false));
+		walls.add(new Entity(EntityType.CHARACTER, 0, 0, false));
+		walls.add(new Entity(EntityType.CHARACTER, 0, 0, false));
+		
+		
 		
 		//add barrell
 		map.addEntity(EntityType.BARREL, 9,0 ,false);
@@ -141,6 +149,8 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		vertic.add(false);
 		switcher.add(false);
 	}
+
+
 	public void setUpLevelMed(){
 		// chacater
 		map.addEntity(EntityType.CHARACTER, 7, 0, false);
