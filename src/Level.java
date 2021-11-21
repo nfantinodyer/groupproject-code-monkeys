@@ -48,9 +48,6 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		}else if(s == "medium") {
 			setUpLevelMed();
 		}else if(s == "large"){
-			map = new Map(25,25);
-			winSpace = new Space(24,11);
-			barrelMove = 6;
 			setUpLevelHard();
 		}else {
 			map = new Map(0,0);
@@ -252,6 +249,12 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 			}
 	}
 	public void setUpLevelHard(){
+		map = new Map(25,25);
+		winSpace = new Space(24,11);
+		barrelMove = 6;
+		walls = new Vector<Entity>();
+		switcher = new Vector<Boolean>();
+		vertic = new Vector<Boolean>();
 		
 		//player
 		map.addEntity(EntityType.CHARACTER, 0, 0, false);
@@ -279,6 +282,26 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 			map.addEntity(EntityType.WALL, 11+i, 17, false);
 			map.addEntity(EntityType.WALL, 13+i, 19, false);
 			map.addEntity(EntityType.WALL, 21+i, 24, false);
+			//walls vector adding
+			walls.add(new Entity(EntityType.WALL, i, 0, false));
+			walls.add(new Entity(EntityType.WALL, 7+i, 0, false));
+			walls.add(new Entity(EntityType.WALL, 21+i, 1, false));
+			walls.add(new Entity(EntityType.WALL, 13+i, 1, false));
+			walls.add(new Entity(EntityType.WALL, 11+i, 2, false));
+			walls.add(new Entity(EntityType.WALL, 3+i, 4, false));
+			walls.add(new Entity(EntityType.WALL, 11+i, 4, false));
+			walls.add(new Entity(EntityType.WALL, 19+i, 4, false));
+			walls.add(new Entity(EntityType.WALL, 1+i, 6, false));
+			walls.add(new Entity(EntityType.WALL, 9+i, 8, false));
+			walls.add(new Entity(EntityType.WALL, 13+i, 9, false));
+			walls.add(new Entity(EntityType.WALL, 13+i, 10, false));
+			walls.add(new Entity(EntityType.WALL, 21+i, 10, false));
+			walls.add(new Entity(EntityType.WALL, 19+i, 12, false));
+			walls.add(new Entity(EntityType.WALL, 21+i, 14, false));
+			walls.add(new Entity(EntityType.WALL, 13+i, 16, false));
+			walls.add(new Entity(EntityType.WALL, 11+i, 17, false));
+			walls.add(new Entity(EntityType.WALL, 13+i, 19, false));
+			walls.add(new Entity(EntityType.WALL, 21+i, 24, false));
 		}
 		
 		//Three Vertical
