@@ -23,6 +23,10 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	Vector<Boolean> switcher = null;
 	Vector<Boolean> vertic = null;
 	Vector<Entity> walls = null;
+	Vector<Entity> mango = null;
+	Vector<Entity> cherry= null;
+	Vector<Entity> banana = null;
+		
 	
 
 	public void run() {
@@ -550,6 +554,10 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		return barrelMove;
 	}
 	
+	public Vector<Entity> getWalls() {
+		return walls;
+	}
+	
 	public void checkPath() {
 		ArrayList<Entity> checking = map.barrels;
 		int o = 0;
@@ -596,7 +604,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	public String getMapSize() {
 		return mapSize;
 	}
-	//REMOVE COMMENT
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("now checking movenment");
