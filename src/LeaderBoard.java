@@ -4,8 +4,11 @@ import java.util.Map.Entry;
 
 public class LeaderBoard {
 	private static final String label1 = null;
-	private String playerName;
-	private int playerScore;
+	protected String playerName;
+	protected int playerScore;
+	
+	
+	
 	
 	
 	private TreeMap<Integer,String > easy = new TreeMap<Integer,String>(Collections.reverseOrder());
@@ -67,7 +70,26 @@ public class LeaderBoard {
 	
 	public static void main(String[] args) {
 		new LeaderBoard("huk","easy",25);
+		
 	}
+	  public void GameEntry(String name, int score) {
+	    	this.playerName = name;
+	    	this.playerScore = score;
+	    }
+		public void setPlayerName(String playerName) {
+			this.playerName = playerName;
+		}
+		public void setPlayerScore(int playerScore) {
+			this.playerScore = playerScore;
+		}
+
+		public String getPlayerScore(String playerScore) {
+			return playerScore;
+		}
+		
+		public int getNumberOfEntries(int numOfEntries) {
+			return numOfEntries;
+		}
 	
 	public void add(String userName,String size, int score) {
 		if(size == "easy") {
@@ -233,32 +255,7 @@ public class LeaderBoard {
         String playerName = name;
         int playerScore = score;
     }
-
-
-   /* public String getPlayerName(String winnername, int winnerscore, String board, Object scorelabel1, boolean setText) {
-		if (board.isEmpty())
-	   {
-		   
-	  }
-
-		return playerName;
-	  } */
-
-
-	public void setPlayerName(String playerName) {
-		this.playerName = playerName;
-	}
-
-
-	public int getPlayerScore() {
-		return playerScore;
-	}
-
-
-	public void setPlayerScore(int playerScore) {
-		this.playerScore = playerScore;
-	}
-	
+  
 	public String getValues()
 	{
 		String st="";
