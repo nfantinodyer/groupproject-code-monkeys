@@ -9,7 +9,7 @@ public class Map {
 	private int numCols;
 	private int numEntities = 0;
 	private Space winningSpace;
-	ArrayList<Entity> barrels = new ArrayList<Entity>();
+	Vector<Entity> barrels = new Vector<Entity>();
 	
 	public Map(int r, int c) {
 		map = new Entity[r][c];
@@ -98,6 +98,10 @@ public class Map {
 			character = new Entity(type, r, c, b);
 			startSpace = new Space(r, c);
 		}
+	}
+	
+	public Vector<Entity> getBarrels() {
+		return barrels;
 	}
 	
 	public void moveBarrels(int nSpaces, Vector<Boolean> vertical, Vector<Boolean>switchy) {

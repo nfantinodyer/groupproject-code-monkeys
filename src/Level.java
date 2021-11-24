@@ -558,6 +558,22 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		return walls;
 	}
 	
+	public Vector<Entity> getBarrels() {
+		return map.getBarrels();
+	}
+	
+	public Vector<Entity> getBananas() {
+		return banana;
+	}
+	
+	public Vector<Entity> getCherries() {
+		return cherry;
+	}
+	
+	public Vector<Entity> getMangos() {
+		return mango;
+	}
+	
 	public void checkPath() {
 		ArrayList<Entity> checking = map.barrels;
 		int o = 0;
