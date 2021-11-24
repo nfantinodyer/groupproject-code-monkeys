@@ -3,6 +3,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Vector;
 
+import acm.graphics.GImage;
 import acm.graphics.GLabel;
 import acm.graphics.GLine;
 import acm.graphics.GOval;
@@ -19,6 +20,7 @@ public class GraphicsGame extends GraphicsPane {
 	
 	private GLabel lives = new GLabel("LIVES:", 10, 30);
 	private GLabel score = new GLabel("SCORE:", 1250, 25);
+	private GImage entities;
 	GRect winSpace;
 	GRect wall;
 	
@@ -67,9 +69,15 @@ public class GraphicsGame extends GraphicsPane {
 	}
 	
 	private void drawEntities() {
-		//initialize vectors to entity vectors in level
-		//then draw entities within each space
-		//will need images in folder for barrels and fruits
+		//entities will be reused in this method for character, barrels, and fruits
+		//not working yet, need images in folder
+		
+		
+		//int startRow = level.map.getStartSpace().getRow();
+		//int startCol = level.map.getStartSpace().getCol();
+		//entities = new GImage(character image name, startRow, startCol);
+		//program.add(entities);
+		
 		walls = level.getWalls();
 		
 		for (Entity temp:walls) {
@@ -78,6 +86,26 @@ public class GraphicsGame extends GraphicsPane {
 			wall.setFilled(true);
 			program.add(wall);
 		}
+		
+		//for (Entity temp:barrels) {
+			//entities = new GImage(/*barrel image name*/, temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
+			//program.add(entities);
+		//}
+		
+		//for (Entity temp:bananas) {
+			//entities = new GImage(/*banana image name*/, temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
+			//program.add(entities);
+		//}
+		
+		//for (Entity temp:cherries) {
+			//entities = new GImage(/*cherry image name*/, temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
+			//program.add(entities);
+		//}
+		
+		//for (Entity temp:mangos) {
+			//entities = new GImage(/*mango image name*/, temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
+			//program.add(entities);
+		//}
 	}
 	
 	private void drawLives() {

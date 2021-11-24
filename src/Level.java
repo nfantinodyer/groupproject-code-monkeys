@@ -575,7 +575,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	}
 	
 	public void checkPath() {
-		ArrayList<Entity> checking = map.barrels;
+		Vector<Entity> checking = map.getBarrels();
 		int o = 0;
 		Boolean catcher = null;
 		System.out.println("Now checking all barrel apths");
