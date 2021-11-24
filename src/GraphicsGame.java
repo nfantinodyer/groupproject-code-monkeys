@@ -20,14 +20,15 @@ public class GraphicsGame extends GraphicsPane {
 	private GLabel lives = new GLabel("LIVES:", 10, 30);
 	private GLabel score = new GLabel("SCORE:", 1250, 25);
 	GRect winSpace;
+	GRect wall;
 	
 	private int monkey = 0;
 	private int points = 0;
-	Vector<EntityType> barrels = new Vector<EntityType>();
-	Vector<EntityType> walls = new Vector<EntityType>();
-	Vector<EntityType> bananas = new Vector<EntityType>();
-	Vector<EntityType> cherries = new Vector<EntityType>();
-	Vector<EntityType> mangos = new Vector<EntityType>();
+	Vector<Entity> barrels = new Vector<Entity>();
+	Vector<Entity> walls = new Vector<Entity>();
+	Vector<Entity> bananas = new Vector<Entity>();
+	Vector<Entity> cherries = new Vector<Entity>();
+	Vector<Entity> mangos = new Vector<Entity>();
 	private String s = "";
 	
 	
@@ -38,6 +39,8 @@ public class GraphicsGame extends GraphicsPane {
 		
 		lives.setFont("Arial-26");
 		score.setFont("Arial-26");
+		lives.setColor(Color.RED);
+		score.setColor(Color.RED);
 	}
 	
 	public void setMonkey(int monkey) {
@@ -67,9 +70,17 @@ public class GraphicsGame extends GraphicsPane {
 		//initialize vectors to entity vectors in level
 		//then draw entities within each space
 		//will need images in folder for barrels and fruits
+		walls = level.getWalls();
+		
+		for (Entity temp:walls) {
+			wall = new GRect(temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight(), spaceWidth(), spaceHeight());
+			wall.setFillColor(Color.BLACK);
+			wall.setFilled(true);
+			program.add(wall);
+		}
 	}
 	
-	private void drawLives() {	
+	private void drawLives() {
 		GOval lifeOne = new GOval(100, 5, LIFE_WIDTH, LIFE_HEIGHT);
 		GOval lifeTwo = new GOval(150, 5, LIFE_WIDTH, LIFE_HEIGHT);
 		GOval lifeThree = new GOval(200, 5, LIFE_WIDTH, LIFE_HEIGHT);
@@ -154,6 +165,7 @@ public class GraphicsGame extends GraphicsPane {
 
 	@Override
 	public void showContents() {
+		drawEntities();
 		program.add(lives);
 		program.add(score);
 		drawGridLines(s);
