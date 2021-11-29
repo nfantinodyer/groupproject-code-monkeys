@@ -259,9 +259,13 @@ public class GraphicsGame extends GraphicsPane {
 		Space s;
 		
 		if (e.getKeyChar() == 'w') {
-			character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
-			
 			s = new Space(row-1, col);
+			for (Entity temp:walls) {
+				if (temp.getSpace() == s) {
+					return;
+				}
+			}
+			character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
 			
 			level.collision(s);
 			if ((row-1) >= 0) {
@@ -273,9 +277,13 @@ public class GraphicsGame extends GraphicsPane {
 			}
 		}
 		if (e.getKeyChar() == 'a') {
-			character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
-			
 			s = new Space(row, col-1);
+			for (Entity temp:walls) {
+				if (temp.getSpace() == s) {
+					return;
+				}
+			}
+			character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
 			
 			level.collision(s);
 			if ((col-1) >= 0) {
@@ -287,9 +295,13 @@ public class GraphicsGame extends GraphicsPane {
 			}
 		}
 		if (e.getKeyChar() == 's') {
-			character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
-			
 			s = new Space(row+1, col);
+			for (Entity temp:walls) {
+				if (temp.getSpace() == s) {
+					return;
+				}
+			}
+			character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
 			
 			level.collision(s);
 			if ((row+1) <= (WINDOW_HEIGHT / spaceHeight())) {
@@ -301,9 +313,13 @@ public class GraphicsGame extends GraphicsPane {
 			}
 		}
 		if (e.getKeyChar() == 'd') {
-			character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
-			
 			s = new Space(row, col+1);
+			for (Entity temp:walls) {
+				if (temp.getSpace() == s) {
+					return;
+				}
+			}
+			character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
 			
 			level.collision(s);
 			if ((col+1) <= (WINDOW_WIDTH / spaceWidth())) {
