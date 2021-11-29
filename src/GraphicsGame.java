@@ -87,10 +87,10 @@ public class GraphicsGame extends GraphicsPane {
 			program.add(wall);
 		}
 		
-		//for (Entity temp:barrels) {
-			//entities = new GImage(/*barrel image name*/, temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
-			//program.add(entities);
-		//}
+		for (Entity temp:barrels) {
+			entities = new GImage("barrel.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
+			program.add(entities);
+		}
 		
 		//for (Entity temp:bananas) {
 			//entities = new GImage(/*banana image name*/, temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
