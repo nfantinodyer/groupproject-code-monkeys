@@ -68,6 +68,23 @@ public class GraphicsGame extends GraphicsPane {
 		s="hard";
 	}
 	
+	public void resize()
+	{
+		if(s=="easy")
+		{
+			entities.scale(.2);
+		}
+		else if(s=="medium")
+		{
+			entities.scale(.15);
+		}
+		else
+		{
+			entities.scale(.11);
+		}
+			
+	}
+	
 	private void drawEntities() {
 		//entities will be reused in this method for character, barrels, and fruits
 		//not working yet, need images in folder
@@ -78,10 +95,7 @@ public class GraphicsGame extends GraphicsPane {
 		cherries = level.getCherries();
 		mangos = level.getMangos();
 		
-		//int startRow = level.map.getStartSpace().getRow();
-		//int startCol = level.map.getStartSpace().getCol();
-		//entities = new GImage(character image name, startRow, startCol);
-		//program.add(entities);
+		
 		
 		for (Entity temp:walls) {
 			wall = new GRect(temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight(), spaceWidth(), spaceHeight());
@@ -89,6 +103,23 @@ public class GraphicsGame extends GraphicsPane {
 			wall.setFilled(true);
 			program.add(wall);
 		}
+		
+		int startRow = level.map.getStartSpace().getRow();
+		int startCol = level.map.getStartSpace().getCol();
+		if(monkey == 1)
+		{
+			entities = new GImage("Chimp_Cartoon.jpg", startRow * spaceHeight(), startCol * spaceWidth());
+		}
+		else if(monkey==2)
+		{
+			entities = new GImage("Gorilla_Cartoon.jpg", startRow * spaceHeight(), startCol * spaceWidth());
+		}
+		else
+		{
+			entities = new GImage("Orangutan_Cartoon.jpg", startRow * spaceHeight(), startCol * spaceWidth());
+		}
+		resize();
+		program.add(entities);
 		
 		for (Entity temp:barrels) {
 			entities = new GImage("barrel.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
