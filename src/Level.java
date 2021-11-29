@@ -151,10 +151,10 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		switcher = new Vector<Boolean>();
 		vertic = new Vector<Boolean>();
 		// chacater
-		map.addEntity(EntityType.CHARACTER, 7, 0, false);
+		map.addEntity(EntityType.CHARACTER,  0,7, false);
 		//0 horizintal
-		map.addEntity(EntityType.WALL, 6, 0, false);
-		map.addEntity(EntityType.WALL, 10, 0, false);
+		map.addEntity(EntityType.WALL,  0,6, false);
+		map.addEntity(EntityType.WALL,  0,10, false);
 		walls.add(new Entity(EntityType.WALL, 6,0, false));
 		walls.add(new Entity(EntityType.WALL, 10, 0, false));
 		//1 hori
