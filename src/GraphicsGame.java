@@ -72,13 +72,16 @@ public class GraphicsGame extends GraphicsPane {
 		//entities will be reused in this method for character, barrels, and fruits
 		//not working yet, need images in folder
 		
+		walls = level.getWalls();
+		barrels = level.getBarrels();
+		bananas = level.getBananas();
+		cherries = level.getCherries();
+		mangos = level.getMangos();
 		
 		//int startRow = level.map.getStartSpace().getRow();
 		//int startCol = level.map.getStartSpace().getCol();
 		//entities = new GImage(character image name, startRow, startCol);
 		//program.add(entities);
-		
-		walls = level.getWalls();
 		
 		for (Entity temp:walls) {
 			wall = new GRect(temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight(), spaceWidth(), spaceHeight());
