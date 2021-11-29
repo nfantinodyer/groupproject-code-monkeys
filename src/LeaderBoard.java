@@ -128,7 +128,7 @@ public class LeaderBoard {
 			String filename= "leaderboard.txt";
 		    FileWriter fw = new FileWriter(filename,false);
 		    
-		    fw.write("Easy");
+		    fw.write("Easy   ");
 		    
 		    int i = 0;
 		    
@@ -164,7 +164,7 @@ public class LeaderBoard {
 		    
 		    i = 0;
 		   
-		    fw.write("\n\nHard");
+		    fw.write("\n\nHard   ");
 		    for (Entry<Integer, String> mapElement : hard.entrySet()) {
 	            int key = mapElement.getKey();
 	            String value = (mapElement.getValue());
@@ -259,7 +259,7 @@ public class LeaderBoard {
 	public String getValues()
 	{
 		String st="";
-		st+=("Easy");
+		st+=("Easy     ");
 	    
 	    int i = 0;
 	    
@@ -294,7 +294,7 @@ public class LeaderBoard {
 	    
 	    i = 0;
 	   
-	    st+=("\n\n\n\nHard");
+	    st+=("\n\n\n\nHard     ");
 	    for (Entry<Integer, String> mapElement : hard.entrySet()) {
             int key = mapElement.getKey();
             String value = (mapElement.getValue());
