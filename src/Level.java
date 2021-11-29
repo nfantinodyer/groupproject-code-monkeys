@@ -155,8 +155,8 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		//0 horizintal
 		map.addEntity(EntityType.WALL,  0,6, false);
 		map.addEntity(EntityType.WALL,  0,10, false);
-		walls.add(new Entity(EntityType.WALL, 6,0, false));
-		walls.add(new Entity(EntityType.WALL, 10, 0, false));
+		walls.add(new Entity(EntityType.WALL,0,6, false));
+		walls.add(new Entity(EntityType.WALL,  0,10, false));
 		//1 hori
 		for(int i = 0; i <15;i++) {
 			if(i == 0 || i ==1|| i ==2|| i ==4|| i ==6|| i ==7|| i ==8|| i ==10|| i ==11|| i ==12|| i ==13) {
