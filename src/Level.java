@@ -213,7 +213,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		}
 		//9 hori
 		for(int i = 0; i <15;i++) {
-			if(i==1||i==3||i==8||i==12||i==14) {
+			if(i==1||i==3||i==8||i==13||i==14) {
 				map.addEntity(EntityType.WALL,  9,i, false);
 				walls.add(new Entity(EntityType.WALL, 9,i, false));
 			}
