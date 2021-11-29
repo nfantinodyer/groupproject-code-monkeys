@@ -18,18 +18,18 @@ public class GraphicsGame extends GraphicsPane {
 	public static final int WINDOW_HEIGHT = 800;
 	private Level level = new Level();
 	
-	private GLabel lives = new GLabel("LIVES:", 10, 30);
-	private GLabel score = new GLabel("SCORE:", 1250, 25);
+	private GLabel lives = new GLabel("LIVES: ", 10, 30);
+	private GLabel score = new GLabel("SCORE: 0", 1250, 25);
 	private GImage character;
 	private GImage entities;
-	GRect winSpace;
-	GRect wall;
+	private GRect winSpace;
+	private GRect wall;
 	
 	//used in keyEvents
-	double x;
-	double y;
-	int row;
-	int col;
+	private double x;
+	private double y;
+	private int row;
+	private int col;
 	
 	private int monkey = 0;
 	private int points = 0;
@@ -259,6 +259,8 @@ public class GraphicsGame extends GraphicsPane {
 		Space s;
 		
 		if (e.getKeyChar() == 'w') {
+			character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
+			
 			s = new Space(row-1, col);
 			
 			level.collision(s);
@@ -271,6 +273,8 @@ public class GraphicsGame extends GraphicsPane {
 			}
 		}
 		if (e.getKeyChar() == 'a') {
+			character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
+			
 			s = new Space(row, col-1);
 			
 			level.collision(s);
@@ -283,6 +287,8 @@ public class GraphicsGame extends GraphicsPane {
 			}
 		}
 		if (e.getKeyChar() == 's') {
+			character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
+			
 			s = new Space(row+1, col);
 			
 			level.collision(s);
@@ -295,6 +301,8 @@ public class GraphicsGame extends GraphicsPane {
 			}
 		}
 		if (e.getKeyChar() == 'd') {
+			character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
+			
 			s = new Space(row, col+1);
 			
 			level.collision(s);
@@ -303,9 +311,13 @@ public class GraphicsGame extends GraphicsPane {
 					character.setLocation(row * spaceWidth(), col * spaceHeight());
 					return;
 				}
-				character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
 			}
 		}
+		if (level.getLives() == 0) {
+			program.switchToLevelSelect(null);
+		}
+		score = new GLabel("SCORE: " + level.getScore(), 1250, 25);
+		program.add(score);
 	}
 	
 	@Override
