@@ -25,6 +25,12 @@ public class GraphicsGame extends GraphicsPane {
 	GRect winSpace;
 	GRect wall;
 	
+	//used in keyEvents
+	double x;
+	double y;
+	int row;
+	int col;
+	
 	private int monkey = 0;
 	private int points = 0;
 	Vector<Entity> barrels = new Vector<Entity>();
@@ -245,39 +251,51 @@ public class GraphicsGame extends GraphicsPane {
 	}
 
 	@Override
-	public void keyPressed(KeyEvent e) {
-		double x;
-		double y;
-		int row;
-		int col;
+	public void keyPressed(KeyEvent e) {	
+		Space s;
 		
 		if (e.getKeyChar() == 'w') {
 			x = character.getLocation().getX();
 			y = character.getLocation().getY();
 			row = (int)(x / spaceWidth());
 			col = (int)(y / spaceHeight());
-			character.setLocation((row-1) * spaceHeight(), col * spaceWidth());
+			s = new Space(row, col);
+			
+			level.collision(s);
+			
+			if ((row-1) * spaceHeight() >= 0) {
+				character.setLocation((row-1) * spaceHeight(), col * spaceWidth());
+			}
 		}
 		if (e.getKeyChar() == 'a') {
 			x = character.getLocation().getX();
 			y = character.getLocation().getY();
 			row = (int)(x / spaceWidth());
 			col = (int)(y / spaceHeight());
-			character.setLocation(row * spaceHeight(), (col-1) * spaceWidth());
+			
+			if ((col-1) * spaceWidth() >= 0) {
+				character.setLocation(row * spaceHeight(), (col-1) * spaceWidth());
+			}
 		}
 		if (e.getKeyChar() == 's') {
 			x = character.getLocation().getX();
 			y = character.getLocation().getY();
 			row = (int)(x / spaceWidth());
 			col = (int)(y / spaceHeight());
-			character.setLocation((row+1) * spaceHeight(), col * spaceWidth());
+			
+			if ((row+1) * spaceHeight() < WINDOW_HEIGHT) {
+				character.setLocation((row+1) * spaceHeight(), col * spaceWidth());
+			}
 		}
 		if (e.getKeyChar() == 'd') {
 			x = character.getLocation().getX();
 			y = character.getLocation().getY();
 			row = (int)(x / spaceWidth());
 			col = (int)(y / spaceHeight());
-			character.setLocation(row * spaceHeight(), (col+1) * spaceWidth());
+			
+			if ((col+1) * spaceWidth() < WINDOW_WIDTH) {
+				character.setLocation(row * spaceHeight(), (col+1) * spaceWidth());
+			}
 		}
 	}
 	
