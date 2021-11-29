@@ -95,20 +95,20 @@ public class GraphicsGame extends GraphicsPane {
 			program.add(entities);
 		}
 		
-		//for (Entity temp:bananas) {
-			//entities = new GImage(/*banana image name*/, temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
-			//program.add(entities);
-		//}
+		/*for (Entity temp:bananas) {
+			entities = new GImage("Banana.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
+			program.add(entities);
+		}
 		
-		//for (Entity temp:cherries) {
-			//entities = new GImage(/*cherry image name*/, temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
-			//program.add(entities);
-		//}
+		for (Entity temp:cherries) {
+			entities = new GImage("Cherry.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
+			program.add(entities);
+		}
 		
-		//for (Entity temp:mangos) {
-			//entities = new GImage(/*mango image name*/, temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
-			//program.add(entities);
-		//}
+		for (Entity temp:mangos) {
+			entities = new GImage("Mango.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
+			program.add(entities);
+		}*/
 	}
 	
 	private void drawLives() {
