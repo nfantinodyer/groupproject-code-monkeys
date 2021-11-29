@@ -524,6 +524,9 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	public int getNumCols() {
 		return map.getNumCols();
 	}
+	public Space getCharSpace() {
+		return map.getCharacterSpace();
+	}
 	public void collision(Space s){
 		if (!map.wallCollision(s)) {
 			if (map.bananaCollision(s)) {

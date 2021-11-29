@@ -252,49 +252,58 @@ public class GraphicsGame extends GraphicsPane {
 
 	@Override
 	public void keyPressed(KeyEvent e) {	
+		x = character.getLocation().getX();
+		y = character.getLocation().getY();
+		row = (int)(y / spaceWidth());
+		col = (int)(x / spaceHeight());
 		Space s;
 		
 		if (e.getKeyChar() == 'w') {
-			x = character.getLocation().getX();
-			y = character.getLocation().getY();
-			row = (int)(x / spaceWidth());
-			col = (int)(y / spaceHeight());
-			s = new Space(row, col);
+			s = new Space(row-1, col);
 			
 			level.collision(s);
-			
-			if ((row-1) * spaceHeight() >= 0) {
-				character.setLocation((row-1) * spaceHeight(), col * spaceWidth());
+			if ((row-1) >= 0) {
+				if (s != level.getCharSpace()) {
+					character.setLocation(row * spaceWidth(), col * spaceHeight());
+					return;
+				}
+				character.setLocation((row-1) * spaceWidth(), col * spaceHeight());
 			}
 		}
 		if (e.getKeyChar() == 'a') {
-			x = character.getLocation().getX();
-			y = character.getLocation().getY();
-			row = (int)(x / spaceWidth());
-			col = (int)(y / spaceHeight());
+			s = new Space(row, col-1);
 			
-			if ((col-1) * spaceWidth() >= 0) {
-				character.setLocation(row * spaceHeight(), (col-1) * spaceWidth());
+			level.collision(s);
+			if ((col-1) >= 0) {
+				if (s != level.getCharSpace()) {
+					character.setLocation(row * spaceWidth(), col * spaceHeight());
+					return;
+				}
+				character.setLocation(row * spaceWidth(), (col-1) * spaceHeight());
 			}
 		}
 		if (e.getKeyChar() == 's') {
-			x = character.getLocation().getX();
-			y = character.getLocation().getY();
-			row = (int)(x / spaceWidth());
-			col = (int)(y / spaceHeight());
+			s = new Space(row+1, col);
 			
-			if ((row+1) * spaceHeight() < WINDOW_HEIGHT) {
-				character.setLocation((row+1) * spaceHeight(), col * spaceWidth());
+			level.collision(s);
+			if ((row+1) <= (WINDOW_HEIGHT / spaceHeight())) {
+				if (s != level.getCharSpace()) {
+					character.setLocation(row * spaceWidth(), col * spaceHeight());
+					return;
+				}
+				character.setLocation((row+1) * spaceWidth(), col * spaceHeight());
 			}
 		}
 		if (e.getKeyChar() == 'd') {
-			x = character.getLocation().getX();
-			y = character.getLocation().getY();
-			row = (int)(x / spaceWidth());
-			col = (int)(y / spaceHeight());
+			s = new Space(row, col+1);
 			
-			if ((col+1) * spaceWidth() < WINDOW_WIDTH) {
-				character.setLocation(row * spaceHeight(), (col+1) * spaceWidth());
+			level.collision(s);
+			if ((col+1) <= (WINDOW_WIDTH / spaceWidth())) {
+				if (s != level.getCharSpace()) {
+					character.setLocation(row * spaceWidth(), col * spaceHeight());
+					return;
+				}
+				character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
 			}
 		}
 	}
