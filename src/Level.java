@@ -68,7 +68,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		winSpace = new Space(9,5);
 		barrelMove = 2;
 		
-		map.addEntity(EntityType.CHARACTER, 0, 0, false);
+		map.addEntity(EntityType.CHARACTER, 0, 2, false);
 		//0 hori
 		map.addEntity(EntityType.WALL, 0, 0, false);
 		walls.add(new Entity(EntityType.WALL, 0, 0, false));
@@ -131,13 +131,13 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		}
 		
 		//add barrell
-		map.addEntity(EntityType.BARREL, 9,0 ,false);
+		map.addEntity(EntityType.BARREL, 0,9 ,false);
 		switcher.add(false);
 		vertic.add(false);
 		map.addEntity(EntityType.BARREL, 4, 4,true);
 		switcher.add(false);
 		vertic.add(true);
-		map.addEntity(EntityType.BARREL, 9, 6,true);
+		map.addEntity(EntityType.BARREL, 6,9,true);
 		vertic.add(false);
 		switcher.add(false);
 		barrel.start();
