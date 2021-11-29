@@ -20,6 +20,7 @@ public class GraphicsGame extends GraphicsPane {
 	
 	private GLabel lives = new GLabel("LIVES:", 10, 30);
 	private GLabel score = new GLabel("SCORE:", 1250, 25);
+	private GImage character;
 	private GImage entities;
 	GRect winSpace;
 	GRect wall;
@@ -72,15 +73,15 @@ public class GraphicsGame extends GraphicsPane {
 	{
 		if(s=="easy")
 		{
-			entities.scale(.2);
+			character.scale(.2);
 		}
 		else if(s=="medium")
 		{
-			entities.scale(.15);
+			character.scale(.15);
 		}
 		else
 		{
-			entities.scale(.11);
+			character.scale(.11);
 		}
 			
 	}
@@ -108,18 +109,18 @@ public class GraphicsGame extends GraphicsPane {
 		int startCol = level.map.getStartSpace().getCol();
 		if(monkey == 1)
 		{
-			entities = new GImage("Chimp_Cartoon.jpg", startRow * spaceHeight(), startCol * spaceWidth());
+			character = new GImage("Chimp_Cartoon.jpg", startRow * spaceHeight(), startCol * spaceWidth());
 		}
 		else if(monkey==2)
 		{
-			entities = new GImage("Gorilla_Cartoon.jpg", startRow * spaceHeight(), startCol * spaceWidth());
+			character = new GImage("Gorilla_Cartoon.jpg", startRow * spaceHeight(), startCol * spaceWidth());
 		}
 		else
 		{
-			entities = new GImage("Orangutan_Cartoon.jpg", startRow * spaceHeight(), startCol * spaceWidth());
+			character = new GImage("Orangutan_Cartoon.jpg", startRow * spaceHeight(), startCol * spaceWidth());
 		}
 		resize();
-		program.add(entities);
+		program.add(character);
 		
 		for (Entity temp:barrels) {
 			entities = new GImage("barrel.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
@@ -245,7 +246,39 @@ public class GraphicsGame extends GraphicsPane {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		double x;
+		double y;
+		int row;
+		int col;
 		
+		if (e.getKeyChar() == 'w') {
+			x = character.getLocation().getX();
+			y = character.getLocation().getY();
+			row = (int)(x / spaceWidth());
+			col = (int)(y / spaceHeight());
+			character.setLocation((row-1) * spaceHeight(), col * spaceWidth());
+		}
+		if (e.getKeyChar() == 'a') {
+			x = character.getLocation().getX();
+			y = character.getLocation().getY();
+			row = (int)(x / spaceWidth());
+			col = (int)(y / spaceHeight());
+			character.setLocation(row * spaceHeight(), (col-1) * spaceWidth());
+		}
+		if (e.getKeyChar() == 's') {
+			x = character.getLocation().getX();
+			y = character.getLocation().getY();
+			row = (int)(x / spaceWidth());
+			col = (int)(y / spaceHeight());
+			character.setLocation((row+1) * spaceHeight(), col * spaceWidth());
+		}
+		if (e.getKeyChar() == 'd') {
+			x = character.getLocation().getX();
+			y = character.getLocation().getY();
+			row = (int)(x / spaceWidth());
+			col = (int)(y / spaceHeight());
+			character.setLocation(row * spaceHeight(), (col+1) * spaceWidth());
+		}
 	}
 	
 	@Override
