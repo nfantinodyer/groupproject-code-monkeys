@@ -587,16 +587,20 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 			
 			if(vertic.elementAt(o)) {
 				if(switcher.elementAt(o)) {
-					if(map.wallCollision(new Space(i.getRow(),i.getCol()-1))) {
-						catcher= !switcher.elementAt(o);
-						switcher.setElementAt(catcher,o);
+					if (i.getCol()-1 >= 0) {
+						if(map.wallCollision(new Space(i.getRow(),i.getCol()-1))) {
+							catcher= !switcher.elementAt(o);
+							switcher.setElementAt(catcher,o);
+						}
 					}else {
 						continue;
 					}
 				}else {
-					if(map.wallCollision(new Space(i.getRow(),i.getCol()+1))) {
-						catcher= !switcher.elementAt(o);
-						switcher.setElementAt(catcher,o);
+					if (i.getCol()+1 <= 10) {
+						if(map.wallCollision(new Space(i.getRow(),i.getCol()+1))) {
+							catcher= !switcher.elementAt(o);
+							switcher.setElementAt(catcher,o);
+						}
 					}else {
 						continue;
 					}
@@ -604,16 +608,20 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 				
 			}else {
 				if(switcher.elementAt(o)) {
-					if(map.wallCollision(new Space(i.getRow()-1,i.getCol()))) {
-						catcher= !switcher.elementAt(o);
-						switcher.setElementAt(catcher,o);
+					if (i.getRow()-1 >= 0) {
+						if(map.wallCollision(new Space(i.getRow()-1,i.getCol()))) {
+							catcher= !switcher.elementAt(o);
+							switcher.setElementAt(catcher,o);
+						}
 					}else {
 						continue;
 					}
 				}else {
-					if(map.wallCollision(new Space(i.getRow()+1,i.getCol()))) {
-						catcher= !switcher.elementAt(o);
-						switcher.setElementAt(catcher,o);
+					if (i.getRow()+1 <= 10) {
+						if(map.wallCollision(new Space(i.getRow()+1,i.getCol()))) {
+							catcher= !switcher.elementAt(o);
+							switcher.setElementAt(catcher,o);
+						}
 					}else {
 						continue;
 					}
