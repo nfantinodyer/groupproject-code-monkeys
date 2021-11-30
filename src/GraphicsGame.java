@@ -333,7 +333,7 @@ public class GraphicsGame extends GraphicsPane {
 		if (level.getLives() == 0) {
 			program.switchToLevelSelect(null);
 		}
-		score = new GLabel("SCORE: " + level.getScore(), 1250, 25);
+		score.setLabel("SCORE: " + level.getScore());
 		program.add(score);
 	}
 	
