@@ -266,8 +266,8 @@ public class GraphicsGame extends GraphicsPane {
 				}
 			}
 			
-			level.collision(s);
 			if ((row-1) >= 0) {
+				level.collision(s);
 				if (s != level.getCharSpace()) {
 					s = level.getCharSpace();
 					character.setLocation(s.getRow() * spaceWidth(), s.getCol() * spaceHeight());
@@ -284,8 +284,8 @@ public class GraphicsGame extends GraphicsPane {
 				}
 			}
 			
-			level.collision(s);
 			if ((col-1) >= 0) {
+				level.collision(s);
 				if (s != level.getCharSpace()) {
 					s = level.getCharSpace();
 					character.setLocation(s.getRow() * spaceWidth(), s.getCol() * spaceHeight());
@@ -302,8 +302,8 @@ public class GraphicsGame extends GraphicsPane {
 				}
 			}
 			
-			level.collision(s);
 			if ((row+1) <= (WINDOW_HEIGHT / spaceHeight())) {
+				level.collision(s);
 				if (s != level.getCharSpace()) {
 					s = level.getCharSpace();
 					character.setLocation(s.getRow() * spaceWidth(), s.getCol() * spaceHeight());
@@ -320,8 +320,8 @@ public class GraphicsGame extends GraphicsPane {
 				}
 			}
 			
-			level.collision(s);
 			if ((col+1) <= (WINDOW_WIDTH / spaceWidth())) {
+				level.collision(s);
 				if (s != level.getCharSpace()) {
 					s = level.getCharSpace();
 					character.setLocation(s.getRow() * spaceWidth(), s.getCol() * spaceHeight());
