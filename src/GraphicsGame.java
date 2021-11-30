@@ -265,12 +265,12 @@ public class GraphicsGame extends GraphicsPane {
 					return;
 				}
 			}
-			character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
 			
 			level.collision(s);
 			if ((row-1) >= 0) {
 				if (s != level.getCharSpace()) {
-					character.setLocation(row * spaceWidth(), col * spaceHeight());
+					s = level.getCharSpace();
+					character.setLocation(s.getRow() * spaceWidth(), s.getCol() * spaceHeight());
 					return;
 				}
 				character.setLocation((row-1) * spaceWidth(), col * spaceHeight());
@@ -283,12 +283,12 @@ public class GraphicsGame extends GraphicsPane {
 					return;
 				}
 			}
-			character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
 			
 			level.collision(s);
 			if ((col-1) >= 0) {
 				if (s != level.getCharSpace()) {
-					character.setLocation(row * spaceWidth(), col * spaceHeight());
+					s = level.getCharSpace();
+					character.setLocation(s.getRow() * spaceWidth(), s.getCol() * spaceHeight());
 					return;
 				}
 				character.setLocation(row * spaceWidth(), (col-1) * spaceHeight());
@@ -301,12 +301,12 @@ public class GraphicsGame extends GraphicsPane {
 					return;
 				}
 			}
-			character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
 			
 			level.collision(s);
 			if ((row+1) <= (WINDOW_HEIGHT / spaceHeight())) {
 				if (s != level.getCharSpace()) {
-					character.setLocation(row * spaceWidth(), col * spaceHeight());
+					s = level.getCharSpace();
+					character.setLocation(s.getRow() * spaceWidth(), s.getCol() * spaceHeight());
 					return;
 				}
 				character.setLocation((row+1) * spaceWidth(), col * spaceHeight());
@@ -319,14 +319,15 @@ public class GraphicsGame extends GraphicsPane {
 					return;
 				}
 			}
-			character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
 			
 			level.collision(s);
 			if ((col+1) <= (WINDOW_WIDTH / spaceWidth())) {
 				if (s != level.getCharSpace()) {
-					character.setLocation(row * spaceWidth(), col * spaceHeight());
+					s = level.getCharSpace();
+					character.setLocation(s.getRow() * spaceWidth(), s.getCol() * spaceHeight());
 					return;
 				}
+				character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
 			}
 		}
 		if (level.getLives() == 0) {
