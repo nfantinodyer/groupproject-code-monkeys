@@ -283,13 +283,16 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			if ((row-1) >= 0) {
 				level.collision(targetSpace);
 				if (charOldSpace != level.getCharSpace()) {
+					/*
 					targetSpace.setCol(level.getCharSpace().getCol());
 					targetSpace.setRow(level.getCharSpace().getRow()-1);
+					*/
+					targetSpace = level.getCharSpace();
 				}
 				character.setLocation((double)targetSpace.getRow() * spaceHeight(), (double)targetSpace.getCol() * spaceWidth());
 				level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());	
-				System.out.print(level.getCharSpace().getRow()+", "+level.getCharSpace().getCol()+"\n"+col+", "+row);
-				return;
+				//System.out.print(level.getCharSpace().getRow()+", "+level.getCharSpace().getCol()+"\n"+col+", "+row);
+				//return;
 
 			}
 		}
@@ -303,17 +306,18 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			
 			if ((col-1) >= 0) {
 				level.collision(targetSpace);
-				if (targetSpace != level.getCharSpace()) {
+				if (charOldSpace != level.getCharSpace()) {
 					targetSpace = level.getCharSpace();
-					character.setLocation((double)targetSpace.getRow() * spaceWidth(), (double)targetSpace.getCol() * spaceHeight());
-					level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());
+					//character.setLocation((double)targetSpace.getRow() * spaceWidth(), (double)targetSpace.getCol() * spaceHeight());
+					//level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());
 					
-					System.out.print(e.getKeyChar()+"\n");
+					//System.out.print(e.getKeyChar()+"\n");
 					
-					return;
+					//return;
 				}
-				character.setLocation((double)(col-1) * spaceWidth(), (double)row * spaceHeight());
+				character.setLocation((double)targetSpace.getRow() * spaceHeight(), (double)targetSpace.getCol() * spaceWidth());
 				level.setCharSpace(row, (col-1));
+				//return;
 			}
 		}
 		if (e.getKeyChar() == 's') {
@@ -326,17 +330,18 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			
 			if ((row+1) <= (WINDOW_HEIGHT / spaceHeight())) {
 				level.collision(targetSpace);
-				if (targetSpace != level.getCharSpace()) {
+				if (charOldSpace != level.getCharSpace()) {
 					targetSpace = level.getCharSpace();
-					character.setLocation((double)targetSpace.getRow() * spaceWidth(), (double)targetSpace.getCol() * spaceHeight());
-					level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());
+					//character.setLocation((double)targetSpace.getRow() * spaceWidth(), (double)targetSpace.getCol() * spaceHeight());
+					//level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());
 					
-					System.out.print(e.getKeyChar()+"\n");
+					//System.out.print(e.getKeyChar()+"\n");
 					
-					return;
+					//return;
 				}
-				character.setLocation((double)col * spaceWidth(), (double)(row+1)* spaceHeight());
+				character.setLocation((double)targetSpace.getRow() * spaceWidth(), (double)targetSpace.getCol() * spaceHeight());
 				level.setCharSpace((row+1), col);
+				//return;
 			}
 		}
 		if (e.getKeyChar() == 'd') {
@@ -351,19 +356,27 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				level.collision(targetSpace);
 				if (targetSpace != level.getCharSpace()) {
 					targetSpace = level.getCharSpace();
-					character.setLocation((double)targetSpace.getRow() * spaceWidth(), (double)targetSpace.getCol() * spaceHeight());
-					level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());
+					//character.setLocation((double)targetSpace.getRow() * spaceWidth(), (double)targetSpace.getCol() * spaceHeight());
+					//level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());
 					
-					System.out.print(e.getKeyChar()+"\n");
+					//System.out.print(e.getKeyChar()+"\n");
 					
-					return;
+					//return;
 				}
-				character.setLocation((double)(col+1) * spaceWidth(), (double)row * spaceHeight());
+				character.setLocation((double)targetSpace.getRow() * spaceWidth(), (double)targetSpace.getCol() * spaceHeight());
 				level.setCharSpace(row, (col+1));
+				//return;
 			}
 		}
 		if (level.getLives() == 0) {
-			program.switchToLevelSelect(null);
+			GButton lose = new GButton("YOU LOSE. \"SPACE\" TO CONTINUE", 50, 50, WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
+			program.add(lose);
+			
+			while (e.getKeyChar() != ' ') {
+				if (e.getKeyChar() == ' ') {
+					program.switchToLevelSelect(null);
+				}
+			}
 		}
 		score.setLabel("SCORE: " + level.getScore());
 		
