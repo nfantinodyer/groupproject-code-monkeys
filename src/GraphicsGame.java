@@ -25,7 +25,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	private GLabel lives = new GLabel("LIVES: ", 10, 30);
 	private GLabel score = new GLabel("SCORE: 0", 1250, 25);
 	private GImage character;
-	private Vector<GImage> enemies;
+	private Vector<GImage> enemies = new Vector<GImage>();
 	private GImage entities;
 	private GRect winSpace;
 	private GRect wall;
@@ -377,10 +377,10 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
+		/*
 		level.checkPath();
 		level.map.moveBarrels(1, vertic,switcher);
 		
-		/*
 		int p =0;
 		for (GImage j: enemies) {
 			for (Entity i:barrels) {
