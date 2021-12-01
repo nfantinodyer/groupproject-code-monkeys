@@ -254,6 +254,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		
 	}
 	public void setUpLevelHard(){
+		// to add
 		map = new Map(25,25);
 		winSpace = new Space(24,11);
 		barrelMove = 6;
