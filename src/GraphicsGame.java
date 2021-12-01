@@ -278,8 +278,7 @@ public class GraphicsGame extends GraphicsPane {
 					return;
 				}
 				character.setLocation((double) col* spaceWidth(), (double)(row-1) * spaceHeight());
-				
-				
+				level.setCharSpace((row-1), col);
 			}
 		}
 		if (e.getKeyChar() == 'a') {
@@ -302,8 +301,7 @@ public class GraphicsGame extends GraphicsPane {
 					return;
 				}
 				character.setLocation((double)(col-1) * spaceWidth(), (double)row * spaceHeight());
-				
-				
+				level.setCharSpace(row, (col-1));
 			}
 		}
 		if (e.getKeyChar() == 's') {
@@ -326,8 +324,7 @@ public class GraphicsGame extends GraphicsPane {
 					return;
 				}
 				character.setLocation((double)col * spaceWidth(), (double)(row+1)* spaceHeight());
-				
-				
+				level.setCharSpace((row+1), col);
 			}
 		}
 		if (e.getKeyChar() == 'd') {
@@ -350,8 +347,7 @@ public class GraphicsGame extends GraphicsPane {
 					return;
 				}
 				character.setLocation((double)(col+1) * spaceWidth(), (double)row * spaceHeight());
-				
-				
+				level.setCharSpace(row, (col+1));
 			}
 		}
 		if (level.getLives() == 0) {
