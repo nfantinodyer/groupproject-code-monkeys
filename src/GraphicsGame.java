@@ -125,15 +125,15 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		int startCol = level.map.getStartSpace().getCol();
 		if(monkey == 1)
 		{
-			character = new GImage("Chimp_Cartoon.jpg", startRow * spaceHeight(), startCol * spaceWidth());
+			character = new GImage("Chimp_Cartoon.jpg", startRow * spaceWidth(), startCol * spaceHeight());
 		}
 		else if(monkey==2)
 		{
-			character = new GImage("Gorilla_Cartoon.jpg", startRow * spaceHeight(), startCol * spaceWidth());
+			character = new GImage("Gorilla_Cartoon.jpg", startRow * spaceWidth(), startCol * spaceHeight());
 		}
 		else
 		{
-			character = new GImage("Orangutan_Cartoon.jpg", startRow * spaceHeight(), startCol * spaceWidth());
+			character = new GImage("Orangutan_Cartoon.jpg", startRow * spaceWidth(), startCol * spaceHeight());
 		}
 		resize();
 		program.add(character);
