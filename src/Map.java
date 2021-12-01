@@ -105,6 +105,18 @@ public class Map {
 			startSpace = new Space(r, c);
 		}
 		
+		if (type == EntityType.CHERRY) {
+			cherries.add(e);
+		}
+		
+		if (type == EntityType.MANGO) {
+			mangoes.add(e);
+		}
+		
+		if (type == EntityType.BANANA) {
+			bananas.add(e);
+		}
+		
 		
 	}
 	
