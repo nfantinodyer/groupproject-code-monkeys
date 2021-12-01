@@ -259,7 +259,7 @@ public class GraphicsGame extends GraphicsPane {
 		Space s;
 		
 		if (e.getKeyChar() == 'w') {
-			s = new Space(row-1, col);
+			s = new Space(col,row-1);
 			for (Entity temp:walls) {
 				if (temp.getSpace() == s) {
 					return;
@@ -270,14 +270,20 @@ public class GraphicsGame extends GraphicsPane {
 				level.collision(s);
 				if (s != level.getCharSpace()) {
 					s = level.getCharSpace();
-					character.setLocation(s.getRow() * spaceWidth(), s.getCol() * spaceHeight());
+					character.setLocation((double)s.getRow() * spaceWidth(), (double)s.getCol() * spaceHeight());
+					level.setCharSpace(s.getRow(),s.getCol());
+					
+					System.out.print(level.getCharSpace().getRow()+", "+level.getCharSpace().getCol()+"\n"+col+", "+row);
+					
 					return;
 				}
-				character.setLocation((row-1) * spaceWidth(), col * spaceHeight());
+				character.setLocation((double) col* spaceWidth(), (double)(row-1) * spaceHeight());
+				
+				
 			}
 		}
 		if (e.getKeyChar() == 'a') {
-			s = new Space(row, col-1);
+			s = new Space(col-1,row);
 			for (Entity temp:walls) {
 				if (temp.getSpace() == s) {
 					return;
@@ -288,14 +294,20 @@ public class GraphicsGame extends GraphicsPane {
 				level.collision(s);
 				if (s != level.getCharSpace()) {
 					s = level.getCharSpace();
-					character.setLocation(s.getRow() * spaceWidth(), s.getCol() * spaceHeight());
+					character.setLocation((double)s.getRow() * spaceWidth(), (double)s.getCol() * spaceHeight());
+					level.setCharSpace(s.getRow(),s.getCol());
+					
+					System.out.print(e.getKeyChar()+"\n");
+					
 					return;
 				}
-				character.setLocation(row * spaceWidth(), (col-1) * spaceHeight());
+				character.setLocation((double)(col-1) * spaceWidth(), (double)row * spaceHeight());
+				
+				
 			}
 		}
 		if (e.getKeyChar() == 's') {
-			s = new Space(row+1, col);
+			s = new Space(col,row+1);
 			for (Entity temp:walls) {
 				if (temp.getSpace() == s) {
 					return;
@@ -306,14 +318,20 @@ public class GraphicsGame extends GraphicsPane {
 				level.collision(s);
 				if (s != level.getCharSpace()) {
 					s = level.getCharSpace();
-					character.setLocation(s.getRow() * spaceWidth(), s.getCol() * spaceHeight());
+					character.setLocation((double)s.getRow() * spaceWidth(), (double)s.getCol() * spaceHeight());
+					level.setCharSpace(s.getRow(),s.getCol());
+					
+					System.out.print(e.getKeyChar()+"\n");
+					
 					return;
 				}
-				character.setLocation((row+1) * spaceWidth(), col * spaceHeight());
+				character.setLocation((double)col * spaceWidth(), (double)(row+1)* spaceHeight());
+				
+				
 			}
 		}
 		if (e.getKeyChar() == 'd') {
-			s = new Space(row, col+1);
+			s = new Space(col+1,row);
 			for (Entity temp:walls) {
 				if (temp.getSpace() == s) {
 					return;
@@ -324,21 +342,28 @@ public class GraphicsGame extends GraphicsPane {
 				level.collision(s);
 				if (s != level.getCharSpace()) {
 					s = level.getCharSpace();
-					character.setLocation(s.getRow() * spaceWidth(), s.getCol() * spaceHeight());
+					character.setLocation((double)s.getRow() * spaceWidth(), (double)s.getCol() * spaceHeight());
+					level.setCharSpace(s.getRow(),s.getCol());
+					
+					System.out.print(e.getKeyChar()+"\n");
+					
 					return;
 				}
-				character.setLocation(row * spaceWidth(), (col+1) * spaceHeight());
+				character.setLocation((double)(col+1) * spaceWidth(), (double)row * spaceHeight());
+				
+				
 			}
 		}
 		if (level.getLives() == 0) {
 			program.switchToLevelSelect(null);
 		}
 		score.setLabel("SCORE: " + level.getScore());
+		
 		program.add(score);
 	}
 	
 	@Override
 	public void keyReleased(KeyEvent e) {
-		
+		program.add(character);
 	}
 }

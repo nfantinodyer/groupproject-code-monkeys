@@ -466,6 +466,10 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	public Space getCharSpace() {
 		return map.getCharacterSpace();
 	}
+	public void setCharSpace(int row, int col) {
+		map.setCharacterSpace(row,col);
+		
+	}
 	public void collision(Space s){
 		if (!map.wallCollision(s)) {
 			if (map.bananaCollision(s)) {
@@ -647,5 +651,8 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	public static void main(String[] args) {
 		new Level().start();
 	}
+
+
+	
 	
 }
