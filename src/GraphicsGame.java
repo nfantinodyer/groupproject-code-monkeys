@@ -26,9 +26,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	private GLabel score = new GLabel("SCORE: 0", 1250, 25);
 	private GImage character;
 	private Vector<GImage> enemies = new Vector<GImage>();
-	private Vector<GImage> bananaImage = new Vector<GImage>();
-	private Vector<GImage> cherryImage = new Vector<GImage>();
-	private Vector<GImage> mangoImage = new Vector<GImage>();
 	private GImage entities;
 	private GRect winSpace;
 	private GRect wall;
@@ -148,21 +145,18 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		}
 		
 		/*for (Entity temp:bananas) {
-			GImage banana = new GImage("Banana.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
-			program.add(banana);
-			bananaImage.add(banana);
-		} */
-		
-		for (Entity temp:cherries) {
-			GImage cherry = new GImage("Cherry.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
-			program.add(cherry);
-			cherryImage.add(cherry);
+			entities = new GImage("Banana.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
+			program.add(entities);
 		}
 		
-		/*for (Entity temp:mangos) {
-			GImage mango = new GImage("Mango.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
-			program.add(mango);
-			mangoImage.add(mango);
+		for (Entity temp:cherries) {
+			entities = new GImage("Cherry.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
+			program.add(entities);
+		}
+		
+		for (Entity temp:mangos) {
+			entities = new GImage("Mango.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
+			program.add(entities);
 		}*/
 	}
 	
@@ -273,47 +267,46 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	public void keyPressed(KeyEvent e) {	
 		x = character.getLocation().getX();
 		y = character.getLocation().getY();
-		row = (int)(y / spaceWidth());
-		col = (int)(x / spaceHeight());
-		Space s;
+		row = (int)(y / spaceHeight());
+		col = (int)(x / spaceWidth());
+		Space charOldSpace = level.getCharSpace();
+		Space targetSpace;
 		
 		if (e.getKeyChar() == 'w') {
-			s = new Space(col,row-1);
+			targetSpace = new Space(row-1,col);
 			for (Entity temp:walls) {
-				if (temp.getSpace() == s) {
+				if (temp.getSpace() == targetSpace) {
 					return;
 				}
 			}
 			
 			if ((row-1) >= 0) {
-				level.collision(s);
-				if (s != level.getCharSpace()) {
-					s = level.getCharSpace();
-					character.setLocation((double)s.getRow() * spaceWidth(), (double)s.getCol() * spaceHeight());
-					level.setCharSpace(s.getRow(),s.getCol());
-					
-					System.out.print(level.getCharSpace().getRow()+", "+level.getCharSpace().getCol()+"\n"+col+", "+row);
-					
-					return;
+				level.collision(targetSpace);
+				if (charOldSpace != level.getCharSpace()) {
+					targetSpace.setCol(level.getCharSpace().getCol());
+					targetSpace.setRow(level.getCharSpace().getRow()-1);
 				}
-				character.setLocation((double) col* spaceWidth(), (double)(row-1) * spaceHeight());
-				level.setCharSpace((row-1), col);
+				character.setLocation((double)targetSpace.getRow() * spaceHeight(), (double)targetSpace.getCol() * spaceWidth());
+				level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());	
+				System.out.print(level.getCharSpace().getRow()+", "+level.getCharSpace().getCol()+"\n"+col+", "+row);
+				return;
+
 			}
 		}
 		if (e.getKeyChar() == 'a') {
-			s = new Space(col-1,row);
+			targetSpace = new Space(col-1,row);
 			for (Entity temp:walls) {
-				if (temp.getSpace() == s) {
+				if (temp.getSpace() == targetSpace) {
 					return;
 				}
 			}
 			
 			if ((col-1) >= 0) {
-				level.collision(s);
-				if (s != level.getCharSpace()) {
-					s = level.getCharSpace();
-					character.setLocation((double)s.getRow() * spaceWidth(), (double)s.getCol() * spaceHeight());
-					level.setCharSpace(s.getRow(),s.getCol());
+				level.collision(targetSpace);
+				if (targetSpace != level.getCharSpace()) {
+					targetSpace = level.getCharSpace();
+					character.setLocation((double)targetSpace.getRow() * spaceWidth(), (double)targetSpace.getCol() * spaceHeight());
+					level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());
 					
 					System.out.print(e.getKeyChar()+"\n");
 					
@@ -324,19 +317,19 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			}
 		}
 		if (e.getKeyChar() == 's') {
-			s = new Space(col,row+1);
+			targetSpace = new Space(col,row+1);
 			for (Entity temp:walls) {
-				if (temp.getSpace() == s) {
+				if (temp.getSpace() == targetSpace) {
 					return;
 				}
 			}
 			
 			if ((row+1) <= (WINDOW_HEIGHT / spaceHeight())) {
-				level.collision(s);
-				if (s != level.getCharSpace()) {
-					s = level.getCharSpace();
-					character.setLocation((double)s.getRow() * spaceWidth(), (double)s.getCol() * spaceHeight());
-					level.setCharSpace(s.getRow(),s.getCol());
+				level.collision(targetSpace);
+				if (targetSpace != level.getCharSpace()) {
+					targetSpace = level.getCharSpace();
+					character.setLocation((double)targetSpace.getRow() * spaceWidth(), (double)targetSpace.getCol() * spaceHeight());
+					level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());
 					
 					System.out.print(e.getKeyChar()+"\n");
 					
@@ -347,19 +340,19 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			}
 		}
 		if (e.getKeyChar() == 'd') {
-			s = new Space(col+1,row);
+			targetSpace = new Space(col+1,row);
 			for (Entity temp:walls) {
-				if (temp.getSpace() == s) {
+				if (temp.getSpace() == targetSpace) {
 					return;
 				}
 			}
 			
 			if ((col+1) <= (WINDOW_WIDTH / spaceWidth())) {
-				level.collision(s);
-				if (s != level.getCharSpace()) {
-					s = level.getCharSpace();
-					character.setLocation((double)s.getRow() * spaceWidth(), (double)s.getCol() * spaceHeight());
-					level.setCharSpace(s.getRow(),s.getCol());
+				level.collision(targetSpace);
+				if (targetSpace != level.getCharSpace()) {
+					targetSpace = level.getCharSpace();
+					character.setLocation((double)targetSpace.getRow() * spaceWidth(), (double)targetSpace.getCol() * spaceHeight());
+					level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());
 					
 					System.out.print(e.getKeyChar()+"\n");
 					
