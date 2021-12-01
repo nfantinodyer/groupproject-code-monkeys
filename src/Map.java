@@ -124,6 +124,18 @@ public class Map {
 		return barrels;
 	}
 	
+	public Vector<Entity> getCherries() {
+		return cherries;
+	}
+	
+	public Vector<Entity> getMangoes() {
+		return mangoes;
+	}
+	
+	public Vector<Entity> getBananas() {
+		return bananas;
+	}
+	
 	public void moveBarrels(int nSpaces, Vector<Boolean> vertical, Vector<Boolean>switchy) {
 		int p =0;
 		for (Entity i: barrels) {

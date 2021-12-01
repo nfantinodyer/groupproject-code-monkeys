@@ -23,9 +23,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	Vector<Boolean> switcher = null;
 	Vector<Boolean> vertic = null;
 	Vector<Entity> walls = null;
-	Vector<Entity> mango = null;
-	Vector<Entity> cherry= null;
-	Vector<Entity> banana = null;
+	
 		
 	
 
@@ -46,7 +44,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	
 	public Level createLevel(String s) {
 		mapSize = s;
-		//made created of small level as defualt for testing purposes "SO REMOVE THIS LATER ON WITH s= "small""
+		//made created of small level as default for testing purposes "SO REMOVE THIS LATER ON WITH s= "small""
 		if(s== "small") {
 			setUpLevelEasy();
 		}else if(s == "medium") {
@@ -143,7 +141,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		barrel.start();
 		
 		//add fruit
-		//map.addEntity(EntityType.CHERRY, );
+		map.addEntity(EntityType.CHERRY, 3, 4, false);
 	}
 
 	public void setUpLevelMed(){
@@ -511,15 +509,15 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	}
 	
 	public Vector<Entity> getBananas() {
-		return banana;
+		return map.getBananas();
 	}
 	
 	public Vector<Entity> getCherries() {
-		return cherry;
+		return map.getCherries();
 	}
 	
 	public Vector<Entity> getMangos() {
-		return mango;
+		return map.getMangoes();
 	}
 	
 	public void checkPath() {
