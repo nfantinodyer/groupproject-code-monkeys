@@ -379,8 +379,8 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		}
 		//16 hori
 		map.addEntity(EntityType.WALL, 16,14, false);
-		walls.add(new Entity(EntityType.WALL, 16,4, false));
-		//17 hori
+		walls.add(new Entity(EntityType.WALL, 16,14, false));
+		//17 hori fix
 		for (int i = 0; i < 25; i++) {
 			if(i==1||i==2||i==3||i==4||i==5||i==6||i==7||i==8||i==9||i==10||i==11||i==12||i==13||i==14||i==16||i==17||i==18||i==20||i==22||i==23) {
 				map.addEntity(EntityType.WALL, 17,i, false);
@@ -396,12 +396,12 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		}
 		//19 hori
 		for (int i = 0; i < 25; i++) {
-			if(i==0||i==1||i==2||i==3||i==4||i==6||i==8||i==9||i==10||i==11||i==12||i==14||i==15||i==16||i==18||i==20||i==22||i==23||i==24) {
+			if(i==0||i==1||i==2||i==3||i==4||i==6||i==8||i==9||i==10||i==11||i==12||i==14||i==15||i==16||i==18||i==20||i==22||i==23) {
 				map.addEntity(EntityType.WALL, 19,i, false);
 				walls.add(new Entity(EntityType.WALL, 19,i, false));	
 			}
 		}
-		//20 hori
+		//20 hori fix
 		for (int i = 0; i < 25; i++) {
 			if(i==4||i==6||i==8||i==12||i==16||i==18||i==20||i==22) {
 				map.addEntity(EntityType.WALL, 20,i, false);
