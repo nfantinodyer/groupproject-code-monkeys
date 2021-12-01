@@ -143,7 +143,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		barrel.start();
 		
 		//add fruit
-		map.addEntity(EntityType.CHERRY, );
+		//map.addEntity(EntityType.CHERRY, );
 	}
 
 	public void setUpLevelMed(){
