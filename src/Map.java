@@ -3,12 +3,12 @@ import java.util.Vector;
 
 public class Map {
 	private Entity[][] map;
-	private Entity character;
-	private Space startSpace;
+	private Entity character = new Entity(EntityType.CHARACTER,0,0,false);
+	private Space startSpace = new Space(0,0);
 	private int numRows;
 	private int numCols;
 	private int numEntities = 0;
-	private Space winningSpace;
+	private Space winningSpace = new Space(0,0);
 	Vector<Entity> barrels = new Vector<Entity>();
 	
 	public Map(int r, int c) {
@@ -69,7 +69,10 @@ public class Map {
 	public Space getCharacterSpace() {
 		return character.getSpace();
 	}
-	
+	public void setCharacterSpace(int row, int col) {
+		character.setSpace(row, col);
+		
+	}
 	public int getCharacterRow() {
 		return character.getRow();
 	}
@@ -138,6 +141,9 @@ public class Map {
 	}
 	
 	public boolean barrelCollision(Space s) {
+		if(map[s.getRow()][s.getCol()] ==  null) {
+			return false;
+		}
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
 			return true;
 		}
@@ -145,6 +151,9 @@ public class Map {
 	}
 	
 	public boolean bananaCollision(Space s) {
+		if(map[s.getRow()][s.getCol()] ==  null) {
+			return false;
+		}
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.BANANA) {
 			return true;
 		}
@@ -152,6 +161,9 @@ public class Map {
 	}
 		
 	public boolean cherryCollision(Space s) {
+		if(map[s.getRow()][s.getCol()] ==  null) {
+			return false;
+		}
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.CHERRY) {
 			return true;
 		}
@@ -167,4 +179,6 @@ public class Map {
 		}
 		return false;
 	}
+
+	
 }
