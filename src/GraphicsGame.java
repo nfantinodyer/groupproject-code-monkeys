@@ -26,6 +26,9 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	private GLabel score = new GLabel("SCORE: 0", 1250, 25);
 	private GImage character;
 	private Vector<GImage> enemies = new Vector<GImage>();
+	private Vector<GImage> bananaImage = new Vector<GImage>();
+	private Vector<GImage> cherryImage = new Vector<GImage>();
+	private Vector<GImage> mangoImage = new Vector<GImage>();
 	private GImage entities;
 	private GRect winSpace;
 	private GRect wall;
@@ -145,18 +148,21 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		}
 		
 		/*for (Entity temp:bananas) {
-			entities = new GImage("Banana.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
-			program.add(entities);
+			GImage banana = new GImage("Banana.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
+			program.add(banana);
+			bananaImage.add(banana);
 		} */
 		
 		for (Entity temp:cherries) {
 			GImage cherry = new GImage("Cherry.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
 			program.add(cherry);
+			cherryImage.add(cherry);
 		}
 		
 		/*for (Entity temp:mangos) {
-			entities = new GImage("Mango.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
-			program.add(entities);
+			GImage mango = new GImage("Mango.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
+			program.add(mango);
+			mangoImage.add(mango);
 		}*/
 	}
 	
