@@ -576,6 +576,14 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		return mapSize;
 	}
 	
+	public Vector<Boolean> getSwitcher() {
+		return switcher;
+	}
+	
+	public Vector<Boolean> getVertic() {
+		return vertic;
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("now checking movenment");
