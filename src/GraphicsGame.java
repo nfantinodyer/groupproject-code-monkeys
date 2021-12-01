@@ -1,7 +1,11 @@
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Vector;
+
+import javax.swing.Timer;
 
 import acm.graphics.GImage;
 import acm.graphics.GLabel;
@@ -9,7 +13,7 @@ import acm.graphics.GLine;
 import acm.graphics.GOval;
 import acm.graphics.GRect;
 
-public class GraphicsGame extends GraphicsPane {
+public class GraphicsGame extends GraphicsPane implements ActionListener {
 	// you will use program to get access to all of the GraphicsProgram calls
 	private MainApplication program;
 	private static final int LIFE_WIDTH = 40;
@@ -21,6 +25,7 @@ public class GraphicsGame extends GraphicsPane {
 	private GLabel lives = new GLabel("LIVES: ", 10, 30);
 	private GLabel score = new GLabel("SCORE: 0", 1250, 25);
 	private GImage character;
+	private Vector<GImage> enemies;
 	private GImage entities;
 	private GRect winSpace;
 	private GRect wall;
@@ -33,16 +38,18 @@ public class GraphicsGame extends GraphicsPane {
 	
 	private int monkey = 0;
 	private int points = 0;
+	private String s = "";
 	Vector<Entity> barrels = new Vector<Entity>();
 	Vector<Entity> walls = new Vector<Entity>();
 	Vector<Entity> bananas = new Vector<Entity>();
 	Vector<Entity> cherries = new Vector<Entity>();
 	Vector<Entity> mangos = new Vector<Entity>();
-	private String s = "";
-	
-	
 	private ArrayList<GLine> gridLines = new ArrayList<GLine>();
+	private Timer timer = new Timer(1000, this);
+	Vector<Boolean> switcher = null;
+	Vector<Boolean> vertic = null;
 
+	
 	public GraphicsGame(MainApplication app) {
 		this.program = app;
 		
@@ -50,6 +57,9 @@ public class GraphicsGame extends GraphicsPane {
 		score.setFont("Arial-26");
 		lives.setColor(Color.RED);
 		score.setColor(Color.RED);
+		
+		switcher = level.getSwitcher();
+		vertic = level.getVertic();
 	}
 	
 	public void setMonkey(int monkey) {
@@ -129,8 +139,9 @@ public class GraphicsGame extends GraphicsPane {
 		program.add(character);
 		
 		for (Entity temp:barrels) {
-			entities = new GImage("barrel.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
-			program.add(entities);
+			GImage enemy = new GImage("barrel.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
+			program.add(enemy);
+			enemies.add(enemy);
 		}
 		
 		/*for (Entity temp:bananas) {
@@ -240,6 +251,7 @@ public class GraphicsGame extends GraphicsPane {
 		drawGridLines(s);
 		drawWinningSpace();
 		drawLives();
+		timer.start();
 	}
 
 	@Override
@@ -248,6 +260,7 @@ public class GraphicsGame extends GraphicsPane {
 		program.remove(score);
 		removeGridLines();
 		program.remove(winSpace);
+		timer.stop();
 	}
 
 	@Override
@@ -278,8 +291,7 @@ public class GraphicsGame extends GraphicsPane {
 					return;
 				}
 				character.setLocation((double) col* spaceWidth(), (double)(row-1) * spaceHeight());
-				
-				
+				level.setCharSpace((row-1), col);
 			}
 		}
 		if (e.getKeyChar() == 'a') {
@@ -302,8 +314,7 @@ public class GraphicsGame extends GraphicsPane {
 					return;
 				}
 				character.setLocation((double)(col-1) * spaceWidth(), (double)row * spaceHeight());
-				
-				
+				level.setCharSpace(row, (col-1));
 			}
 		}
 		if (e.getKeyChar() == 's') {
@@ -326,8 +337,7 @@ public class GraphicsGame extends GraphicsPane {
 					return;
 				}
 				character.setLocation((double)col * spaceWidth(), (double)(row+1)* spaceHeight());
-				
-				
+				level.setCharSpace((row+1), col);
 			}
 		}
 		if (e.getKeyChar() == 'd') {
@@ -350,8 +360,7 @@ public class GraphicsGame extends GraphicsPane {
 					return;
 				}
 				character.setLocation((double)(col+1) * spaceWidth(), (double)row * spaceHeight());
-				
-				
+				level.setCharSpace(row, (col+1));
 			}
 		}
 		if (level.getLives() == 0) {
@@ -365,5 +374,36 @@ public class GraphicsGame extends GraphicsPane {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		program.add(character);
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		level.checkPath();
+		level.map.moveBarrels(1, vertic,switcher);
+		
+		/*
+		int p =0;
+		for (GImage j: enemies) {
+			for (Entity i:barrels) {
+			if (vertic.elementAt(p)) {
+				if(switcher.elementAt(p)) {
+					i.setSpace(i.getRow(), i.getCol()-1);
+					j.setLocation((i.getCol()-1) * spaceWidth(), i.getRow() * spaceHeight());
+				}else {
+					i.setSpace(i.getRow(), i.getCol()+1);
+					j.setLocation((i.getCol()+1) * spaceWidth(), i.getRow() * spaceHeight());
+				}
+			}else { 
+				if(switcher.elementAt(p)) {
+					i.setSpace(i.getRow()-1, i.getCol());
+					j.setLocation(i.getCol() * spaceWidth(), (i.getRow()-1) * spaceHeight());
+				}else {
+					i.setSpace(i.getRow()+1, i.getCol());
+					j.setLocation(i.getCol() * spaceWidth(), (i.getRow()+1 * spaceHeight());
+				}
+			}
+			p++;
+			}
+		}
+		*/
 	}
 }
