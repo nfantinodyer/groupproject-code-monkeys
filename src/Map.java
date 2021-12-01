@@ -10,6 +10,9 @@ public class Map {
 	private int numEntities = 0;
 	private Space winningSpace = new Space(0,0);
 	Vector<Entity> barrels = new Vector<Entity>();
+	Vector<Entity> cherries = new Vector<Entity>();
+	Vector<Entity> mangoes = new Vector<Entity>();
+	Vector<Entity> bananas = new Vector<Entity>();
 	
 	public Map(int r, int c) {
 		map = new Entity[r][c];
@@ -101,6 +104,8 @@ public class Map {
 			character = new Entity(type, r, c, b);
 			startSpace = new Space(r, c);
 		}
+		
+		
 	}
 	
 	public Vector<Entity> getBarrels() {

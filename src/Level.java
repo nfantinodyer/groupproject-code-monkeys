@@ -130,7 +130,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 			}
 		}
 		
-		//add barrell
+		//add barrel
 		map.addEntity(EntityType.BARREL, 0,9 ,false);
 		switcher.add(false);
 		vertic.add(false);
@@ -141,6 +141,9 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		vertic.add(false);
 		switcher.add(false);
 		barrel.start();
+		
+		//add fruit
+		//map.addEntity(null, barrelAmount, score, getAutoRepaintFlag());
 	}
 
 	public void setUpLevelMed(){
