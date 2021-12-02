@@ -595,6 +595,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
+		/*
 		Space movenment;
 	    int key = e.getKeyCode();
 
@@ -653,6 +654,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	    	map.moveChara(movenment);
 	    	collision(movenment);
 	    }
+	    */
 	}
 	
 	public static void main(String[] args) {
