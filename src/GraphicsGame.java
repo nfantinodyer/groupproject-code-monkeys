@@ -289,7 +289,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 					*/
 					targetSpace = level.getCharSpace();
 				}
-				character.setLocation((double)targetSpace.getRow() * spaceHeight(), (double)targetSpace.getCol() * spaceWidth());
+				character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
 				level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());	
 				//System.out.print(level.getCharSpace().getRow()+", "+level.getCharSpace().getCol()+"\n"+col+", "+row);
 				//return;
@@ -315,7 +315,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 					
 					//return;
 				}
-				character.setLocation((double)targetSpace.getRow() * spaceHeight(), (double)targetSpace.getCol() * spaceWidth());
+				character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
 				level.setCharSpace(row, (col-1));
 				//return;
 			}
@@ -328,7 +328,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				}
 			}
 			
-			if ((row+1) <= (WINDOW_HEIGHT / spaceHeight())) {
+			if ((row+1) <= WINDOW_HEIGHT) {
 				level.collision(targetSpace);
 				if (charOldSpace != level.getCharSpace()) {
 					targetSpace = level.getCharSpace();
@@ -339,7 +339,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 					
 					//return;
 				}
-				character.setLocation((double)targetSpace.getRow() * spaceWidth(), (double)targetSpace.getCol() * spaceHeight());
+				character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
 				level.setCharSpace((row+1), col);
 				//return;
 			}
@@ -352,7 +352,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				}
 			}
 			
-			if ((col+1) <= (WINDOW_WIDTH / spaceWidth())) {
+			if ((col+1) <= WINDOW_WIDTH) {
 				level.collision(targetSpace);
 				if (targetSpace != level.getCharSpace()) {
 					targetSpace = level.getCharSpace();
@@ -363,11 +363,12 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 					
 					//return;
 				}
-				character.setLocation((double)targetSpace.getRow() * spaceWidth(), (double)targetSpace.getCol() * spaceHeight());
+				character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
 				level.setCharSpace(row, (col+1));
 				//return;
 			}
 		}
+		
 		if (level.getLives() == 0) {
 			GButton lose = new GButton("YOU LOSE. \"SPACE\" TO CONTINUE", 50, 50, WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
 			program.add(lose);
@@ -385,7 +386,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	
 	@Override
 	public void keyReleased(KeyEvent e) {
-		program.add(character);
+		//program.add(character);
 	}
 	
 	public void actionPerformed(ActionEvent e) {
