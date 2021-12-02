@@ -18,7 +18,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	private MainApplication program;
 	private static final int LIFE_WIDTH = 40;
 	private static final int LIFE_HEIGHT = 40;
-	public static final int WINDOW_WIDTH = 1600;
+	public static final int WINDOW_WIDTH = 1550;
 	public static final int WINDOW_HEIGHT = 800;
 	private Level level = new Level();
 	
