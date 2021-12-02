@@ -63,7 +63,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		switcher = new Vector<Boolean>();
 		vertic = new Vector<Boolean>();
 		map = new Map(10,10);
-		winSpace = new Space(9,5);
+		winSpace = new Space(5,9);
 		barrelMove = 2;
 		
 		map.addEntity(EntityType.CHARACTER, 0, 2, false);
@@ -613,13 +613,13 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 
 	    if (key == KeyEvent.VK_UP) {
 	    	System.out.println("going up");
-	    	movenment = new Space(map.getCharacterRow()+1,map.getCharacterCol());
+	    	movenment = new Space(map.getCharacterRow()-1,map.getCharacterCol());
 	    	map.moveChara(movenment);
 	    }
 
 	    if (key == KeyEvent.VK_DOWN) {
 	    	System.out.println("going down");
-	    	movenment = new Space(map.getCharacterRow()-1,map.getCharacterCol());
+	    	movenment = new Space(map.getCharacterRow()+1,map.getCharacterCol());
 	    	map.moveChara(movenment);
 	    	collision(movenment);
 	    }
@@ -642,14 +642,14 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 
 	    if (key == KeyEvent.VK_W) {
 	    	System.out.println("going up (WASD)");
-	    	movenment = new Space(map.getCharacterRow()+1,map.getCharacterCol());
+	    	movenment = new Space(map.getCharacterRow()-1,map.getCharacterCol());
 	    	map.moveChara(movenment);
 	    	collision(movenment);
 	    }
 
 	    if (key == KeyEvent.VK_S) {
 	    	System.out.println("going down (WASD)");
-	    	movenment = new Space(map.getCharacterRow()-1,map.getCharacterCol());
+	    	movenment = new Space(map.getCharacterRow()+1,map.getCharacterCol());
 	    	map.moveChara(movenment);
 	    	collision(movenment);
 	    }

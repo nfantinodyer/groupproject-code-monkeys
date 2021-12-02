@@ -183,7 +183,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		int winRow = level.getWin().getRow();
 		int winCol = level.getWin().getCol();
 		
-		winSpace = new GRect(winRow * spaceWidth(), winCol * spaceHeight(), spaceWidth(), spaceHeight());
+		winSpace = new GRect(winCol * spaceWidth(), winRow * spaceHeight(), spaceWidth(), spaceHeight());
 		winSpace.setFillColor(Color.RED);
 		winSpace.setFilled(true);
 		program.add(winSpace);

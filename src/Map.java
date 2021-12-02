@@ -15,13 +15,13 @@ public class Map {
 	Vector<Entity> bananas = new Vector<Entity>();
 	
 	public Map(int r, int c) {
-		map = new Entity[c][r];
+		map = new Entity[r][c];
 		numRows = r;
 		numCols = c;
 	}
 	
 	public boolean canMove(Space s) {
-		if (map[s.getCol()][s.getRow()].getType() == EntityType.WALL) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
 			return false;
 		}
 		else if (s.getRow() > numRows || s.getCol() > numCols) {
@@ -32,7 +32,7 @@ public class Map {
 	
 	public boolean moveChara(Space s) {
 		if (canMove(s)) {
-			map[character.getCol()][character.getRow()].move(s.getRow(), s.getCol());
+			map[character.getRow()][character.getCol()].move(s.getRow(), s.getCol());
 		}
 		return canMove(s);
 	}
@@ -90,7 +90,7 @@ public class Map {
 	
 	public void addEntity(EntityType type, int r, int c, boolean b) {
 		Entity e = new Entity(type, r, c, b);
-		map[c][r] = e;
+		map[r][c] = e;
 		
 		if (type != EntityType.WALL) {
 			numEntities++;
@@ -160,50 +160,50 @@ public class Map {
 		if(s.getRow()>=numRows||s.getCol()>=numCols) {
 			return true;
 		}
-		if (map[s.getCol()][s.getRow()] == null) {
+		if (map[s.getRow()][s.getCol()] == null) {
 			return false;
 		}
-		if (map[s.getCol()][s.getRow()].getType() == EntityType.WALL) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
 			return true;
 		}
 		return false;
 	}
 	
 	public boolean barrelCollision(Space s) {
-		if(map[s.getCol()][s.getRow()] ==  null) {
+		if(map[s.getRow()][s.getCol()] ==  null) {
 			return false;
 		}
-		if (map[s.getCol()][s.getRow()].getType() == EntityType.WALL) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
 			return true;
 		}
 		return false;
 	}
 	
 	public boolean bananaCollision(Space s) {
-		if(map[s.getCol()][s.getRow()] ==  null) {
+		if(map[s.getRow()][s.getCol()] ==  null) {
 			return false;
 		}
-		if (map[s.getCol()][s.getRow()].getType() == EntityType.BANANA) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.BANANA) {
 			return true;
 		}
 		return false;
 	}
 		
 	public boolean cherryCollision(Space s) {
-		if(map[s.getCol()][s.getRow()] ==  null) {
+		if(map[s.getRow()][s.getCol()] ==  null) {
 			return false;
 		}
-		if (map[s.getCol()][s.getRow()].getType() == EntityType.CHERRY) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.CHERRY) {
 			return true;
 		}
 		return false;
 	}
 		
 	public boolean mangoCollision(Space s) {
-		if(map[s.getCol()][s.getRow()] ==  null) {
+		if(map[s.getRow()][s.getCol()] ==  null) {
 			return false;
 		}
-		if (map[s.getCol()][s.getRow()].getType() == EntityType.MANGO) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.MANGO) {
 			return true;
 		}
 		return false;
