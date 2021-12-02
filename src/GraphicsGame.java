@@ -297,7 +297,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			}
 		}
 		if (e.getKeyChar() == 'a') {
-			targetSpace = new Space(col-1,row);
+			targetSpace = new Space(row, col-1);
 			for (Entity temp:walls) {
 				if (temp.getSpace() == targetSpace) {
 					return;
@@ -321,7 +321,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			}
 		}
 		if (e.getKeyChar() == 's') {
-			targetSpace = new Space(col,row+1);
+			targetSpace = new Space(row+1, col);
 			for (Entity temp:walls) {
 				if (temp.getSpace() == targetSpace) {
 					return;
@@ -345,7 +345,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			}
 		}
 		if (e.getKeyChar() == 'd') {
-			targetSpace = new Space(col+1,row);
+			targetSpace = new Space(row, col+1);
 			for (Entity temp:walls) {
 				if (temp.getSpace() == targetSpace) {
 					return;
