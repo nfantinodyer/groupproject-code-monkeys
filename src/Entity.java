@@ -7,14 +7,14 @@ public class Entity {
 	
 	public Entity(EntityType tp, int row, int col, boolean vertical){
 		type = tp ;
-		space = new Space(row,col);
+		space = new Space(col,row);
 		this.row = row;
 		this.col = col;
 		isVertical = vertical;
 	}
 	
 	void move(int nRow, int nCol){
-		space  = new Space(nRow, nCol);
+		space  = new Space(nCol, nRow);
 	}
 	
 	public Space getSpace() {
@@ -22,7 +22,7 @@ public class Entity {
 	}
 	
 	public void setSpace(int r, int c) {
-		space = new Space(r, c);
+		space = new Space(c, r);
 	}
 	
 	public int getRow() {

@@ -32,7 +32,7 @@ public class Map {
 	
 	public boolean moveChara(Space s) {
 		if (canMove(s)) {
-			map[character.getRow()][character.getCol()].move(s.getRow(), s.getCol());
+			map[character.getRow()][character.getCol()].move(s.getCol(), s.getRow());
 		}
 		return canMove(s);
 	}
@@ -50,7 +50,7 @@ public class Map {
 	}
 	
 	public Entity getEnt(Space s) {
-		return map[s.getRow()][s.getCol()];
+		return map[s.getCol()][s.getRow()];
 	}
 	
 	public int getNumEnt() {
@@ -73,7 +73,7 @@ public class Map {
 		return character.getSpace();
 	}
 	public void setCharacterSpace(int row, int col) {
-		character.setSpace(row, col);
+		character.setSpace(col, row);
 		
 	}
 	public int getCharacterRow() {
@@ -85,7 +85,7 @@ public class Map {
 	}
 	
 	public void resetChara() {
-		character.setSpace(startSpace.getRow(), startSpace.getCol());
+		character.setSpace(startSpace.getCol(), startSpace.getRow());
 	}
 	
 	public void addEntity(EntityType type, int r, int c, boolean b) {
@@ -102,7 +102,7 @@ public class Map {
 		
 		if (type == EntityType.CHARACTER) {
 			character = new Entity(type, r, c, b);
-			startSpace = new Space(r, c);
+			startSpace = new Space(c, r);
 		}
 		
 		if (type == EntityType.CHERRY) {
@@ -141,15 +141,15 @@ public class Map {
 		for (Entity i: barrels) {
 			if (vertical.elementAt(p)) {
 				if(switchy.elementAt(p)) {
-					i.setSpace(i.getRow(), i.getCol()-1);
+					i.setSpace(i.getCol(), i.getRow()-1);
 				}else {
-					i.setSpace(i.getRow(), i.getCol()+1);
+					i.setSpace(i.getCol(), i.getRow()+1);
 				}
 			}else { 
 				if(switchy.elementAt(p)) {
-					i.setSpace(i.getRow()-1, i.getCol());
+					i.setSpace(i.getCol()-1, i.getRow());
 				}else {
-					i.setSpace(i.getRow()+1, i.getCol());
+					i.setSpace(i.getCol()+1, i.getRow());
 				}
 			}
 			p++;
