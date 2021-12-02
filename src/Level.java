@@ -63,7 +63,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		switcher = new Vector<Boolean>();
 		vertic = new Vector<Boolean>();
 		map = new Map(10,10);
-		winSpace = new Space(9,5);
+		winSpace = new Space(5,9);
 		barrelMove = 2;
 		
 		map.addEntity(EntityType.CHARACTER, 0, 2, false);
