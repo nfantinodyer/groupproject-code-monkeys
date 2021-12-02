@@ -115,7 +115,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		
 		
 		for (Entity temp:walls) {
-			wall = new GRect(temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight(), spaceWidth(), spaceHeight());
+			wall = new GRect(temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight(), spaceWidth(), spaceHeight());
 			wall.setFillColor(Color.BLACK);
 			wall.setFilled(true);
 			program.add(wall);
@@ -125,37 +125,37 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		int startCol = level.map.getStartSpace().getCol();
 		if(monkey == 1)
 		{
-			character = new GImage("Chimp_Cartoon.jpg", startRow * spaceWidth(), startCol * spaceHeight());
+			character = new GImage("Chimp_Cartoon.jpg", startCol * spaceWidth(), startRow * spaceHeight());
 		}
 		else if(monkey==2)
 		{
-			character = new GImage("Gorilla_Cartoon.jpg", startRow * spaceWidth(), startCol * spaceHeight());
+			character = new GImage("Gorilla_Cartoon.jpg", startCol * spaceWidth(), startRow * spaceHeight());
 		}
 		else
 		{
-			character = new GImage("Orangutan_Cartoon.jpg", startRow * spaceWidth(), startCol * spaceHeight());
+			character = new GImage("Orangutan_Cartoon.jpg", startCol * spaceWidth(), startRow * spaceHeight());
 		}
 		resize();
 		program.add(character);
 		
 		for (Entity temp:barrels) {
-			GImage enemy = new GImage("barrel.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
+			GImage enemy = new GImage("barrel.png", temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight());
 			program.add(enemy);
 			enemies.add(enemy);
 		}
 		
 		/*for (Entity temp:bananas) {
-			entities = new GImage("Banana.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
+			entities = new GImage("Banana.png", temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight());
 			program.add(entities);
 		}
 		
 		for (Entity temp:cherries) {
-			entities = new GImage("Cherry.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
+			entities = new GImage("Cherry.png", temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight());
 			program.add(entities);
 		}
 		
 		for (Entity temp:mangos) {
-			entities = new GImage("Mango.png", temp.getRow() * spaceWidth(), temp.getCol() * spaceHeight());
+			entities = new GImage("Mango.png", temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight());
 			program.add(entities);
 		}*/
 	}
