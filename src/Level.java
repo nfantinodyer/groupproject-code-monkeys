@@ -73,75 +73,75 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		//1 hori
 		for (int i = 0; i < 10; i++) {
 			if(i==0||i==2||i==3||i==4||i==6||i==7||i==8) {
-				map.addEntity(EntityType.WALL, 1,i, false);
-				walls.add(new Entity(EntityType.WALL, 1,i, false));
+				map.addEntity(EntityType.WALL, i,1, false);
+				walls.add(new Entity(EntityType.WALL, i,1, false));
 			}
 		}
 		//2 hori
 		for (int i = 0; i < 10; i++) {
 			if(i==0||i==2||i==6) {
-				map.addEntity(EntityType.WALL, 2,i, false);
-				walls.add(new Entity(EntityType.WALL, 2,i, false));
+				map.addEntity(EntityType.WALL, i,2, false);
+				walls.add(new Entity(EntityType.WALL, i,2, false));
 			}	
 		}
 		//3 hori
 		for (int i = 0; i < 10; i++) {
 			if(i==0||i==1||i==2||i==3||i==5||i==6||i==8) {
-				map.addEntity(EntityType.WALL, 3,i, false);
-				walls.add(new Entity(EntityType.WALL, 3,i, false));	
+				map.addEntity(EntityType.WALL, i,3, false);
+				walls.add(new Entity(EntityType.WALL, i,3, false));	
 			}
 		}
 		//4 hori
-		map.addEntity(EntityType.WALL, 4,5, false);
-		map.addEntity(EntityType.WALL, 4,8, false);
-		walls.add(new Entity(EntityType.WALL, 4,5, false));
-		walls.add( new Entity(EntityType.WALL, 4,8, false));
+		map.addEntity(EntityType.WALL, 5,4, false);
+		map.addEntity(EntityType.WALL, 8,4, false);
+		walls.add(new Entity(EntityType.WALL, 5,4, false));
+		walls.add( new Entity(EntityType.WALL, 8,4, false));
 		//5 hori
 		for (int i = 0; i < 10; i++) {
 			if(i==0||i==2||i==3||i==4||i==5||i==7||i==8||i==9) {
-				map.addEntity(EntityType.WALL, 5,i, false);
-				walls.add(new Entity(EntityType.WALL, 5,i, false));	
+				map.addEntity(EntityType.WALL, i,5, false);
+				walls.add(new Entity(EntityType.WALL, i,5, false));	
 			}
 		}
 		//6 hori 
-		map.addEntity(EntityType.WALL,  6,0, false);
-		map.addEntity(EntityType.WALL,  6,2, false);
-		walls.add(new Entity(EntityType.WALL, 6,0, false));
-		walls.add(new Entity(EntityType.WALL, 6,2, false));
+		map.addEntity(EntityType.WALL,  0,6, false);
+		map.addEntity(EntityType.WALL,  2,6, false);
+		walls.add(new Entity(EntityType.WALL, 0,6, false));
+		walls.add(new Entity(EntityType.WALL, 2,6, false));
 		//7 hori 8
 		for (int i = 0; i < 10; i++) {
 			if(i==0||i==1||i==2||i==4||i==5||i==6||i==7||i==8) {
-				map.addEntity(EntityType.WALL, 7,i, false);
-				walls.add(new Entity(EntityType.WALL, 7,i, false));	
+				map.addEntity(EntityType.WALL, i,7, false);
+				walls.add(new Entity(EntityType.WALL, i,7, false));	
 			}
 		}
 		//8 hori
-		map.addEntity(EntityType.WALL,  8,4, false);
+		map.addEntity(EntityType.WALL,  4,8, false);
 		map.addEntity(EntityType.WALL, 8, 8, false);
-		walls.add(new Entity(EntityType.WALL, 8,4, false));
+		walls.add(new Entity(EntityType.WALL, 4,8, false));
 		walls.add(new Entity(EntityType.WALL,  8, 8, false));
 		// 9 hori
 		for (int i = 0; i < 10; i++) {
 			if(i==1||i==2||i==3||i==4||i==6) {
-				map.addEntity(EntityType.WALL, 9,i, false);
-				walls.add(new Entity(EntityType.WALL, 9,i, false));
+				map.addEntity(EntityType.WALL, i,9, false);
+				walls.add(new Entity(EntityType.WALL, i,9, false));
 			}
 		}
 		
 		//add barrel
-		map.addEntity(EntityType.BARREL, 0,9,false);
+		map.addEntity(EntityType.BARREL, 9,0 ,false);
 		switcher.add(false);
 		vertic.add(false);
 		map.addEntity(EntityType.BARREL, 4, 4,true);
 		switcher.add(false);
 		vertic.add(true);
-		map.addEntity(EntityType.BARREL, 6,9,true);
+		map.addEntity(EntityType.BARREL, 9,6,true);
 		vertic.add(false);
 		switcher.add(false);
 		barrel.start();
 		
 		//add fruit
-		map.addEntity(EntityType.CHERRY, 3,4, false);
+		map.addEntity(EntityType.CHERRY, 4, 3, false);
 	}
 
 	public void setUpLevelMed(){
@@ -524,13 +524,13 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		Vector<Entity> checking = map.getBarrels();
 		int o = 0;
 		Boolean catcher = null;
-		System.out.println("Now checking all barrel paths");
+		System.out.println("Now checking all barrel apths");
 		for(Entity i: checking) {
 			
 			if(vertic.elementAt(o)) {
 				if(switcher.elementAt(o)) {
-					if (i.getRow()-1 >= 0) {
-						if(map.wallCollision(new Space(i.getCol(),i.getRow()-1))) {
+					if (i.getCol()-1 >= 0) {
+						if(map.wallCollision(new Space(i.getRow(),i.getCol()-1))) {
 							catcher= !switcher.elementAt(o);
 							switcher.setElementAt(catcher,o);
 						}
@@ -538,8 +538,8 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 						continue;
 					}
 				}else {
-					if (i.getRow()+1 <= 10) {
-						if(map.wallCollision(new Space(i.getCol(),i.getRow()+1))) {
+					if (i.getCol()+1 <= 10) {
+						if(map.wallCollision(new Space(i.getRow(),i.getCol()+1))) {
 							catcher= !switcher.elementAt(o);
 							switcher.setElementAt(catcher,o);
 						}
@@ -550,8 +550,8 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 				
 			}else {
 				if(switcher.elementAt(o)) {
-					if (i.getCol()-1 >= 0) {
-						if(map.wallCollision(new Space(i.getCol()-1,i.getRow()))) {
+					if (i.getRow()-1 >= 0) {
+						if(map.wallCollision(new Space(i.getRow()-1,i.getCol()))) {
 							catcher= !switcher.elementAt(o);
 							switcher.setElementAt(catcher,o);
 						}
@@ -559,8 +559,8 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 						continue;
 					}
 				}else {
-					if (i.getCol()+1 <= 10) {
-						if(map.wallCollision(new Space(i.getCol()+1,i.getRow()))) {
+					if (i.getRow()+1 <= 10) {
+						if(map.wallCollision(new Space(i.getRow()+1,i.getCol()))) {
 							catcher= !switcher.elementAt(o);
 							switcher.setElementAt(catcher,o);
 						}
@@ -585,9 +585,9 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("now checking movement");
+		System.out.println("now checking movenment");
 		checkPath();
-		System.out.println("Now moving barrels");
+		System.out.println("Now moving narrels");
 		map.moveBarrels(1, vertic,switcher);
 	}
 
@@ -595,31 +595,32 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
+		/*
 		Space movenment;
 	    int key = e.getKeyCode();
 
 	    if (key == KeyEvent.VK_LEFT) {
 	        System.out.println("going left");
-	        movenment = new Space(map.getCharacterCol(),map.getCharacterRow()-1);
+	        movenment = new Space(map.getCharacterRow(),map.getCharacterCol()-1);
 	        map.moveChara(movenment);
 	        collision(movenment);
 	    }
 
 	    if (key == KeyEvent.VK_RIGHT) {
 	    	System.out.println("going right");
-	    	movenment = new Space(map.getCharacterCol(),map.getCharacterRow()+1);
+	    	movenment = new Space(map.getCharacterRow(),map.getCharacterCol()+1);
 	    	map.moveChara(movenment);
 	    }
 
 	    if (key == KeyEvent.VK_UP) {
 	    	System.out.println("going up");
-	    	movenment = new Space(map.getCharacterCol()-1,map.getCharacterRow());
+	    	movenment = new Space(map.getCharacterRow()-1,map.getCharacterCol());
 	    	map.moveChara(movenment);
 	    }
 
 	    if (key == KeyEvent.VK_DOWN) {
 	    	System.out.println("going down");
-	    	movenment = new Space(map.getCharacterCol()+1,map.getCharacterRow());
+	    	movenment = new Space(map.getCharacterRow()+1,map.getCharacterCol());
 	    	map.moveChara(movenment);
 	    	collision(movenment);
 	    }
@@ -628,31 +629,32 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	    
 	    if (key == KeyEvent.VK_A) {
 	        System.out.println("going left (WASD)");
-	        movenment = new Space(map.getCharacterCol(),map.getCharacterRow()-1);
+	        movenment = new Space(map.getCharacterRow(),map.getCharacterCol()-1);
 	        map.moveChara(movenment);
 	        collision(movenment);
 	    }
 
 	    if (key == KeyEvent.VK_D) {
 	    	System.out.println("going right (WASD)");
-	    	movenment = new Space(map.getCharacterCol(),map.getCharacterRow()+1);
+	    	movenment = new Space(map.getCharacterRow(),map.getCharacterCol()+1);
 	    	map.moveChara(movenment);
 	    	collision(movenment);
 	    }
 
 	    if (key == KeyEvent.VK_W) {
 	    	System.out.println("going up (WASD)");
-	    	movenment = new Space(map.getCharacterCol()-1,map.getCharacterRow());
+	    	movenment = new Space(map.getCharacterRow()-1,map.getCharacterCol());
 	    	map.moveChara(movenment);
 	    	collision(movenment);
 	    }
 
 	    if (key == KeyEvent.VK_S) {
 	    	System.out.println("going down (WASD)");
-	    	movenment = new Space(map.getCharacterCol()+1,map.getCharacterRow());
+	    	movenment = new Space(map.getCharacterRow()+1,map.getCharacterCol());
 	    	map.moveChara(movenment);
 	    	collision(movenment);
 	    }
+	    */
 	}
 	
 	public static void main(String[] args) {
