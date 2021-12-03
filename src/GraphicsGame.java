@@ -411,23 +411,36 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		}
 		
 		if (level.getLives() == 0) {
+			hideContents();
 			GButton lose = new GButton("YOU LOSE. \"SPACE\" TO CONTINUE", 50, 50, WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
 			program.add(lose);
 			
+			LevelSelectPane levelSelect = new LevelSelectPane(program, monkey);
+			program.pause(5000);
+			program.switchToLevelSelect(levelSelect);
+			
+			/*
 			while (e.getKeyChar() != ' ') {
 				if (e.getKeyChar() == ' ') {
 					program.switchToLevelSelect(null);
 				}
 			}
+			*/
 		}
 		
 		if(col == level.getWin().getCol() && row == level.getWin().getRow())
 		{
+			hideContents();
 			GParagraph win = new GParagraph("YOU Win! \"SPACE\" TO CONTINUE", 50, 50);
 			program.add(win);
 			System.out.println("\nWIN\n");
 			
-			program.switchToLead();
+			LevelSelectPane levelSelect = new LevelSelectPane(program, monkey);
+			program.pause(5000);
+			program.switchToLevelSelect(levelSelect);
+			
+			
+			//program.switchToLead();
 			
 		}
 		
