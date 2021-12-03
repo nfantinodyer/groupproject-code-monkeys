@@ -24,6 +24,9 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	
 	private GLabel lives = new GLabel("LIVES: ", 10, 30);
 	private GLabel score = new GLabel("SCORE: 0", 1250, 25);
+	private GOval lifeOne = new GOval(100, 5, LIFE_WIDTH, LIFE_HEIGHT);
+	private GOval lifeTwo = new GOval(150, 5, LIFE_WIDTH, LIFE_HEIGHT);
+	private GOval lifeThree = new GOval(200, 5, LIFE_WIDTH, LIFE_HEIGHT);
 	
 	//used in keyEvents
 	//row == y, column == x
@@ -180,9 +183,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	}
 	
 	private void drawLives() {
-		GOval lifeOne = new GOval(100, 5, LIFE_WIDTH, LIFE_HEIGHT);
-		GOval lifeTwo = new GOval(150, 5, LIFE_WIDTH, LIFE_HEIGHT);
-		GOval lifeThree = new GOval(200, 5, LIFE_WIDTH, LIFE_HEIGHT);
+		
 		
 		lifeOne.setFilled(true);
 		lifeTwo.setFilled(true);
@@ -269,6 +270,10 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		program.remove(score);
 		removeGridLines();
 		program.remove(winSpace);
+		program.remove(lifeOne);
+		program.remove(lifeTwo);
+		program.remove(lifeThree);
+		
 	}
 	
 	private double spaceWidth() {
@@ -446,7 +451,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		}
 		
 		score.setLabel("SCORE: " + level.getScore());
-		program.add(score);
 	}
 	
 	@Override
