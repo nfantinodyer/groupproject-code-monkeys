@@ -150,9 +150,9 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		program.add(character);
 		
 		for (Entity temp:barrels) {
-			GImage enemy = new GImage("barrel.png", temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight());
-			program.add(enemy);
-			barrelImages.add(enemy);
+			entity = new GImage("barrel.png", temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight());
+			program.add(entity);
+			barrelImages.add(entity);
 		}
 		
 		/*for (Entity temp:bananas) {

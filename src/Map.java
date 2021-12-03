@@ -24,7 +24,7 @@ public class Map {
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
 			return false;
 		}
-		else if (s.getRow() >= numRows || s.getCol() >= numCols || s.getRow() < 0 || s.getCol() < 0) {
+		else if (s.getRow() > numRows || s.getCol() > numCols || s.getRow() < 0 || s.getCol() < 0) {
 			return false;
 		}
 		return true;
@@ -157,7 +157,7 @@ public class Map {
 	}
 	
 	public boolean wallCollision (Space s) {
-		if(s.getRow()>=numRows||s.getCol()>=numCols||s.getRow()<0||s.getCol()<0) {
+		if(s.getRow()>numRows||s.getCol()>numCols||s.getRow()<0||s.getCol()<0) {
 			return true;
 		}
 		if (map[s.getRow()][s.getCol()] == null) {

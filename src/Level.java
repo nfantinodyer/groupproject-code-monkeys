@@ -538,7 +538,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 						continue;
 					}
 				}else {
-					if (i.getCol()+1 <= 10) {
+					if (i.getCol()+1 < 10) {
 						if(map.wallCollision(new Space(i.getRow(),i.getCol()+1))) {
 							catcher= !switcher.elementAt(o);
 							switcher.setElementAt(catcher,o);
@@ -559,7 +559,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 						continue;
 					}
 				}else {
-					if (i.getRow()+1 <= 10) {
+					if (i.getRow()+1 < 10) {
 						if(map.wallCollision(new Space(i.getRow()+1,i.getCol()))) {
 							catcher= !switcher.elementAt(o);
 							switcher.setElementAt(catcher,o);
