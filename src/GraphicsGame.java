@@ -394,7 +394,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			}
 		}
 		
-		if(character.getX()==level.getWin().getCol()&&character.getY()==level.getWin().getRow())
+		if(col == level.getWin().getCol() && row == level.getWin().getRow())
 		{
 			GParagraph win = new GParagraph("YOU Win! \"SPACE\" TO CONTINUE", 50, 50);
 			program.add(win);
