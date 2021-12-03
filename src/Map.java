@@ -14,17 +14,17 @@ public class Map {
 	Vector<Entity> mangoes = new Vector<Entity>();
 	Vector<Entity> bananas = new Vector<Entity>();
 	
-	public Map(int c, int r) {
-		map = new Entity[c][r];
+	public Map(int r, int c) {
+		map = new Entity[r][c];
 		numRows = r;
 		numCols = c;
 	}
 	
 	public boolean canMove(Space s) {
-		if (map[s.getCol()][s.getRow()].getType() == EntityType.WALL) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
 			return false;
 		}
-		else if (s.getRow() > numRows || s.getCol() > numCols) {
+		else if (s.getRow() >= numRows || s.getCol() >= numCols || s.getRow() < 0 || s.getCol() < 0) {
 			return false;
 		}
 		return true;
@@ -32,7 +32,7 @@ public class Map {
 	
 	public boolean moveChara(Space s) {
 		if (canMove(s)) {
-			map[character.getCol()][character.getRow()].move(s.getCol(), s.getRow());
+			map[character.getRow()][character.getCol()].move(s.getRow(), s.getCol());
 		}
 		return canMove(s);
 	}
@@ -50,7 +50,7 @@ public class Map {
 	}
 	
 	public Entity getEnt(Space s) {
-		return map[s.getCol()][s.getRow()];
+		return map[s.getRow()][s.getCol()];
 	}
 	
 	public int getNumEnt() {
@@ -73,7 +73,7 @@ public class Map {
 		return character.getSpace();
 	}
 	public void setCharacterSpace(int row, int col) {
-		character.setSpace(col, row);
+		character.setSpace(row, col);
 		
 	}
 	public int getCharacterRow() {
@@ -85,12 +85,12 @@ public class Map {
 	}
 	
 	public void resetChara() {
-		character.setSpace(startSpace.getCol(), startSpace.getRow());
+		character.setSpace(startSpace.getRow(), startSpace.getCol());
 	}
 	
 	public void addEntity(EntityType type, int r, int c, boolean b) {
 		Entity e = new Entity(type, r, c, b);
-		map[c][r] = e;
+		map[r][c] = e;
 		
 		if (type != EntityType.WALL) {
 			numEntities++;
@@ -102,7 +102,7 @@ public class Map {
 		
 		if (type == EntityType.CHARACTER) {
 			character = new Entity(type, r, c, b);
-			startSpace = new Space(c, r);
+			startSpace = new Space(r, c);
 		}
 		
 		if (type == EntityType.CHERRY) {
@@ -141,15 +141,15 @@ public class Map {
 		for (Entity i: barrels) {
 			if (vertical.elementAt(p)) {
 				if(switchy.elementAt(p)) {
-					i.setSpace(i.getCol(), i.getRow()-1);
+					i.setSpace(i.getRow()-1, i.getCol());
 				}else {
-					i.setSpace(i.getCol(), i.getRow()+1);
+					i.setSpace(i.getRow()+1, i.getCol());
 				}
 			}else { 
 				if(switchy.elementAt(p)) {
-					i.setSpace(i.getCol()-1, i.getRow());
+					i.setSpace(i.getRow(), i.getCol()-1);
 				}else {
-					i.setSpace(i.getCol()+1, i.getRow());
+					i.setSpace(i.getRow(), i.getCol()+1);
 				}
 			}
 			p++;
@@ -157,53 +157,53 @@ public class Map {
 	}
 	
 	public boolean wallCollision (Space s) {
-		if(s.getRow()>=numRows||s.getCol()>=numCols) {
+		if(s.getRow()>=numRows||s.getCol()>=numCols||s.getRow()<0||s.getCol()<0) {
 			return true;
 		}
-		if (map[s.getCol()][s.getRow()] == null) {
+		if (map[s.getRow()][s.getCol()] == null) {
 			return false;
 		}
-		if (map[s.getCol()][s.getRow()].getType() == EntityType.WALL) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
 			return true;
 		}
 		return false;
 	}
 	
 	public boolean barrelCollision(Space s) {
-		if(map[s.getCol()][s.getRow()] ==  null) {
+		if(map[s.getRow()][s.getCol()] ==  null) {
 			return false;
 		}
-		if (map[s.getCol()][s.getRow()].getType() == EntityType.WALL) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
 			return true;
 		}
 		return false;
 	}
 	
 	public boolean bananaCollision(Space s) {
-		if(map[s.getCol()][s.getRow()] ==  null) {
+		if(map[s.getRow()][s.getCol()] ==  null) {
 			return false;
 		}
-		if (map[s.getCol()][s.getRow()].getType() == EntityType.BANANA) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.BANANA) {
 			return true;
 		}
 		return false;
 	}
 		
 	public boolean cherryCollision(Space s) {
-		if(map[s.getCol()][s.getRow()] ==  null) {
+		if(map[s.getRow()][s.getCol()] ==  null) {
 			return false;
 		}
-		if (map[s.getCol()][s.getRow()].getType() == EntityType.CHERRY) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.CHERRY) {
 			return true;
 		}
 		return false;
 	}
 		
 	public boolean mangoCollision(Space s) {
-		if(map[s.getCol()][s.getRow()] ==  null) {
+		if(map[s.getRow()][s.getCol()] ==  null) {
 			return false;
 		}
-		if (map[s.getCol()][s.getRow()].getType() == EntityType.MANGO) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.MANGO) {
 			return true;
 		}
 		return false;

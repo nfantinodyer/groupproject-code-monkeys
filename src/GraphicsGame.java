@@ -16,35 +16,46 @@ import acm.graphics.GRect;
 public class GraphicsGame extends GraphicsPane implements ActionListener {
 	// you will use program to get access to all of the GraphicsProgram calls
 	private MainApplication program;
-	private static final int LIFE_WIDTH = 40;
-	private static final int LIFE_HEIGHT = 40;
+	private Level level = new Level();
 	public static final int WINDOW_WIDTH = 1550;
 	public static final int WINDOW_HEIGHT = 800;
-	private Level level = new Level();
+	private static final int LIFE_WIDTH = 40;
+	private static final int LIFE_HEIGHT = 40;
 	
 	private GLabel lives = new GLabel("LIVES: ", 10, 30);
 	private GLabel score = new GLabel("SCORE: 0", 1250, 25);
-	private GImage character;
-	private Vector<GImage> enemies = new Vector<GImage>();
-	private GImage entities;
-	private GRect winSpace;
-	private GRect wall;
 	
 	//used in keyEvents
+	//row == y, column == x
 	private double x;
 	private double y;
 	private int row;
 	private int col;
 	
+	//character and map selections
 	private int monkey = 0;
-	private int points = 0;
 	private String s = "";
+	
+	//Vectors to hold entity values
+	//(row, column, type)
 	Vector<Entity> barrels = new Vector<Entity>();
 	Vector<Entity> walls = new Vector<Entity>();
 	Vector<Entity> bananas = new Vector<Entity>();
 	Vector<Entity> cherries = new Vector<Entity>();
 	Vector<Entity> mangos = new Vector<Entity>();
-	private ArrayList<GLine> gridLines = new ArrayList<GLine>();
+	
+	//vectors to store spot on screen for adding/removing
+	private Vector<GImage> barrelImages = new Vector<GImage>();
+	private Vector<GImage> bananaImages = new Vector<GImage>();
+	private Vector<GImage> mangoImages = new Vector<GImage>();
+	private Vector<GImage> cherryImages = new Vector<GImage>();
+	private Vector<GRect> wallImages = new Vector<GRect>();
+	private Vector<GLine> gridLines = new Vector<GLine>();
+	private GImage character;
+	private GImage entity;
+	private GRect winSpace;
+	private GRect wall;
+	
 	private Timer timer = new Timer(1000, this);
 	Vector<Boolean> switcher = null;
 	Vector<Boolean> vertic = null;
@@ -103,8 +114,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	}
 	
 	private void drawEntities() {
-		//entities will be reused in this method for character, barrels, and fruits
-		//not working yet, need images in folder
+		//entities will be reused in this method for barrels, and fruits
 		
 		walls = level.getWalls();
 		barrels = level.getBarrels();
@@ -119,6 +129,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			wall.setFillColor(Color.BLACK);
 			wall.setFilled(true);
 			program.add(wall);
+			wallImages.add(wall);
 		}
 		
 		int startRow = level.map.getStartSpace().getRow();
@@ -141,22 +152,25 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		for (Entity temp:barrels) {
 			GImage enemy = new GImage("barrel.png", temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight());
 			program.add(enemy);
-			enemies.add(enemy);
+			barrelImages.add(enemy);
 		}
 		
 		/*for (Entity temp:bananas) {
-			entities = new GImage("Banana.png", temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight());
-			program.add(entities);
+			entity = new GImage("Banana.png", temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight());
+			program.add(entity);
+			bananaImages.add(entity);
 		}
 		
 		for (Entity temp:cherries) {
-			entities = new GImage("Cherry.png", temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight());
-			program.add(entities);
+			entity = new GImage("Cherry.png", temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight());
+			program.add(entity);
+			cherryImages.add(entity);
 		}
 		
 		for (Entity temp:mangos) {
-			entities = new GImage("Mango.png", temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight());
-			program.add(entities);
+			entity = new GImage("Mango.png", temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight());
+			program.add(entity);
+			mangoImages.add(entity);
 		}*/
 	}
 	
