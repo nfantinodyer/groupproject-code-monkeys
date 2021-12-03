@@ -172,6 +172,11 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			program.add(entity);
 			mangoImages.add(entity);
 		}
+		program.add(lives);
+		program.add(score);
+		drawGridLines(s);
+		drawWinningSpace();
+		drawLives();
 	}
 	
 	private void drawLives() {
@@ -238,6 +243,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	
 	public void removeEntities()
 	{
+		program.remove(character);
 		
 		for(GRect l:wallImages)
 		{
@@ -259,6 +265,10 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		{
 			program.remove(l);
 		}
+		program.remove(lives);
+		program.remove(score);
+		removeGridLines();
+		program.remove(winSpace);
 	}
 	
 	private double spaceWidth() {
@@ -286,20 +296,11 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	@Override
 	public void showContents() {
 		drawEntities();
-		program.add(lives);
-		program.add(score);
-		drawGridLines(s);
-		drawWinningSpace();
-		drawLives();
 		timer.start();
 	}
 
 	@Override
 	public void hideContents() {
-		program.remove(lives);
-		program.remove(score);
-		removeGridLines();
-		program.remove(winSpace);
 		removeEntities();
 		timer.stop();
 	}
