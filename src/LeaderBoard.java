@@ -1,22 +1,21 @@
 import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
-
+import javax.swing.*; 
+ 
 public class LeaderBoard {
 	private static final String label1 = null;
 	protected String playerName;
 	protected int playerScore;
-	
-	
-	
-	
+	public String ScoreCount = "Score: " + playerName;// intialized new scorecount 
+
+
 	
 	private TreeMap<Integer,String > easy = new TreeMap<Integer,String>(Collections.reverseOrder());
 	private TreeMap<Integer,String> medium = new TreeMap<Integer,String>(Collections.reverseOrder());
 	private TreeMap<Integer,String> hard = new TreeMap<Integer,String>(Collections.reverseOrder());
 
 	LeaderBoard(String n,String m, int s){
-		
 		
 		
 		File f = new File("leaderboard.txt"); 
@@ -65,7 +64,6 @@ public class LeaderBoard {
 		}
 		readOnly();
 	}
-	
 	
 	
 	public static void main(String[] args) {
