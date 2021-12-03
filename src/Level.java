@@ -258,9 +258,9 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		map.addEntity(EntityType.BARREL, 4, 7,true);
 		switcher.add(false);
 		vertic.add(true);
-		map.addEntity(EntityType.BARREL, 4,11,false);
+		map.addEntity(EntityType.BARREL, 6,11,true);
 		switcher.add(false);
-		vertic.add(false);
+		vertic.add(true);
 		map.addEntity(EntityType.BARREL, 3,13,false);
 		switcher.add(false);
 		vertic.add(false);
@@ -466,8 +466,37 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 				walls.add(new Entity(EntityType.WALL, i,24, false));	
 			}
 		}
-		//16 vertical
-		//WALLS
+		//barrels
+		map.addEntity(EntityType.BARREL, 4,8,true);
+		switcher.add(false);
+		vertic.add(true);
+		map.addEntity(EntityType.BARREL, 5,15,false);
+		switcher.add(false);
+		vertic.add(false);
+		map.addEntity(EntityType.BARREL, 6,19,false);
+		switcher.add(false);
+		vertic.add(false);
+		map.addEntity(EntityType.BARREL, 10,13,false);
+		switcher.add(false);
+		vertic.add(false);
+		map.addEntity(EntityType.BARREL, 12,8,true);
+		switcher.add(false);
+		vertic.add(true);
+		map.addEntity(EntityType.BARREL, 13,15,false);
+		switcher.add(false);
+		vertic.add(false);
+		map.addEntity(EntityType.BARREL, 14,3,true);
+		switcher.add(false);
+		vertic.add(true);
+		map.addEntity(EntityType.BARREL, 16,7,true);
+		switcher.add(false);
+		vertic.add(true);
+		map.addEntity(EntityType.BARREL, 18,7,true);
+		switcher.add(false);
+		vertic.add(true);
+		map.addEntity(EntityType.BARREL, 20,19,false);
+		switcher.add(false);
+		vertic.add(false);
 			
 	}
 	public Space getWin() {
