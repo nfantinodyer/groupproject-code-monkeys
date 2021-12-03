@@ -252,7 +252,36 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 				walls.add(new Entity(EntityType.WALL,i,14, false));
 			}
 		}
-		
+		map.addEntity(EntityType.BARREL, 2,5,false);
+		switcher.add(false);
+		vertic.add(false);
+		map.addEntity(EntityType.BARREL, 4, 7,true);
+		switcher.add(false);
+		vertic.add(true);
+		map.addEntity(EntityType.BARREL, 4,11,false);
+		switcher.add(false);
+		vertic.add(false);
+		map.addEntity(EntityType.BARREL, 3,13,false);
+		switcher.add(false);
+		vertic.add(false);
+		map.addEntity(EntityType.BARREL, 6, 3,true);
+		switcher.add(false);
+		vertic.add(true);
+		map.addEntity(EntityType.BARREL, 7,0,false);
+		switcher.add(false);
+		vertic.add(false);
+		map.addEntity(EntityType.BARREL, 8,6,true);
+		switcher.add(false);
+		vertic.add(true);
+		map.addEntity(EntityType.BARREL, 11, 6,true);
+		switcher.add(false);
+		vertic.add(true);
+		map.addEntity(EntityType.BARREL, 11,12,false);
+		switcher.add(false);
+		vertic.add(false);
+		map.addEntity(EntityType.BARREL, 14,11,true);
+		switcher.add(false);
+		vertic.add(true);
 	}
 	public void setUpLevelHard(){
 		// to add
