@@ -146,7 +146,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		map.addEntity(EntityType.MANGO, 9, 4, false);
 		map.addEntity(EntityType.BANANA, 1, 6, false);
 		map.addEntity(EntityType.MANGO, 0, 9, false);
-		map.addEntity(EntityType.CHERRY, 4, 6, false);
+		map.addEntity(EntityType.CHERRY, 3, 6, false);
 		map.addEntity(EntityType.CHERRY, 7, 8, false);
 		map.addEntity(EntityType.BANANA, 1, 2, false);
 		map.addEntity(EntityType.MANGO, 9, 9, false);
