@@ -104,14 +104,68 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		if(s=="easy")
 		{
 			character.scale(.2);
+			program.add(character);
+			
+			for (GImage temp:bananaImages) {
+				temp.scale(1.4);
+				program.add(temp);
+			}
+			for (GImage temp:cherryImages) {
+				temp.scale(1.4);
+				program.add(temp);
+			}
+			for (GImage temp:mangoImages) {
+				temp.scale(1.4);
+				program.add(temp);
+			}
+			for (GImage temp:barrelImages) {
+				temp.scale(1.0);
+				program.add(temp);
+			}
 		}
 		else if(s=="medium")
 		{
 			character.scale(.15);
+			program.add(character);
+			
+			for (GImage temp:bananaImages) {
+				temp.scale(.8);
+				program.add(temp);
+			}
+			for (GImage temp:cherryImages) {
+				temp.scale(.8);
+				program.add(temp);
+			}
+			for (GImage temp:mangoImages) {
+				temp.scale(.8);
+				program.add(temp);
+			}
+			for (GImage temp:barrelImages) {
+				temp.scale(.6);
+				program.add(temp);
+			}
 		}
 		else
 		{
 			character.scale(.11);
+			program.add(character);
+			
+			for (GImage temp:bananaImages) {
+				temp.scale(.4);
+				program.add(temp);
+			}
+			for (GImage temp:cherryImages) {
+				temp.scale(.4);
+				program.add(temp);
+			}
+			for (GImage temp:mangoImages) {
+				temp.scale(.4);
+				program.add(temp);
+			}
+			for (GImage temp:barrelImages) {
+				temp.scale(.37);
+				program.add(temp);
+			}
 		}
 			
 	}
@@ -124,16 +178,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		bananas = level.getBananas();
 		cherries = level.getCherries();
 		mangos = level.getMangos();
-		
-		
-		
-		for (Entity temp:walls) {
-			wall = new GRect(temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight(), spaceWidth(), spaceHeight());
-			wall.setFillColor(Color.BLACK);
-			wall.setFilled(true);
-			program.add(wall);
-			wallImages.add(wall);
-		}
 		
 		int startRow = level.map.getStartSpace().getRow();
 		int startCol = level.map.getStartSpace().getCol();
@@ -149,32 +193,37 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		{
 			character = new GImage("Orangutan_Cartoon.jpg", startCol * spaceWidth(), startRow * spaceHeight());
 		}
-		resize();
-		program.add(character);
 		
 		for (Entity temp:barrels) {
 			entity = new GImage("barrel.png", temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight());
-			program.add(entity);
 			barrelImages.add(entity);
 		}
 		
 		for (Entity temp:bananas) {
 			entity = new GImage("Banana.png", temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight());
-			program.add(entity);
 			bananaImages.add(entity);
 		}
 		
 		for (Entity temp:cherries) {
 			entity = new GImage("Cherry.png", temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight());
-			program.add(entity);
 			cherryImages.add(entity);
 		}
 		
 		for (Entity temp:mangos) {
 			entity = new GImage("Mango.png", temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight());
-			program.add(entity);
 			mangoImages.add(entity);
 		}
+		
+		resize();
+		
+		for (Entity temp:walls) {
+			wall = new GRect(temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight(), spaceWidth(), spaceHeight());
+			wall.setFillColor(Color.BLACK);
+			wall.setFilled(true);
+			program.add(wall);
+			wallImages.add(wall);
+		}
+		
 		program.add(lives);
 		program.add(score);
 		drawGridLines(s);
