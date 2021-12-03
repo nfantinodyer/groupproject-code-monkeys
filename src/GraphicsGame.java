@@ -317,7 +317,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		if (e.getKeyChar() == 'w') {
 			targetSpace = new Space(row-1,col);
 			for (Entity temp:walls) {
-				if (temp.getSpace() == targetSpace) {
+				if (temp.getSpace().getCol() == targetSpace.getCol()&&temp.getSpace().getRow() == targetSpace.getRow()) {
 					return;
 				}
 			}
@@ -341,7 +341,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		if (e.getKeyChar() == 'a') {
 			targetSpace = new Space(row, col-1);
 			for (Entity temp:walls) {
-				if (temp.getSpace() == targetSpace) {
+				if (temp.getSpace().getCol() == targetSpace.getCol()&&temp.getSpace().getRow() == targetSpace.getRow()) {
 					return;
 				}
 			}
@@ -365,7 +365,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		if (e.getKeyChar() == 's') {
 			targetSpace = new Space(row+1, col);
 			for (Entity temp:walls) {
-				if (temp.getSpace() == targetSpace) {
+				if (temp.getSpace().getCol() == targetSpace.getCol()&&temp.getSpace().getRow() == targetSpace.getRow()) {
 					return;
 				}
 			}
@@ -389,7 +389,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		if (e.getKeyChar() == 'd') {
 			targetSpace = new Space(row, col+1);
 			for (Entity temp:walls) {
-				if (temp.getSpace() == targetSpace) {
+				if (temp.getSpace().getCol() == targetSpace.getCol()&&temp.getSpace().getRow() == targetSpace.getRow()) {
 					return;
 				}
 			}
