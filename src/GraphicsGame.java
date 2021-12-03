@@ -155,7 +155,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			barrelImages.add(entity);
 		}
 		
-		/*for (Entity temp:bananas) {
+		for (Entity temp:bananas) {
 			entity = new GImage("Banana.png", temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight());
 			program.add(entity);
 			bananaImages.add(entity);
@@ -171,7 +171,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			entity = new GImage("Mango.png", temp.getCol() * spaceWidth(), temp.getRow() * spaceHeight());
 			program.add(entity);
 			mangoImages.add(entity);
-		}*/
+		}
 	}
 	
 	private void drawLives() {

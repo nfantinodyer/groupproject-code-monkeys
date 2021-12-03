@@ -142,6 +142,8 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		
 		//add fruit
 		map.addEntity(EntityType.CHERRY, 4,3, false);
+		map.addEntity(EntityType.BANANA, 3, 2, false);
+		map.addEntity(EntityType.MANGO, 9, 4, false);
 	}
 
 	public void setUpLevelMed(){
