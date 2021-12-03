@@ -233,6 +233,32 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		{
 			program.remove(l);
 		}
+		
+	}
+	
+	public void removeEntities()
+	{
+		
+		for(GRect l:wallImages)
+		{
+			program.remove(l);
+		}
+		for(GImage l:cherryImages)
+		{
+			program.remove(l);
+		}
+		for(GImage l:mangoImages)
+		{
+			program.remove(l);
+		}
+		for(GImage l:bananaImages)
+		{
+			program.remove(l);
+		}
+		for(GImage l:barrelImages)
+		{
+			program.remove(l);
+		}
 	}
 	
 	private double spaceWidth() {
@@ -274,6 +300,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		program.remove(score);
 		removeGridLines();
 		program.remove(winSpace);
+		removeEntities();
 		timer.stop();
 	}
 
@@ -398,12 +425,10 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		{
 			GParagraph win = new GParagraph("YOU Win! \"SPACE\" TO CONTINUE", 50, 50);
 			program.add(win);
+			System.out.println("\nWIN\n");
 			
-			while (e.getKeyChar() != ' ') {
-				if (e.getKeyChar() == ' ') {
-					program.switchToLevelSelect(null);
-				}
-			}
+			program.switchToLead();
+			
 		}
 		
 		score.setLabel("SCORE: " + level.getScore());
