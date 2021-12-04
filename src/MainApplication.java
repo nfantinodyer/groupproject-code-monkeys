@@ -9,6 +9,7 @@ public class MainApplication extends GraphicsProgram {
 	public static final String MUSIC_FOLDER = "sounds";
 	
 	public int score = 0;
+	public int levelsBeat = 0;
 
 	private GraphicsPane curScreen;
 	private CharacterSelectPane characterSelectPane;
@@ -121,6 +122,14 @@ public class MainApplication extends GraphicsProgram {
 	
 	public int getScore() {
 		return score;
+	}
+	
+	public void addLevelsBeat() {
+		++levelsBeat;
+	}
+	
+	public int getLevelsBeat() {
+		return levelsBeat;
 	}
 
 	public void switchToMenu() {

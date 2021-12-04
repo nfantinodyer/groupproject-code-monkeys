@@ -14,6 +14,9 @@ public class LevelSelectPane extends GraphicsPane {
 	private GLabel easyLabel = new GLabel("Easy", 232, 200);
 	private GLabel mediumLabel = new GLabel("Medium", 725, 200);
 	private GLabel hardLabel = new GLabel("Hard", 1232, 200);
+	//private GLabel easyLabel = new GLabel("Easy", 725, 200);
+	//private GLabel mediumLabel = new GLabel("Medium", 725, 200);
+	//private GLabel hardLabel = new GLabel("Hard", 725, 200);
 	private GImage easyLevel;
 	private GImage mediumLevel;
 	private GImage hardLevel;
@@ -32,6 +35,9 @@ public class LevelSelectPane extends GraphicsPane {
 		easyLevel = new GImage("EasyMap.png", 130, 250);
 		mediumLevel = new GImage("MediumMap.png", 630, 255);
 		hardLevel = new GImage("HardMap.png", 1130, 240);
+		//easyLevel = new GImage("EasyMap.png", 630, 250);
+		//mediumLevel = new GImage("MediumMap.png", 630, 255);
+		//hardLevel = new GImage("HardMap.png", 630, 240);
 		
 		easyLabel.setFont("Arial-26");
 		easyLabel.setColor(Color.YELLOW);
@@ -70,6 +76,47 @@ public class LevelSelectPane extends GraphicsPane {
 		program.remove(levelSelect);
 		program.remove(next);
 	}
+	/*
+	@Override
+	public void showContents() {
+		program.add(para);
+		program.add(rect);
+		
+		if (program.getLevelsBeat() == 0) {
+			program.add(easyLabel);
+			program.add(easyLevel);
+		}
+		if (program.getLevelsBeat() == 1) {
+			program.add(mediumLabel);
+			program.add(mediumLevel);
+		}
+		if (program.getLevelsBeat() == 2) {
+			program.add(hardLabel);
+			program.add(hardLevel);
+		}
+	}
+
+	@Override
+	public void hideContents() {
+		program.remove(para);
+		program.remove(rect);
+		
+		if (program.getLevelsBeat() == 0) {
+			program.remove(easyLabel);
+			program.remove(easyLevel);
+		}
+		if (program.getLevelsBeat() == 1) {
+			program.remove(mediumLabel);
+			program.remove(mediumLevel);
+		}
+		if (program.getLevelsBeat() == 2) {
+		program.remove(hardLabel);
+		program.remove(hardLevel);
+		}
+		program.remove(levelSelect);
+		program.remove(next);
+	}
+	 */
 
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -81,12 +128,15 @@ public class LevelSelectPane extends GraphicsPane {
 		}
 		if (obj == easyLevel) {
 			levelSelect = new GButton("SELECTED", 230, 575, 100, 50);
+			//levelSelect = new GButton("SELECTED", 730, 575, 100, 50);
 		}
 		if (obj == mediumLevel) {
 			levelSelect = new GButton("SELECTED", 730, 575, 100, 50);
+			//levelSelect = new GButton("SELECTED", 730, 575, 100, 50);
 		}
 		if (obj == hardLevel) {
 			levelSelect = new GButton("SELECTED", 1230, 575, 100, 50);
+			//levelSelect = new GButton("SELECTED", 730, 575, 100, 50);
 		}
 		
 		levelSelect.setFillColor(Color.RED);
@@ -100,12 +150,15 @@ public class LevelSelectPane extends GraphicsPane {
 		if (obj == next) {
 			GraphicsGame game = new GraphicsGame(program);
 			game.setMonkey(monkey);
+			//if (easyLevel.isVisible())
 			if (levelSelect.getX() == 230) {
 				game.setupEasy();
 			}
+			//else if (mediumLevel.isVisible())
 			else if (levelSelect.getX() == 730) {
 				game.setupMedium();
 			}
+			//else if (hardLevel.isVisible())
 			else {
 				game.setupHard();
 			}

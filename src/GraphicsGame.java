@@ -762,6 +762,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		
 		if(level.map.getWinSPace() == level.getCharSpace())
 		{
+			program.addLevelsBeat();
 			hideContents();
 			//GParagraph win = new GParagraph("YOU Win! \"SPACE\" TO CONTINUE", 50, 50);
 			//program.add(win);
