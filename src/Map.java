@@ -144,7 +144,7 @@ public class Map {
 		return bananas;
 	}
 	
-	public void moveBarrels(int nSpaces, Vector<Boolean> vertical, Vector<Boolean>switchy) {
+	public boolean moveBarrels(int nSpaces, Vector<Boolean> vertical, Vector<Boolean>switchy) {
 		int p =0;
 		for (Entity i: barrels) {
 			if (vertical.elementAt(p)) {
@@ -178,10 +178,11 @@ public class Map {
 			}
 			p++;
 		}
+		return false;
 	}
 	
 	public boolean wallCollision (Space s) {
-		if(s.getRow()>numRows||s.getCol()>numCols||s.getRow()<0||s.getCol()<0) {
+		if(s.getRow()>=numRows||s.getCol()>=numCols||s.getRow()<0||s.getCol()<0) {
 			return true;
 		}
 		if (map[s.getRow()][s.getCol()] == null) {
