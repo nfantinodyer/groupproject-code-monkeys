@@ -374,12 +374,15 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				return;
 			}
 			
-			if ((row-1) * spaceHeight() >= 0) {
+			else {
 				Entity entityCollision = level.map.getEnt(targetSpace);
-				
 				level.collision(targetSpace);
 				
 				if (entityCollision != null) {
+					if (entityCollision.getType() == EntityType.BARREL) {
+						targetSpace = level.getCharSpace();
+						character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
+					}
 					if (entityCollision.getType() == EntityType.BANANA) {
 						GImage bananaImage = new GImage("Banana.png", targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
 						bananaImages.remove(bananaImage);
@@ -440,10 +443,11 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 					}
 					*/
 				}
-				
+				/*
 				if (charOldSpace != level.getCharSpace()) {
 					targetSpace = level.getCharSpace();
 				}
+				*/
 				level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());	
 				character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
 			}
@@ -455,12 +459,15 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				return;
 			}
 			
-			if ((col-1) * spaceWidth() >= 0) {
+			else {
 				Entity entityCollision = level.map.getEnt(targetSpace);
-				
 				level.collision(targetSpace);
 				
 				if (entityCollision != null) {
+					if (entityCollision.getType() == EntityType.BARREL) {
+						targetSpace = level.getCharSpace();
+						character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
+					}
 					if (entityCollision.getType() == EntityType.BANANA) {
 						GImage bananaImage = new GImage("Banana.png", targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
 						bananaImages.remove(bananaImage);
@@ -521,10 +528,11 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 					}
 					*/
 				}
-				
+				/*
 				if (charOldSpace != level.getCharSpace()) {
 					targetSpace = level.getCharSpace();
 				}
+				*/
 				level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());	
 				character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
 			}
@@ -536,12 +544,15 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				return;
 			}
 			
-			if ((row+1) * spaceHeight() < WINDOW_HEIGHT) {
+			else {
 				Entity entityCollision = level.map.getEnt(targetSpace);
-				
 				level.collision(targetSpace);
 				
 				if (entityCollision != null) {
+					if (entityCollision.getType() == EntityType.BARREL) {
+						targetSpace = level.getCharSpace();
+						character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
+					}
 					if (entityCollision.getType() == EntityType.BANANA) {
 						GImage bananaImage = new GImage("Banana.png", targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
 						bananaImages.remove(bananaImage);
@@ -602,10 +613,11 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 					}
 					*/
 				}
-				
+				/*
 				if (charOldSpace != level.getCharSpace()) {
 					targetSpace = level.getCharSpace();
 				}
+				*/
 				level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());	
 				character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
 			}
@@ -622,6 +634,10 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				level.collision(targetSpace);
 				
 				if (entityCollision != null) {
+					if (entityCollision.getType() == EntityType.BARREL) {
+						targetSpace = level.getCharSpace();
+						character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
+					}
 					if (entityCollision.getType() == EntityType.BANANA) {
 						GImage bananaImage = new GImage("Banana.png", targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
 						bananaImages.remove(bananaImage);
@@ -682,10 +698,11 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 					}
 					*/
 				}
-				
+				/*
 				if (targetSpace != level.getCharSpace()) {
 					targetSpace = level.getCharSpace();
 				}
+				*/
 				level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());	
 				character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
 			}
