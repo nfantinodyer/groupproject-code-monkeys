@@ -232,8 +232,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	}
 	
 	private void drawLives() {
-		
-		
 		lifeOne.setFilled(true);
 		lifeTwo.setFilled(true);
 		lifeThree.setFilled(true);
@@ -380,6 +378,15 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				
 				if (entityCollision != null) {
 					if (entityCollision.getType() == EntityType.BARREL) {
+						if (level.getLives() == 2) {
+							program.remove(lifeThree);
+						}
+						else if (level.getLives() == 1) {
+							program.remove(lifeTwo);
+						}
+						else {
+							program.remove(lifeOne);
+						}
 						targetSpace = level.getCharSpace();
 						character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
 					}
@@ -465,6 +472,15 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				
 				if (entityCollision != null) {
 					if (entityCollision.getType() == EntityType.BARREL) {
+						if (level.getLives() == 2) {
+							program.remove(lifeThree);
+						}
+						else if (level.getLives() == 1) {
+							program.remove(lifeTwo);
+						}
+						else {
+							program.remove(lifeOne);
+						}
 						targetSpace = level.getCharSpace();
 						character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
 					}
@@ -550,6 +566,15 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				
 				if (entityCollision != null) {
 					if (entityCollision.getType() == EntityType.BARREL) {
+						if (level.getLives() == 2) {
+							program.remove(lifeThree);
+						}
+						else if (level.getLives() == 1) {
+							program.remove(lifeTwo);
+						}
+						else {
+							program.remove(lifeOne);
+						}
 						targetSpace = level.getCharSpace();
 						character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
 					}
@@ -635,6 +660,15 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				
 				if (entityCollision != null) {
 					if (entityCollision.getType() == EntityType.BARREL) {
+						if (level.getLives() == 2) {
+							program.remove(lifeThree);
+						}
+						else if (level.getLives() == 1) {
+							program.remove(lifeTwo);
+						}
+						else {
+							program.remove(lifeOne);
+						}
 						targetSpace = level.getCharSpace();
 						character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
 					}
