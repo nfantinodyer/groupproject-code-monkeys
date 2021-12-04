@@ -84,6 +84,11 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		return monkey;
 	}
 	
+	public void createLevel(String choice, MainApplication app) {
+		level.createLevel(choice, app);
+		s = choice;
+	}
+	/*
 	public void setupEasy() {
 		level.createLevel("small");
 		s="easy";
@@ -98,6 +103,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		level.createLevel("large");
 		s="hard";
 	}
+	*/
 	
 	public void resize()
 	{
@@ -378,10 +384,10 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				
 				if (entityCollision != null) {
 					if (entityCollision.getType() == EntityType.BARREL) {
-						if (level.getLives() == 2) {
+						if (program.getLives() == 2) {
 							program.remove(lifeThree);
 						}
-						else if (level.getLives() == 1) {
+						else if (program.getLives() == 1) {
 							program.remove(lifeTwo);
 						}
 						else {
@@ -472,10 +478,10 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				
 				if (entityCollision != null) {
 					if (entityCollision.getType() == EntityType.BARREL) {
-						if (level.getLives() == 2) {
+						if (program.getLives() == 2) {
 							program.remove(lifeThree);
 						}
-						else if (level.getLives() == 1) {
+						else if (program.getLives() == 1) {
 							program.remove(lifeTwo);
 						}
 						else {
@@ -566,10 +572,10 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				
 				if (entityCollision != null) {
 					if (entityCollision.getType() == EntityType.BARREL) {
-						if (level.getLives() == 2) {
+						if (program.getLives() == 2) {
 							program.remove(lifeThree);
 						}
-						else if (level.getLives() == 1) {
+						else if (program.getLives() == 1) {
 							program.remove(lifeTwo);
 						}
 						else {
@@ -660,10 +666,10 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				
 				if (entityCollision != null) {
 					if (entityCollision.getType() == EntityType.BARREL) {
-						if (level.getLives() == 2) {
+						if (program.getLives() == 2) {
 							program.remove(lifeThree);
 						}
-						else if (level.getLives() == 1) {
+						else if (program.getLives() == 1) {
 							program.remove(lifeTwo);
 						}
 						else {
@@ -742,7 +748,8 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			}
 		}
 		
-		if (level.getLives() == 0) {
+		if (program.getLives() == 0) {
+			program.removeLevelsBeat();
 			hideContents();
 			//GButton lose = new GButton("YOU LOSE. \"SPACE\" TO CONTINUE", 50, 50, WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
 			//program.add(lose);

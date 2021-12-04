@@ -10,6 +10,7 @@ public class MainApplication extends GraphicsProgram {
 	
 	public int score = 0;
 	public int levelsBeat = 0;
+	public int numLives = 3;
 
 	private GraphicsPane curScreen;
 	private CharacterSelectPane characterSelectPane;
@@ -128,8 +129,20 @@ public class MainApplication extends GraphicsProgram {
 		++levelsBeat;
 	}
 	
+	public void removeLevelsBeat() {
+		levelsBeat = 0;
+	}
+	
 	public int getLevelsBeat() {
 		return levelsBeat;
+	}
+	
+	public void removeLife() {
+		--numLives;
+	}
+	
+	public int getLives() {
+		return numLives;
 	}
 
 	public void switchToMenu() {

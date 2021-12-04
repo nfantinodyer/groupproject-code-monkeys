@@ -152,15 +152,15 @@ public class LevelSelectPane extends GraphicsPane {
 			game.setMonkey(monkey);
 			//if (easyLevel.isVisible())
 			if (levelSelect.getX() == 230) {
-				game.setupEasy();
+				game.createLevel("easy", program);
 			}
 			//else if (mediumLevel.isVisible())
 			else if (levelSelect.getX() == 730) {
-				game.setupMedium();
+				game.createLevel("medium", program);
 			}
 			//else if (hardLevel.isVisible())
 			else {
-				game.setupHard();
+				game.createLevel("hard", program);
 			}
 			program.switchToGame(game);
 		}

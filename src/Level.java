@@ -17,13 +17,12 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	Random randNum = new Random();
 	Space winSpace;
 	private int score = 0;
-	private int numLives = 3;
 	Vector<LeaderBoard> lead = new Vector<LeaderBoard>();
 	Timer barrel = new Timer(1000, this);
 	Vector<Boolean> switcher = null;
 	Vector<Boolean> vertic = null;
 	Vector<Entity> walls = null;
-	
+	MainApplication program = null;
 		
 	
 
@@ -42,14 +41,15 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		requestFocus();
 	}
 	
-	public Level createLevel(String s) {
+	public Level createLevel(String s, MainApplication app) {
+		program = app;
 		mapSize = s;
 		//made created of small level as default for testing purposes "SO REMOVE THIS LATER ON WITH s= "small""
-		if(s== "small") {
+		if(s== "easy") {
 			setUpLevelEasy();
 		}else if(s == "medium") {
 			setUpLevelMed();
-		}else if(s == "large"){
+		}else if(s == "hard"){
 			setUpLevelHard();
 		}else {
 			map = new Map(0,0);
@@ -519,9 +519,6 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	public int getScore() {
 		return score;
 	}
-	public int getLives() {
-		return numLives;
-	}
 	public int getNumRows() {
 		return map.getNumRows();
 	}
@@ -554,7 +551,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 			}
 			if (map.barrelCollision(s)) {
 				System.out.println("Barrel collsion detected!!!");
-				--numLives;
+				program.removeLife();
 				map.resetChara();
 				
 			}
