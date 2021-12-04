@@ -52,7 +52,10 @@ public class Map {
 	}
 	
 	public Entity getEnt(Space s) {
-		return map[s.getRow()][s.getCol()];
+		if (s.getRow() > 0 && s.getCol() > 0 && s.getRow() < getNumRows() && s.getCol() < getNumCols()) {
+			return map[s.getRow()][s.getCol()];
+		}
+		return null;
 	}
 	
 	public int getNumEnt() {
@@ -147,31 +150,39 @@ public class Map {
 		for (Entity i: barrels) {
 			if (vertical.elementAt(p)) {
 				if(switchy.elementAt(p)) {
+					if (i.getRow()-1>0) {
 					//Space oldSpace = new Space(i.getRow(), i.getCol());
 					map[i.getRow()][i.getCol()] = null;
 					i.setSpace(i.getRow()-1, i.getCol());
 					//map[oldSpace.getRow()][oldSpace.getCol()] = null;
 					map[i.getRow()][i.getCol()] = i;
+					}
 				}else {
+					if (i.getRow()+1<getNumRows()) {
 					//Space oldSpace = new Space(i.getRow(), i.getCol());
 					map[i.getRow()][i.getCol()] = null;
 					i.setSpace(i.getRow()+1, i.getCol());
 					//map[oldSpace.getRow()][oldSpace.getCol()] = null;
 					map[i.getRow()][i.getCol()] = i;
+					}
 				}
 			}else { 
 				if(switchy.elementAt(p)) {
+					if (i.getCol()-1>0) {
 					//Space oldSpace = new Space(i.getRow(), i.getCol());
 					map[i.getRow()][i.getCol()] = null;
 					i.setSpace(i.getRow(), i.getCol()-1);
 					//map[oldSpace.getRow()][oldSpace.getCol()] = null;
 					map[i.getRow()][i.getCol()] = i;
+					}
 				}else {
+					if (i.getCol()+1<getNumCols()) {
 					//Space oldSpace = new Space(i.getRow(), i.getCol());
 					map[i.getRow()][i.getCol()] = null;
 					i.setSpace(i.getRow(), i.getCol()+1);
 					//map[oldSpace.getRow()][oldSpace.getCol()] = null;
 					map[i.getRow()][i.getCol()] = i;
+					}
 				}
 			}
 			p++;

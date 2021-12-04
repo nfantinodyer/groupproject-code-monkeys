@@ -375,8 +375,15 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 					return;
 				}
 			}
+			/*
+			if (level.map.getEnt(targetSpace) != null) {
+				if (level.map.getEnt(targetSpace).getType() == EntityType.WALL) {
+					return;
+				}
+			}
+			*/
 			
-			if ((row-1) >= 0) {
+			if ((row-1) * spaceHeight() >= 0) {
 				Entity entityCollision = level.map.getEnt(targetSpace);
 				
 				if (entityCollision != null) {
@@ -420,8 +427,15 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 					return;
 				}
 			}
+			/*
+			if (level.map.getEnt(targetSpace) != null) {
+				if (level.map.getEnt(targetSpace).getType() == EntityType.WALL) {
+					return;
+				}
+			}
+			*/
 			
-			if ((col-1) >= 0) {
+			if ((col-1) * spaceWidth() >= 0) {
 				Entity entityCollision = level.map.getEnt(targetSpace);
 				
 				if (entityCollision != null) {
@@ -465,8 +479,15 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 					return;
 				}
 			}
+			/*
+			if (level.map.getEnt(targetSpace) != null) {
+				if (level.map.getEnt(targetSpace).getType() == EntityType.WALL) {
+					return;
+				}
+			}
+			*/
 			
-			if ((row+1) <= WINDOW_HEIGHT) {
+			if ((row+1) * spaceHeight() <= WINDOW_HEIGHT) {
 				Entity entityCollision = level.map.getEnt(targetSpace);
 				
 				if (entityCollision != null) {
@@ -510,8 +531,15 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 					return;
 				}
 			}
+			/*
+			if (level.map.getEnt(targetSpace) != null) {
+				if (level.map.getEnt(targetSpace).getType() == EntityType.WALL) {
+					return;
+				}
+			}
+			*/
 			
-			if ((col+1) <= WINDOW_WIDTH) {
+			if ((col+1) * spaceWidth() <= WINDOW_WIDTH) {
 				Entity entityCollision = level.map.getEnt(targetSpace);
 				
 				if (entityCollision != null) {
