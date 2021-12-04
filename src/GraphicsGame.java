@@ -377,6 +377,26 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			}
 			
 			if ((row-1) >= 0) {
+				Entity entityCollision = level.map.getEnt(targetSpace);
+				
+				if (entityCollision != null) {
+					if (entityCollision.getType() == EntityType.BANANA) {
+						GImage banana = new GImage("Banana.png", targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
+						bananaImages.remove(banana);
+						program.remove(banana);
+					}
+					if (entityCollision.getType() == EntityType.CHERRY) {
+						GImage cherry = new GImage("Cherry.png", targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
+						cherryImages.remove(cherry);
+						program.remove(cherry);
+					}
+					if (entityCollision.getType() == EntityType.MANGO) {
+						GImage mango = new GImage("Mango.png", targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
+						mangoImages.remove(mango);
+						program.remove(mango);
+					}
+				}
+				
 				level.collision(targetSpace);
 				if (charOldSpace != level.getCharSpace()) {
 					/*
@@ -385,8 +405,9 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 					*/
 					targetSpace = level.getCharSpace();
 				}
-				character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
 				level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());	
+				character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
+				program.add(character);
 				//System.out.print(level.getCharSpace().getRow()+", "+level.getCharSpace().getCol()+"\n"+col+", "+row);
 				//return;
 
@@ -401,6 +422,26 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			}
 			
 			if ((col-1) >= 0) {
+				Entity entityCollision = level.map.getEnt(targetSpace);
+				
+				if (entityCollision != null) {
+					if (entityCollision.getType() == EntityType.BANANA) {
+						GImage banana = new GImage("Banana.png", targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
+						bananaImages.remove(banana);
+						program.remove(banana);
+					}
+					if (entityCollision.getType() == EntityType.CHERRY) {
+						GImage cherry = new GImage("Cherry.png", targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
+						cherryImages.remove(cherry);
+						program.remove(cherry);
+					}
+					if (entityCollision.getType() == EntityType.MANGO) {
+						GImage mango = new GImage("Mango.png", targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
+						mangoImages.remove(mango);
+						program.remove(mango);
+					}
+				}
+				
 				level.collision(targetSpace);
 				if (charOldSpace != level.getCharSpace()) {
 					targetSpace = level.getCharSpace();
@@ -411,8 +452,9 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 					
 					//return;
 				}
+				level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());	
 				character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
-				level.setCharSpace(row, (col-1));
+				program.add(character);
 				//return;
 			}
 		}
@@ -425,6 +467,26 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			}
 			
 			if ((row+1) <= WINDOW_HEIGHT) {
+				Entity entityCollision = level.map.getEnt(targetSpace);
+				
+				if (entityCollision != null) {
+					if (entityCollision.getType() == EntityType.BANANA) {
+						GImage banana = new GImage("Banana.png", targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
+						bananaImages.remove(banana);
+						program.remove(banana);
+					}
+					if (entityCollision.getType() == EntityType.CHERRY) {
+						GImage cherry = new GImage("Cherry.png", targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
+						cherryImages.remove(cherry);
+						program.remove(cherry);
+					}
+					if (entityCollision.getType() == EntityType.MANGO) {
+						GImage mango = new GImage("Mango.png", targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
+						mangoImages.remove(mango);
+						program.remove(mango);
+					}
+				}
+				
 				level.collision(targetSpace);
 				if (charOldSpace != level.getCharSpace()) {
 					targetSpace = level.getCharSpace();
@@ -435,8 +497,9 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 					
 					//return;
 				}
+				level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());	
 				character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
-				level.setCharSpace((row+1), col);
+				program.add(character);
 				//return;
 			}
 		}
@@ -449,6 +512,26 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			}
 			
 			if ((col+1) <= WINDOW_WIDTH) {
+				Entity entityCollision = level.map.getEnt(targetSpace);
+				
+				if (entityCollision != null) {
+					if (entityCollision.getType() == EntityType.BANANA) {
+						GImage banana = new GImage("Banana.png", targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
+						bananaImages.remove(banana);
+						program.remove(banana);
+					}
+					if (entityCollision.getType() == EntityType.CHERRY) {
+						GImage cherry = new GImage("Cherry.png", targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
+						cherryImages.remove(cherry);
+						program.remove(cherry);
+					}
+					if (entityCollision.getType() == EntityType.MANGO) {
+						GImage mango = new GImage("Mango.png", targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
+						mangoImages.remove(mango);
+						program.remove(mango);
+					}
+				}
+				
 				level.collision(targetSpace);
 				if (targetSpace != level.getCharSpace()) {
 					targetSpace = level.getCharSpace();
@@ -459,8 +542,9 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 					
 					//return;
 				}
+				level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());	
 				character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
-				level.setCharSpace(row, (col+1));
+				program.add(character);
 				//return;
 			}
 		}

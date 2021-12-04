@@ -32,6 +32,8 @@ public class Map {
 	
 	public boolean moveChara(Space s) {
 		if (canMove(s)) {
+			map[character.getRow()][character.getCol()] = null;
+			map[s.getRow()][s.getCol()] = character;
 			map[character.getRow()][character.getCol()].move(s.getRow(), s.getCol());
 		}
 		return canMove(s);
@@ -73,7 +75,11 @@ public class Map {
 		return character.getSpace();
 	}
 	public void setCharacterSpace(int row, int col) {
+		//Space oldSpace = new Space(character.getRow(), character.getCol());
+		map[character.getRow()][character.getCol()] = null;
 		character.setSpace(row, col);
+		//map[oldSpace.getRow()][oldSpace.getCol()] = null;
+		map[row][col] = character;
 		
 	}
 	public int getCharacterRow() {
@@ -141,15 +147,31 @@ public class Map {
 		for (Entity i: barrels) {
 			if (vertical.elementAt(p)) {
 				if(switchy.elementAt(p)) {
+					//Space oldSpace = new Space(i.getRow(), i.getCol());
+					map[i.getRow()][i.getCol()] = null;
 					i.setSpace(i.getRow()-1, i.getCol());
+					//map[oldSpace.getRow()][oldSpace.getCol()] = null;
+					map[i.getRow()][i.getCol()] = i;
 				}else {
+					//Space oldSpace = new Space(i.getRow(), i.getCol());
+					map[i.getRow()][i.getCol()] = null;
 					i.setSpace(i.getRow()+1, i.getCol());
+					//map[oldSpace.getRow()][oldSpace.getCol()] = null;
+					map[i.getRow()][i.getCol()] = i;
 				}
 			}else { 
 				if(switchy.elementAt(p)) {
+					//Space oldSpace = new Space(i.getRow(), i.getCol());
+					map[i.getRow()][i.getCol()] = null;
 					i.setSpace(i.getRow(), i.getCol()-1);
+					//map[oldSpace.getRow()][oldSpace.getCol()] = null;
+					map[i.getRow()][i.getCol()] = i;
 				}else {
+					//Space oldSpace = new Space(i.getRow(), i.getCol());
+					map[i.getRow()][i.getCol()] = null;
 					i.setSpace(i.getRow(), i.getCol()+1);
+					//map[oldSpace.getRow()][oldSpace.getCol()] = null;
+					map[i.getRow()][i.getCol()] = i;
 				}
 			}
 			p++;
@@ -184,6 +206,8 @@ public class Map {
 			return false;
 		}
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.BANANA) {
+			map[s.getRow()][s.getCol()] = null;
+			--numEntities;
 			return true;
 		}
 		return false;
@@ -194,6 +218,8 @@ public class Map {
 			return false;
 		}
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.CHERRY) {
+			map[s.getRow()][s.getCol()] = null;
+			--numEntities;
 			return true;
 		}
 		return false;
@@ -204,6 +230,8 @@ public class Map {
 			return false;
 		}
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.MANGO) {
+			map[s.getRow()][s.getCol()] = null;
+			--numEntities;
 			return true;
 		}
 		return false;
