@@ -539,16 +539,18 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		if (!map.wallCollision(s)) {
 			if (map.bananaCollision(s)) {
 				score += 10;
+				setCharSpace(s.getRow(), s.getCol());
 				System.out.println("Banana collected!! +10 points");
 			}
 			if (map.cherryCollision(s)) {
 				score += 7;
+				setCharSpace(s.getRow(), s.getCol());
 				System.out.println("Cherry collected!! +7 points");
 			}
 			if (map.mangoCollision(s)) {
 				System.out.println("Cherry collected!! +7 points");
 				score += 5;
-				
+				setCharSpace(s.getRow(), s.getCol());
 			}
 			if (map.barrelCollision(s)) {
 				System.out.println("Barrel collsion detected!!!");

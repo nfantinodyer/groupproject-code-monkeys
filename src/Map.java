@@ -206,7 +206,7 @@ public class Map {
 		if(map[s.getRow()][s.getCol()] ==  null) {
 			return false;
 		}
-		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
+		if (map[s.getRow()][s.getCol()].getType() == EntityType.BARREL) {
 			return true;
 		}
 		return false;
