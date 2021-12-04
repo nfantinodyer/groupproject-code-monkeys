@@ -54,10 +54,10 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	private Vector<GImage> cherryImages = new Vector<GImage>();
 	private Vector<GRect> wallImages = new Vector<GRect>();
 	private Vector<GLine> gridLines = new Vector<GLine>();
-	private GImage character;
-	private GImage entity;
-	private GRect winSpace;
-	private GRect wall;
+	private GImage character = null;
+	private GImage entity = null;
+	private GRect winSpace = null;
+	private GRect wall = null;
 	
 	private Timer timer = new Timer(1000, this);
 	Vector<Boolean> switcher = null;
@@ -414,7 +414,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				}
 				level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());	
 				character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
-				program.add(character);
 				//System.out.print(level.getCharSpace().getRow()+", "+level.getCharSpace().getCol()+"\n"+col+", "+row);
 				//return;
 
@@ -468,7 +467,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				}
 				level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());	
 				character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
-				program.add(character);
 				//return;
 			}
 		}
@@ -520,7 +518,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				}
 				level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());	
 				character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
-				program.add(character);
 				//return;
 			}
 		}
@@ -572,18 +569,17 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				}
 				level.setCharSpace(targetSpace.getRow(),targetSpace.getCol());	
 				character.setLocation(targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
-				program.add(character);
 				//return;
 			}
 		}
 		
 		if (level.getLives() == 0) {
 			hideContents();
-			GButton lose = new GButton("YOU LOSE. \"SPACE\" TO CONTINUE", 50, 50, WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
-			program.add(lose);
+			//GButton lose = new GButton("YOU LOSE. \"SPACE\" TO CONTINUE", 50, 50, WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
+			//program.add(lose);
 			
 			LevelSelectPane levelSelect = new LevelSelectPane(program, monkey);
-			program.pause(5000);
+			program.pause(3000);
 			program.switchToLevelSelect(levelSelect);
 			
 			/*
@@ -598,12 +594,12 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		if(col == level.getWin().getCol() && row == level.getWin().getRow())
 		{
 			hideContents();
-			GParagraph win = new GParagraph("YOU Win! \"SPACE\" TO CONTINUE", 50, 50);
-			program.add(win);
+			//GParagraph win = new GParagraph("YOU Win! \"SPACE\" TO CONTINUE", 50, 50);
+			//program.add(win);
 			System.out.println("\nWIN\n");
 			
 			LevelSelectPane levelSelect = new LevelSelectPane(program, monkey);
-			program.pause(5000);
+			program.pause(3000);
 			program.switchToLevelSelect(levelSelect);
 			
 			
@@ -616,37 +612,21 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	
 	@Override
 	public void keyReleased(KeyEvent e) {
-		//program.add(character);
+		program.add(character);
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		/*
-		level.checkPath();
-		level.map.moveBarrels(1, vertic,switcher);
+		GImage barrelImage = null;
 		
-		int p =0;
-		for (GImage j: enemies) {
-			for (Entity i:barrels) {
-			if (vertic.elementAt(p)) {
-				if(switcher.elementAt(p)) {
-					i.setSpace(i.getRow(), i.getCol()-1);
-					j.setLocation((i.getCol()-1) * spaceWidth(), i.getRow() * spaceHeight());
-				}else {
-					i.setSpace(i.getRow(), i.getCol()+1);
-					j.setLocation((i.getCol()+1) * spaceWidth(), i.getRow() * spaceHeight());
-				}
-			}else { 
-				if(switcher.elementAt(p)) {
-					i.setSpace(i.getRow()-1, i.getCol());
-					j.setLocation(i.getCol() * spaceWidth(), (i.getRow()-1) * spaceHeight());
-				}else {
-					i.setSpace(i.getRow()+1, i.getCol());
-					j.setLocation(i.getCol() * spaceWidth(), (i.getRow()+1 * spaceHeight());
-				}
-			}
-			p++;
-			}
+		for (GImage barrel:barrelImages) {
+			program.remove(barrel);
 		}
-		*/
+		for (Entity barrel:barrels) {
+			barrelImage = new GImage("barrel.png", 0, 0);
+			barrelImage.setLocation(barrel.getCol() * spaceWidth(), barrel.getRow() * spaceHeight());
+			
+			barrelImages.add(barrelImage);
+			program.add(barrelImage);
+		}
 	}
 }

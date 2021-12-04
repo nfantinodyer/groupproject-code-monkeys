@@ -32,9 +32,9 @@ public class Map {
 	
 	public boolean moveChara(Space s) {
 		if (canMove(s)) {
-			map[character.getRow()][character.getCol()] = null;
-			map[s.getRow()][s.getCol()] = character;
-			map[character.getRow()][character.getCol()].move(s.getRow(), s.getCol());
+			character.setSpace(s.getRow(), s.getCol());
+			//map[character.getRow()][character.getCol()] = null;
+			//map[s.getRow()][s.getCol()] = character;
 		}
 		return canMove(s);
 	}
@@ -78,11 +78,9 @@ public class Map {
 		return character.getSpace();
 	}
 	public void setCharacterSpace(int row, int col) {
-		//Space oldSpace = new Space(character.getRow(), character.getCol());
-		map[character.getRow()][character.getCol()] = null;
+		//map[character.getRow()][character.getCol()] = null;
 		character.setSpace(row, col);
-		//map[oldSpace.getRow()][oldSpace.getCol()] = null;
-		map[row][col] = character;
+		//map[row][col] = character;
 		
 	}
 	public int getCharacterRow() {
@@ -110,6 +108,7 @@ public class Map {
 		}
 		
 		if (type == EntityType.CHARACTER) {
+			//map[r][c] = null;
 			character = new Entity(type, r, c, b);
 			startSpace = new Space(r, c);
 		}
@@ -151,36 +150,28 @@ public class Map {
 			if (vertical.elementAt(p)) {
 				if(switchy.elementAt(p)) {
 					if (i.getRow()-1>0) {
-					//Space oldSpace = new Space(i.getRow(), i.getCol());
 					map[i.getRow()][i.getCol()] = null;
 					i.setSpace(i.getRow()-1, i.getCol());
-					//map[oldSpace.getRow()][oldSpace.getCol()] = null;
 					map[i.getRow()][i.getCol()] = i;
 					}
 				}else {
 					if (i.getRow()+1<getNumRows()) {
-					//Space oldSpace = new Space(i.getRow(), i.getCol());
 					map[i.getRow()][i.getCol()] = null;
 					i.setSpace(i.getRow()+1, i.getCol());
-					//map[oldSpace.getRow()][oldSpace.getCol()] = null;
 					map[i.getRow()][i.getCol()] = i;
 					}
 				}
 			}else { 
 				if(switchy.elementAt(p)) {
 					if (i.getCol()-1>0) {
-					//Space oldSpace = new Space(i.getRow(), i.getCol());
 					map[i.getRow()][i.getCol()] = null;
 					i.setSpace(i.getRow(), i.getCol()-1);
-					//map[oldSpace.getRow()][oldSpace.getCol()] = null;
 					map[i.getRow()][i.getCol()] = i;
 					}
 				}else {
 					if (i.getCol()+1<getNumCols()) {
-					//Space oldSpace = new Space(i.getRow(), i.getCol());
 					map[i.getRow()][i.getCol()] = null;
 					i.setSpace(i.getRow(), i.getCol()+1);
-					//map[oldSpace.getRow()][oldSpace.getCol()] = null;
 					map[i.getRow()][i.getCol()] = i;
 					}
 				}
