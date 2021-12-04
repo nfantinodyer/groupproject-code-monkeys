@@ -14,6 +14,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	int barrelAmount =0;
 	int min = 0;
 	int max = 0;
+	int timerCount = 0;
 	Random randNum = new Random();
 	Space winSpace;
 	private int score = 0;
@@ -653,7 +654,17 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		System.out.println("now checking movement");
 		checkPath();
 		System.out.println("Now moving barrels");
-		map.moveBarrels(1, vertic,switcher);
+		//if (timerCount < 6) {
+			map.moveBarrels(1, vertic,switcher);
+		//}
+		//else if (timerCount >= 6 && timerCount < 11) {
+			//map.moveBarrels(-1, vertic, switcher);
+		//}
+		//++timerCount;
+		
+		//if (timerCount == 11) {
+			//timerCount = 0;
+		//}
 	}
 
 	

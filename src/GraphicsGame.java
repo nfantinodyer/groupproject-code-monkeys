@@ -680,6 +680,16 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 					}
 					if (entityCollision.getType() == EntityType.BANANA) {
 						GImage bananaImage = new GImage("Banana.png", targetSpace.getCol() * spaceWidth(), targetSpace.getRow() * spaceHeight());
+						
+						if (s == "easy") {
+							bananaImage.scale(1.4);
+						}
+						else if (s == "medium") {
+							bananaImage.scale(0.8);
+						}
+						else {
+							bananaImage.scale(0.4);
+						}
 						bananaImages.remove(bananaImage);
 						program.remove(bananaImage);
 					}
