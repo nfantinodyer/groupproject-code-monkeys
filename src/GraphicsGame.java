@@ -386,7 +386,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 						for (int i = 0; i < bananas.size(); ++i) {
 							if (bananas.elementAt(i).getSpace() == entityCollision.getSpace()) {
 								program.remove(bananaImages.elementAt(i));
-								bananaImages.remove(i);
 							}
 						}
 					}
@@ -394,7 +393,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 						for (int i = 0; i < cherries.size(); ++i) {
 							if (cherries.elementAt(i).getSpace() == entityCollision.getSpace()) {
 								program.remove(cherryImages.elementAt(i));
-								cherryImages.remove(i);
 							}
 						}
 					}
@@ -402,7 +400,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 						for (int i = 0; i < bananas.size(); ++i) {
 							if (mangos.elementAt(i).getSpace() == entityCollision.getSpace()) {
 								program.remove(mangoImages.elementAt(i));
-								mangoImages.remove(i);
 							}
 						}
 					}
@@ -440,7 +437,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 						for (int i = 0; i < bananas.size(); ++i) {
 							if (bananas.elementAt(i).getSpace() == entityCollision.getSpace()) {
 								program.remove(bananaImages.elementAt(i));
-								bananaImages.remove(i);
 							}
 						}
 					}
@@ -448,7 +444,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 						for (int i = 0; i < cherries.size(); ++i) {
 							if (cherries.elementAt(i).getSpace() == entityCollision.getSpace()) {
 								program.remove(cherryImages.elementAt(i));
-								cherryImages.remove(i);
 							}
 						}
 					}
@@ -456,7 +451,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 						for (int i = 0; i < bananas.size(); ++i) {
 							if (mangos.elementAt(i).getSpace() == entityCollision.getSpace()) {
 								program.remove(mangoImages.elementAt(i));
-								mangoImages.remove(i);
 							}
 						}
 					}
@@ -494,7 +488,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 						for (int i = 0; i < bananas.size(); ++i) {
 							if (bananas.elementAt(i).getSpace() == entityCollision.getSpace()) {
 								program.remove(bananaImages.elementAt(i));
-								bananaImages.remove(i);
 							}
 						}
 					}
@@ -502,7 +495,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 						for (int i = 0; i < cherries.size(); ++i) {
 							if (cherries.elementAt(i).getSpace() == entityCollision.getSpace()) {
 								program.remove(cherryImages.elementAt(i));
-								cherryImages.remove(i);
 							}
 						}
 					}
@@ -510,7 +502,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 						for (int i = 0; i < bananas.size(); ++i) {
 							if (mangos.elementAt(i).getSpace() == entityCollision.getSpace()) {
 								program.remove(mangoImages.elementAt(i));
-								mangoImages.remove(i);
 							}
 						}
 					}
@@ -548,7 +539,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 						for (int i = 0; i < bananas.size(); ++i) {
 							if (bananas.elementAt(i).getSpace() == entityCollision.getSpace()) {
 								program.remove(bananaImages.elementAt(i));
-								bananaImages.remove(i);
 							}
 						}
 					}
@@ -556,7 +546,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 						for (int i = 0; i < cherries.size(); ++i) {
 							if (cherries.elementAt(i).getSpace() == entityCollision.getSpace()) {
 								program.remove(cherryImages.elementAt(i));
-								cherryImages.remove(i);
 							}
 						}
 					}
@@ -564,7 +553,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 						for (int i = 0; i < bananas.size(); ++i) {
 							if (mangos.elementAt(i).getSpace() == entityCollision.getSpace()) {
 								program.remove(mangoImages.elementAt(i));
-								mangoImages.remove(i);
 							}
 						}
 					}
@@ -591,33 +579,40 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		if (program.getLives() == 0) {
 			program.removeLevelsBeat();
 			hideContents();
-			//GButton lose = new GButton("YOU LOSE. \"SPACE\" TO CONTINUE", 50, 50, WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
-			//program.add(lose);
+			GButton lose = new GButton("YOU LOSE", WINDOW_WIDTH/4, WINDOW_HEIGHT/4, WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
+			program.add(lose);
 			
 			LevelSelectPane levelSelect = new LevelSelectPane(program, monkey);
 			program.pause(3000);
+			program.remove(lose);
 			program.switchToLevelSelect(levelSelect);
-			
-			/*
-			while (e.getKeyChar() != ' ') {
-				if (e.getKeyChar() == ' ') {
-					program.switchToLevelSelect(null);
-				}
-			}
-			*/
 		}
 		
 		if(level.map.getWinSPace() == level.getCharSpace())
 		{
 			program.addLevelsBeat();
 			hideContents();
-			//GParagraph win = new GParagraph("YOU Win! \"SPACE\" TO CONTINUE", 50, 50);
-			//program.add(win);
-			System.out.println("\nWIN\n");
 			
-			LevelSelectPane levelSelect = new LevelSelectPane(program, monkey);
-			program.pause(3000);
-			program.switchToLevelSelect(levelSelect);
+			if (program.getLevelsBeat() == 3) {
+				GParagraph win = new GParagraph("YOU WIN!", WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
+				program.add(win);
+				
+				System.out.println("\nWIN\n");			
+				LevelSelectPane levelSelect = new LevelSelectPane(program, monkey);
+				program.pause(3000);
+				program.remove(win);
+				program.switchToLevelSelect(levelSelect);
+			}
+			else {
+				GParagraph win = new GParagraph("YOU WIN! ONTO NEXT LEVEL!", WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
+				program.add(win);
+				
+				System.out.println("\nWIN\n");			
+				LevelSelectPane levelSelect = new LevelSelectPane(program, monkey);
+				program.pause(3000);
+				program.remove(win);
+				program.switchToLevelSelect(levelSelect);
+			}
 		}
 		score.setLabel("SCORE: " + level.getScore());
 	}
