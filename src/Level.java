@@ -319,6 +319,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		// to add
 		map = new Map(25,25);
 		winSpace = new Space(11,24);
+		map.setWinSpace(winSpace);
 		barrelMove = 6;
 		walls = new Vector<Entity>();
 		switcher = new Vector<Boolean>();
@@ -499,34 +500,34 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 			}
 		}
 		//barrels
-		map.addEntity(EntityType.BARREL, 4,8,true);
+		map.addEntity(EntityType.BARREL, 8,4,true);
 		switcher.add(false);
 		vertic.add(true);
-		map.addEntity(EntityType.BARREL, 5,15,false);
+		map.addEntity(EntityType.BARREL, 15,5,false);
 		switcher.add(false);
 		vertic.add(false);
-		map.addEntity(EntityType.BARREL, 6,19,false);
+		map.addEntity(EntityType.BARREL, 19,6,false);
 		switcher.add(false);
 		vertic.add(false);
-		map.addEntity(EntityType.BARREL, 10,13,false);
+		map.addEntity(EntityType.BARREL, 13,10,false);
 		switcher.add(false);
 		vertic.add(false);
-		map.addEntity(EntityType.BARREL, 12,8,true);
+		map.addEntity(EntityType.BARREL, 8,12,true);
 		switcher.add(false);
 		vertic.add(true);
-		map.addEntity(EntityType.BARREL, 13,15,false);
+		map.addEntity(EntityType.BARREL, 15,13,false);
 		switcher.add(false);
 		vertic.add(false);
-		map.addEntity(EntityType.BARREL, 14,3,true);
+		map.addEntity(EntityType.BARREL, 3,14,true);
 		switcher.add(false);
 		vertic.add(true);
-		map.addEntity(EntityType.BARREL, 16,7,true);
+		map.addEntity(EntityType.BARREL, 7,16,true);
 		switcher.add(false);
 		vertic.add(true);
-		map.addEntity(EntityType.BARREL, 18,7,true);
+		map.addEntity(EntityType.BARREL, 7,18,true);
 		switcher.add(false);
 		vertic.add(true);
-		map.addEntity(EntityType.BARREL, 20,19,false);
+		map.addEntity(EntityType.BARREL, 19,20,false);
 		switcher.add(false);
 		vertic.add(false);
 		
