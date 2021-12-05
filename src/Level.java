@@ -500,36 +500,34 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 			}
 		}
 		//barrels
-		map.addEntity(EntityType.BARREL, 8,4,true);
+		map.addEntity(EntityType.BARREL, 19,6,true);
 		switcher.add(false);
 		vertic.add(true);
-		map.addEntity(EntityType.BARREL, 15,5,false);
+		map.addEntity(EntityType.BARREL, 19,10,false);
 		switcher.add(false);
 		vertic.add(false);
-		map.addEntity(EntityType.BARREL, 19,6,false);
+		map.addEntity(EntityType.BARREL, 2,10,false);
 		switcher.add(false);
 		vertic.add(false);
-		map.addEntity(EntityType.BARREL, 13,10,false);
+		map.addEntity(EntityType.BARREL,  2,6,false);
 		switcher.add(false);
 		vertic.add(false);
-		map.addEntity(EntityType.BARREL, 8,12,true);
+		map.addEntity(EntityType.BARREL, 20,17,true);
 		switcher.add(false);
 		vertic.add(true);
-		map.addEntity(EntityType.BARREL, 15,13,false);
+		map.addEntity(EntityType.BARREL, 23,16,false);
 		switcher.add(false);
 		vertic.add(false);
-		map.addEntity(EntityType.BARREL, 3,14,true);
+		map.addEntity(EntityType.BARREL, 0,15,true);
 		switcher.add(false);
 		vertic.add(true);
-		map.addEntity(EntityType.BARREL, 7,16,true);
+		map.addEntity(EntityType.BARREL, 19,0,true);
 		switcher.add(false);
 		vertic.add(true);
-		map.addEntity(EntityType.BARREL, 7,18,true);
+		map.addEntity(EntityType.BARREL, 7,5,true);
 		switcher.add(false);
 		vertic.add(true);
-		map.addEntity(EntityType.BARREL, 19,20,false);
-		switcher.add(false);
-		vertic.add(false);
+		
 		
 		//fruit
 		map.addEntity(EntityType.BANANA, 7,2, false);

@@ -599,7 +599,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				//LevelSelectPane levelSelect = new LevelSelectPane(program, monkey);
 				program.pause(3000);
 				//program.remove(win);
-				program.switchToMenu();
+				program.switchToLead();
 			}
 			else {
 				//GParagraph win = new GParagraph("YOU WIN! ONTO NEXT LEVEL!", WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
