@@ -52,7 +52,7 @@ public class Map {
 	}
 	
 	public Entity getEnt(Space s) {
-		if (s.getRow() > 0 && s.getCol() > 0 && s.getRow() < getNumRows() && s.getCol() < getNumCols()) {
+		if (s.getRow() >= 0 && s.getCol() >= 0 && s.getRow() <= getNumRows() && s.getCol() <= getNumCols()) {
 			return map[s.getRow()][s.getCol()];
 		}
 		return null;
@@ -66,7 +66,7 @@ public class Map {
 		this.winningSpace = winningSpace;
 	}
 	
-	public Space getWinSPace() {
+	public Space getWinSpace() {
 		return winningSpace;
 	}
 	

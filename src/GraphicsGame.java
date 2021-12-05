@@ -369,8 +369,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		y = character.getLocation().getY();
 		row = (int)(y / spaceHeight());
 		col = (int)(x / spaceWidth());
-		Space charOldSpace = level.getCharSpace();
-		Space targetSpace;
+		Space targetSpace = level.getCharSpace();
 		
 		if (e.getKeyChar() == 'w') {
 			targetSpace = new Space(row-1,col);
@@ -588,29 +587,28 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			program.switchToLevelSelect(levelSelect);
 		}
 		
-		if(level.map.getWinSPace() == level.getCharSpace())
-		{
+		if(character.getX() == winSpace.getX() && character.getY() == winSpace.getY()) {
 			program.addLevelsBeat();
 			hideContents();
 			
 			if (program.getLevelsBeat() == 3) {
-				GParagraph win = new GParagraph("YOU WIN!", WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
-				program.add(win);
+				//GParagraph win = new GParagraph("YOU WIN!", WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
+				//program.add(win);
 				
 				System.out.println("\nWIN\n");			
-				LevelSelectPane levelSelect = new LevelSelectPane(program, monkey);
+				//LevelSelectPane levelSelect = new LevelSelectPane(program, monkey);
 				program.pause(3000);
-				program.remove(win);
-				program.switchToLevelSelect(levelSelect);
+				//program.remove(win);
+				program.switchToMenu();
 			}
 			else {
-				GParagraph win = new GParagraph("YOU WIN! ONTO NEXT LEVEL!", WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
-				program.add(win);
+				//GParagraph win = new GParagraph("YOU WIN! ONTO NEXT LEVEL!", WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
+				//program.add(win);
 				
 				System.out.println("\nWIN\n");			
 				LevelSelectPane levelSelect = new LevelSelectPane(program, monkey);
 				program.pause(3000);
-				program.remove(win);
+				//program.remove(win);
 				program.switchToLevelSelect(levelSelect);
 			}
 		}
@@ -623,6 +621,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
+		/*
 		GImage barrelImage = null;
 		
 		for (GImage barrel:barrelImages) {
@@ -646,5 +645,6 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			barrelImages.add(barrelImage);
 			program.add(barrelImage);
 		}
+		*/
 	}
 }

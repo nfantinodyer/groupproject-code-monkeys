@@ -64,7 +64,8 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		switcher = new Vector<Boolean>();
 		vertic = new Vector<Boolean>();
 		map = new Map(10,10);
-		winSpace = new Space(5,9);
+		winSpace = new Space(5, 9);
+		map.setWinSpace(winSpace);
 		barrelMove = 2;
 		
 		map.addEntity(EntityType.CHARACTER, 2, 0, false);
@@ -80,7 +81,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		}
 		//2 vertical
 		for (int i = 0; i < 10; i++) {
-			if(i==0||i==2||i==6) {
+			if(i==0/*||i==2||i==6*/) {
 				map.addEntity(EntityType.WALL, i,2, false);
 				walls.add(new Entity(EntityType.WALL, i,2, false));
 			}	
@@ -93,9 +94,9 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 			}
 		}
 		//4 vertical
-		map.addEntity(EntityType.WALL, 5,4, false);
+		//map.addEntity(EntityType.WALL, 5,4, false);
 		map.addEntity(EntityType.WALL, 8,4, false);
-		walls.add(new Entity(EntityType.WALL, 5,4, false));
+		//walls.add(new Entity(EntityType.WALL, 5,4, false));
 		walls.add( new Entity(EntityType.WALL, 8,4, false));
 		//5 vertical
 		for (int i = 0; i < 10; i++) {
@@ -106,9 +107,9 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		}
 		//6 vertical
 		map.addEntity(EntityType.WALL,  0,6, false);
-		map.addEntity(EntityType.WALL,  2,6, false);
+		//map.addEntity(EntityType.WALL,  2,6, false);
 		walls.add(new Entity(EntityType.WALL, 0,6, false));
-		walls.add(new Entity(EntityType.WALL, 2,6, false));
+		//walls.add(new Entity(EntityType.WALL, 2,6, false));
 		//7 vertical
 		for (int i = 0; i < 10; i++) {
 			if(i==0||i==1||i==2||i==4||i==5||i==6||i==7||i==8) {
@@ -117,9 +118,9 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 			}
 		}
 		//8 vertical
-		map.addEntity(EntityType.WALL,  4,8, false);
+		//map.addEntity(EntityType.WALL,  4,8, false);
 		map.addEntity(EntityType.WALL, 8, 8, false);
-		walls.add(new Entity(EntityType.WALL, 4,8, false));
+		//walls.add(new Entity(EntityType.WALL, 4,8, false));
 		walls.add(new Entity(EntityType.WALL,  8, 8, false));
 		// 9 vertical
 		for (int i = 0; i < 10; i++) {
@@ -130,6 +131,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		}
 		
 		//add barrel
+		/*
 		map.addEntity(EntityType.BARREL, 9,0,false);
 		switcher.add(false);
 		vertic.add(false);
@@ -140,6 +142,12 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		vertic.add(false);
 		switcher.add(false);
 		barrel.start();
+		*/
+		map.addEntity(EntityType.BARREL, 2, 2, false);
+		map.addEntity(EntityType.BARREL, 6, 2, false);
+		map.addEntity(EntityType.BARREL, 5, 4, false);
+		map.addEntity(EntityType.BARREL, 2, 6, false);
+		map.addEntity(EntityType.BARREL, 4, 8, false);
 		
 		//add fruit
 		map.addEntity(EntityType.CHERRY, 4,3, false);
@@ -156,6 +164,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	public void setUpLevelMed(){
 		map = new Map(15,15);
 		winSpace = new Space(14,7);
+		map.setWinSpace(winSpace);
 		barrelMove = 4;
 		walls = new Vector<Entity>();
 		switcher = new Vector<Boolean>();
@@ -310,6 +319,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		// to add
 		map = new Map(25,25);
 		winSpace = new Space(11,24);
+		map.setWinSpace(winSpace);
 		barrelMove = 6;
 		walls = new Vector<Entity>();
 		switcher = new Vector<Boolean>();
@@ -526,7 +536,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		map.addEntity(EntityType.MANGO, 2, 0, false);
 	}
 	public Space getWin() {
-		return winSpace;
+		return map.getWinSpace();
 	}
 	public String toString() {
 		return null;
@@ -671,10 +681,10 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("now checking movement");
-		checkPath();
+		//checkPath();
 		System.out.println("Now moving barrels");
 		//if (timerCount < 6) {
-			map.moveBarrels(1, vertic,switcher);
+			//map.moveBarrels(1, vertic,switcher);
 		//}
 		//else if (timerCount >= 6 && timerCount < 11) {
 			//map.moveBarrels(-1, vertic, switcher);
@@ -751,7 +761,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	}
 	
 	public static void main(String[] args) {
-		new Level().start();
+		//new Level().start();
 	}
 
 
