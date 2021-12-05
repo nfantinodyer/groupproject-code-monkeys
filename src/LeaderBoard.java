@@ -8,7 +8,7 @@ public class LeaderBoard {
 	protected String playerName;
 	protected int playerScore;
 	public String ScoreCount = "Score: " + playerName;// intialized new scorecount 
-
+	JLabel scoreLabel = new JLabel("Score: 0"); // //added jlabel to display the single line text
 
 	
 	private TreeMap<Integer,String > easy = new TreeMap<Integer,String>(Collections.reverseOrder());
@@ -231,6 +231,13 @@ public class LeaderBoard {
 				   
 		}catch(IOException ioe) {}
 		
+	}
+	public void gameScore()
+	{
+		int score = 0;
+	    score++;
+
+	    scoreLabel.setText("Score: " + score);
 	}
 	
 	public void readOnly()
