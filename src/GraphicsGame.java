@@ -113,15 +113,15 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			program.add(character);
 			
 			for (GImage temp:bananaImages) {
-				temp.scale(1.4);
+				temp.scale(1.7);
 				program.add(temp);
 			}
 			for (GImage temp:cherryImages) {
-				temp.scale(1.4);
+				temp.scale(1.5);
 				program.add(temp);
 			}
 			for (GImage temp:mangoImages) {
-				temp.scale(1.4);
+				temp.scale(1.5);
 				program.add(temp);
 			}
 			for (GImage temp:barrelImages) {
@@ -135,15 +135,15 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			program.add(character);
 			
 			for (GImage temp:bananaImages) {
-				temp.scale(.8);
+				temp.scale(1.15);
 				program.add(temp);
 			}
 			for (GImage temp:cherryImages) {
-				temp.scale(.8);
+				temp.scale(1.0);
 				program.add(temp);
 			}
 			for (GImage temp:mangoImages) {
-				temp.scale(.8);
+				temp.scale(1.05);
 				program.add(temp);
 			}
 			for (GImage temp:barrelImages) {
@@ -157,15 +157,15 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			program.add(character);
 			
 			for (GImage temp:bananaImages) {
-				temp.scale(.4);
+				temp.scale(.7);
 				program.add(temp);
 			}
 			for (GImage temp:cherryImages) {
-				temp.scale(.4);
+				temp.scale(.6);
 				program.add(temp);
 			}
 			for (GImage temp:mangoImages) {
-				temp.scale(.4);
+				temp.scale(.6);
 				program.add(temp);
 			}
 			for (GImage temp:barrelImages) {
@@ -628,10 +628,21 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		for (GImage barrel:barrelImages) {
 			program.remove(barrel);
 		}
+		barrelImages = new Vector<GImage>(0);
+		
 		for (Entity barrel:barrels) {
 			barrelImage = new GImage("barrel.png", 0, 0);
 			barrelImage.setLocation(barrel.getCol() * spaceWidth(), barrel.getRow() * spaceHeight());
 			
+			if (s == "easy") {
+				barrelImage.scale(1.0);
+			}
+			else if (s == "medium") {
+				barrelImage.scale(0.6);
+			}
+			else {
+				barrelImage.scale(0.37);
+			}
 			barrelImages.add(barrelImage);
 			program.add(barrelImage);
 		}

@@ -14,7 +14,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	int barrelAmount =0;
 	int min = 0;
 	int max = 0;
-	int timerCount = 0;
+	//int timerCount = 0;
 	Random randNum = new Random();
 	Space winSpace;
 	private int score = 0;
@@ -291,6 +291,20 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		map.addEntity(EntityType.BARREL, 14,11,true);
 		switcher.add(false);
 		vertic.add(true);
+		
+		map.addEntity(EntityType.BANANA, 2, 0, false);
+		map.addEntity(EntityType.BANANA, 11, 0, false);
+		map.addEntity(EntityType.BANANA, 2, 9, false);
+		map.addEntity(EntityType.BANANA, 6, 13, false);
+		map.addEntity(EntityType.BANANA, 9, 13, false);
+		map.addEntity(EntityType.CHERRY, 0, 2, false);
+		map.addEntity(EntityType.CHERRY, 7, 9, false);
+		map.addEntity(EntityType.CHERRY, 2, 14, false);
+		map.addEntity(EntityType.CHERRY, 11, 9, false);
+		map.addEntity(EntityType.MANGO, 0, 5, false);
+		map.addEntity(EntityType.MANGO, 7, 5, false);
+		map.addEntity(EntityType.MANGO, 5, 6, false);
+		map.addEntity(EntityType.MANGO, 13, 4, false);
 	}
 	public void setUpLevelHard(){
 		// to add
@@ -506,7 +520,10 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		map.addEntity(EntityType.BARREL, 20,19,false);
 		switcher.add(false);
 		vertic.add(false);
-			
+		
+		map.addEntity(EntityType.BANANA, 0, 0, false);
+		map.addEntity(EntityType.CHERRY, 1, 0, false);
+		map.addEntity(EntityType.MANGO, 2, 0, false);
 	}
 	public Space getWin() {
 		return winSpace;
@@ -588,9 +605,10 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	
 	public void checkPath() {
 		Vector<Entity> checking = map.getBarrels();
-		int o = 0;
 		Boolean catcher = null;
 		System.out.println("Now checking all barrel paths");
+		int o = 0;
+		
 		for(Entity i: checking) {
 			
 			if(vertic.elementAt(o)) {
@@ -635,6 +653,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 					}
 				}
 			}
+			o++;
 		}
 	}
 	public String getMapSize() {
