@@ -319,7 +319,6 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		// to add
 		map = new Map(25,25);
 		winSpace = new Space(11,24);
-		map.setWinSpace(winSpace);
 		barrelMove = 6;
 		walls = new Vector<Entity>();
 		switcher = new Vector<Boolean>();
@@ -422,8 +421,8 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		//13 vertical
 		for (int i = 0; i < 25; i++) {
 			if(i==1||i==2||i==4||i==5||i==6||i==7||i==9||i==10||i==12||i==14||i==16||i==17||i==19||i==20||i==21||i==22||i==23) {
-				map.addEntity(EntityType.WALL, i,12, false);
-				walls.add(new Entity(EntityType.WALL, i,12, false));	
+				map.addEntity(EntityType.WALL, i,13, false);
+				walls.add(new Entity(EntityType.WALL, i,13, false));	
 			}
 		}
 		//14 vertical
@@ -445,7 +444,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		walls.add(new Entity(EntityType.WALL, 14,16, false));
 		//17 vert fix
 		for (int i = 0; i < 25; i++) {
-			if(i==1||i==2||i==3||i==4||i==5||i==6||i==7||i==8||i==9||i==10||i==11||i==12||i==13||i==14||i==16||i==17||i==18||i==20||i==22||i==23) {
+			if(i==1||i==2||i==3||i==4||i==5||i==6||i==7||i==8||i==9||i==10||i==11||i==12||i==13||i==14||i==16||i==17||i==18) {
 				map.addEntity(EntityType.WALL, i,17, false);
 				walls.add(new Entity(EntityType.WALL, i,17, false));	
 			}
@@ -531,9 +530,36 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		switcher.add(false);
 		vertic.add(false);
 		
-		map.addEntity(EntityType.BANANA, 0, 0, false);
-		map.addEntity(EntityType.CHERRY, 1, 0, false);
-		map.addEntity(EntityType.MANGO, 2, 0, false);
+		//fruit
+		map.addEntity(EntityType.BANANA, 7,2, false);
+		map.addEntity(EntityType.BANANA, 1,12, false);
+		map.addEntity(EntityType.BANANA, 5,12, false);
+		map.addEntity(EntityType.BANANA, 9,10, false);
+		map.addEntity(EntityType.BANANA, 17,6, false);
+		map.addEntity(EntityType.BANANA, 15,22, false);
+		map.addEntity(EntityType.BANANA, 24,3, false);
+		map.addEntity(EntityType.BANANA, 23,22, false);
+		map.addEntity(EntityType.BANANA, 15,3, false);
+		
+		map.addEntity(EntityType.CHERRY, 3,4, false);
+		map.addEntity(EntityType.CHERRY, 3,20, false);
+		map.addEntity(EntityType.CHERRY, 11,6, false);
+		map.addEntity(EntityType.CHERRY, 9,0, false);
+		map.addEntity(EntityType.CHERRY, 13,4, false);
+		map.addEntity(EntityType.CHERRY, 22,12, false);
+		map.addEntity(EntityType.CHERRY, 16,12, false);
+		map.addEntity(EntityType.CHERRY, 23,20, false);
+		map.addEntity(EntityType.CHERRY, 15,17, false);
+		
+		map.addEntity(EntityType.MANGO, 1,8, false);
+		map.addEntity(EntityType.MANGO, 2,22, false);
+		map.addEntity(EntityType.MANGO, 11,8, false);
+		map.addEntity(EntityType.MANGO, 0,10, false);
+		map.addEntity(EntityType.MANGO, 13,16, false);
+		map.addEntity(EntityType.MANGO, 24,7, false);
+		map.addEntity(EntityType.MANGO, 20,14, false);
+		map.addEntity(EntityType.MANGO, 24, 24, false);
+		map.addEntity(EntityType.MANGO, 7,18, false);
 	}
 	public Space getWin() {
 		return map.getWinSpace();
