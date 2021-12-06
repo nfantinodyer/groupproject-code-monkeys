@@ -206,7 +206,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		}
 		//5 vertical
 		for(int i = 0; i <15;i++) {
-			if(i==1||i==2||i==4||i==5||i==6||i==8||i==9||i==10||i==12||i==13||i==14) {
+			if(i==1||i==2||i==4||i==5||i==6||i==8/*||i==9*/||i==10||i==12||i==13||i==14) {
 				map.addEntity(EntityType.WALL,  i,5, false);
 				walls.add(new Entity(EntityType.WALL, i,5, false));
 			}

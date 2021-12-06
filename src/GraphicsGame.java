@@ -64,7 +64,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	Vector<Boolean> vertic = null;
 
 	
-	public GraphicsGame(MainApplication app) {
+	public GraphicsGame(MainApplication app, String choice) {
 		this.program = app;
 		
 		lives.setFont("Arial-26");
@@ -74,6 +74,10 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		
 		switcher = level.getSwitcher();
 		vertic = level.getVertic();
+		
+		s = choice;
+		
+		level.createLevel(choice, app);
 	}
 	
 	public void setMonkey(int monkey) {
@@ -83,7 +87,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	public int getMonkey() {
 		return monkey;
 	}
-	
+	/*
 	public void createLevel(String choice, MainApplication app) {
 		level.createLevel(choice, app);
 		s = choice;
