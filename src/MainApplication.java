@@ -8,7 +8,9 @@ public class MainApplication extends GraphicsProgram {
 	public static final int WINDOW_HEIGHT = 800;
 	public static final String MUSIC_FOLDER = "sounds";
 	
-	public int score = 0;
+	public int easyScore = 0;
+	public int mediumScore = 0;
+	public int hardScore = 0;
 	public int levelsBeat = 0;
 	public int numLives = 3;
 
@@ -117,12 +119,32 @@ public class MainApplication extends GraphicsProgram {
 		switchToMenu();
 	}
 	
-	public void addScore(int score) {
-		this.score += score;
+	public int getScore() {
+		return (easyScore + mediumScore + hardScore);
 	}
 	
-	public int getScore() {
-		return score;
+	public void setEasyScore(int score) {
+		easyScore = score;
+	}
+	
+	public int getEasyScore() {
+		return easyScore;
+	}
+	
+	public void setMediumScore(int score) {
+		mediumScore = score;
+	}
+	
+	public int getMediumScore() {
+		return mediumScore;
+	}
+	
+	public void setHardScore(int score) {
+		hardScore = score;
+	}
+	
+	public int getHardScore() {
+		return hardScore;
 	}
 	
 	public void addLevelsBeat() {
