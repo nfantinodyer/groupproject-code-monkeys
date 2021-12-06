@@ -141,6 +141,10 @@ public class MainApplication extends GraphicsProgram {
 		--numLives;
 	}
 	
+	public void restoreLives() {
+		numLives = 3;
+	}
+	
 	public int getLives() {
 		return numLives;
 	}

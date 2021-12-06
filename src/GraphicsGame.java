@@ -577,13 +577,14 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		
 		if (program.getLives() == 0) {
 			program.removeLevelsBeat();
+			program.restoreLives();
 			hideContents();
-			GButton lose = new GButton("YOU LOSE", WINDOW_WIDTH/4, WINDOW_HEIGHT/4, WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
-			program.add(lose);
+			//GButton lose = new GButton("YOU LOSE", WINDOW_WIDTH/4, WINDOW_HEIGHT/4, WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
+			//program.add(lose);
 			
 			LevelSelectPane levelSelect = new LevelSelectPane(program, monkey);
 			program.pause(3000);
-			program.remove(lose);
+			//program.remove(lose);
 			program.switchToLevelSelect(levelSelect);
 		}
 		
