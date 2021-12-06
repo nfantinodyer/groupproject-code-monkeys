@@ -4,10 +4,9 @@ import java.util.Map.Entry;
 import javax.swing.*; 
  
 public class LeaderBoard {
-	private static final String label1 = null;
 	protected String playerName;
 	protected int playerScore;
-	public String ScoreCount = "Score: " + playerName;// intialized new scorecount 
+	public Object ScoreCount = "Score: " + playerName;// intialized new scorecount 
 	JLabel scoreLabel = new JLabel("Score: 0"); // //added jlabel to display the single line text
 
 
@@ -66,34 +65,30 @@ public class LeaderBoard {
 		readOnly();
 	}
 	
-	
 	public static void main(String[] args) {
 		new LeaderBoard("huk","easy",25);
 		
 	}
-	 /*public void updateLeaderboard(String player, Object Leaderboard) {
-		 	this.ScoreCount = player;
-	        LeaderboardPane board = player.get();
-	        
-	 }
-	 */
-	  public void GameEntry(String name, int score) {
+	public void updateLeaderboard(String[]args, Object player) {
+	 	this.ScoreCount = player; 
+        new LeaderBoard(playerName,playerName, playerScore);
+        
+	}
+	 public void GameEntry(String name, int score) {
 	    	this.playerName = name;
 	    	this.playerScore = score;
 	    }
-		public void setPlayerName(String playerName, int board) {
+	public void setPlayerName(String playerName, int board) {
 			this.playerName = playerName;
 			this.playerScore = board; // set for the first player to insert name 
 		}
-		public void setPlayerScore(int playerScore) {
+	public void setPlayerScore(int playerScore) {
 			this.playerScore = playerScore;
 		}
-
-		public String getPlayerScore(String playerScore) {
+    public String getPlayerScore(String playerScore) {
 			return playerScore;
 		}
-		
-		public int getNumberOfEntries(int numOfEntries) {
+	public int getNumberOfEntries(int numOfEntries) {
 			return numOfEntries;
 		}
 	
@@ -265,8 +260,6 @@ public class LeaderBoard {
 
     public void Leaderboard(String name, int score)
     {
-        String playerName = name;
-        int playerScore = score;
     }
   
 	public String getValues()
