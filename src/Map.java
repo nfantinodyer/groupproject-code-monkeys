@@ -24,7 +24,7 @@ public class Map {
 		if (map[s.getRow()][s.getCol()].getType() == EntityType.WALL) {
 			return false;
 		}
-		else if (s.getRow() > numRows || s.getCol() > numCols || s.getRow() < 0 || s.getCol() < 0) {
+		else if (s.getRow() >= numRows || s.getCol() >= numCols || s.getRow() < 0 || s.getCol() < 0) {
 			return false;
 		}
 		return true;

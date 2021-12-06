@@ -396,7 +396,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 						}
 					}
 					if (entityCollision.getType() == EntityType.MANGO) {
-						for (int i = 0; i < bananas.size(); ++i) {
+						for (int i = 0; i < mangos.size(); ++i) {
 							if (mangos.elementAt(i).getSpace() == entityCollision.getSpace()) {
 								program.remove(mangoImages.elementAt(i));
 							}
@@ -447,7 +447,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 						}
 					}
 					if (entityCollision.getType() == EntityType.MANGO) {
-						for (int i = 0; i < bananas.size(); ++i) {
+						for (int i = 0; i < mangos.size(); ++i) {
 							if (mangos.elementAt(i).getSpace() == entityCollision.getSpace()) {
 								program.remove(mangoImages.elementAt(i));
 							}
@@ -498,7 +498,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 						}
 					}
 					if (entityCollision.getType() == EntityType.MANGO) {
-						for (int i = 0; i < bananas.size(); ++i) {
+						for (int i = 0; i < mangos.size(); ++i) {
 							if (mangos.elementAt(i).getSpace() == entityCollision.getSpace()) {
 								program.remove(mangoImages.elementAt(i));
 							}
@@ -549,7 +549,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 						}
 					}
 					if (entityCollision.getType() == EntityType.MANGO) {
-						for (int i = 0; i < bananas.size(); ++i) {
+						for (int i = 0; i < mangos.size(); ++i) {
 							if (mangos.elementAt(i).getSpace() == entityCollision.getSpace()) {
 								program.remove(mangoImages.elementAt(i));
 							}
