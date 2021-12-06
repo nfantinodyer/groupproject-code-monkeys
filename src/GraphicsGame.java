@@ -251,8 +251,13 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		lifeThree.setFillColor(Color.red);
 		
 		program.add(lifeOne);
-		program.add(lifeTwo);
-		program.add(lifeThree); 
+		
+		if (program.getLives() >= 2) {
+			program.add(lifeTwo);
+		}
+		if (program.getLives() >= 3) {
+			program.add(lifeThree); 
+		}
 		
 	}
 	
@@ -358,13 +363,13 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	@Override
 	public void showContents() {
 		drawEntities();
-		timer.start();
+		//timer.start();
 	}
 
 	@Override
 	public void hideContents() {
 		removeEntities();
-		timer.stop();
+		//timer.stop();
 	}
 
 	@Override
@@ -412,9 +417,12 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 							program.remove(lifeThree);
 						}
 						else if (program.getLives() == 1) {
+							program.remove(lifeThree);
 							program.remove(lifeTwo);
 						}
 						else {
+							program.remove(lifeThree);
+							program.remove(lifeTwo);
 							program.remove(lifeOne);
 						}
 						targetSpace = level.getCharSpace();
@@ -463,9 +471,12 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 							program.remove(lifeThree);
 						}
 						else if (program.getLives() == 1) {
+							program.remove(lifeThree);
 							program.remove(lifeTwo);
 						}
 						else {
+							program.remove(lifeThree);
+							program.remove(lifeTwo);
 							program.remove(lifeOne);
 						}
 						targetSpace = level.getCharSpace();
@@ -514,9 +525,12 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 							program.remove(lifeThree);
 						}
 						else if (program.getLives() == 1) {
+							program.remove(lifeThree);
 							program.remove(lifeTwo);
 						}
 						else {
+							program.remove(lifeThree);
+							program.remove(lifeTwo);
 							program.remove(lifeOne);
 						}
 						targetSpace = level.getCharSpace();
@@ -565,9 +579,12 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 							program.remove(lifeThree);
 						}
 						else if (program.getLives() == 1) {
+							program.remove(lifeThree);
 							program.remove(lifeTwo);
 						}
 						else {
+							program.remove(lifeThree);
+							program.remove(lifeTwo);
 							program.remove(lifeOne);
 						}
 						targetSpace = level.getCharSpace();
