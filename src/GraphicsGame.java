@@ -22,6 +22,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	private static final int LIFE_WIDTH = 40;
 	private static final int LIFE_HEIGHT = 40;
 	
+	private GLabel timerLabel = new GLabel("TIMER: ", 850, 25);
 	private GLabel lives = new GLabel("LIVES: ", 10, 30);
 	private GLabel score = new GLabel("SCORE: 0", 1250, 25);
 	private GOval lifeOne = new GOval(100, 5, LIFE_WIDTH, LIFE_HEIGHT);
@@ -38,6 +39,7 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	//character and map selections
 	private int monkey = 0;
 	private String s = "";
+	private int time = 120;
 	
 	//Vectors to hold entity values
 	//(row, column, type)
@@ -363,13 +365,13 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	@Override
 	public void showContents() {
 		drawEntities();
-		//timer.start();
+		timer.start();
 	}
 
 	@Override
 	public void hideContents() {
 		removeEntities();
-		//timer.stop();
+		timer.stop();
 	}
 
 	@Override
@@ -597,6 +599,8 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		}
 		
 		if (program.getLives() == 0) {
+			program.remove(timerLabel);
+			time = 120;
 			program.removeLevelsBeat();
 			program.restoreLives();
 			hideContents();
@@ -610,6 +614,8 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 		}
 		
 		if(character.getX() == winSpace.getX() && character.getY() == winSpace.getY()) {
+			program.remove(timerLabel);
+			time = 120;
 			program.addLevelsBeat();
 			hideContents();
 			
@@ -656,30 +662,21 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		/*
-		GImage barrelImage = null;
+		program.remove(timerLabel);
+		timerLabel = new GLabel("TIMER: " + time, 850, 25);
+		timerLabel.setColor(Color.RED);
+		timerLabel.setFont("Arial-26");
+		program.add(timerLabel);
 		
-		for (GImage barrel:barrelImages) {
-			program.remove(barrel);
+		if (time == 0) {
+			program.remove(timerLabel);
 		}
-		barrelImages = new Vector<GImage>(0);
 		
-		for (Entity barrel:barrels) {
-			barrelImage = new GImage("barrel.png", 0, 0);
-			barrelImage.setLocation(barrel.getCol() * spaceWidth(), barrel.getRow() * spaceHeight());
-			
-			if (s == "easy") {
-				barrelImage.scale(1.0);
-			}
-			else if (s == "medium") {
-				barrelImage.scale(0.6);
-			}
-			else {
-				barrelImage.scale(0.37);
-			}
-			barrelImages.add(barrelImage);
-			program.add(barrelImage);
+		if (time == 0) {
+			time = 120;
+			LevelSelectPane levelSelect = new LevelSelectPane(program, monkey);
+			program.switchToLevelSelect(levelSelect);
 		}
-		*/
+		--time;
 	}
 }
