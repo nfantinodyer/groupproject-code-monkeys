@@ -270,6 +270,69 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 				walls.add(new Entity(EntityType.WALL,i,14, false));
 			}
 		}
+		/*
+		map.addEntity(EntityType.BARREL, 2,5,false);
+		switcher.add(false);
+		vertic.add(false);
+		map.addEntity(EntityType.BARREL, 4, 7,true);
+		switcher.add(false);
+		vertic.add(true);
+		map.addEntity(EntityType.BARREL, 6,11,true);
+		switcher.add(false);
+		vertic.add(true);
+		map.addEntity(EntityType.BARREL, 3,13,false);
+		switcher.add(false);
+		vertic.add(false);
+		map.addEntity(EntityType.BARREL, 6, 3,true);
+		switcher.add(false);
+		vertic.add(true);
+		map.addEntity(EntityType.BARREL, 7,0,false);
+		switcher.add(false);
+		vertic.add(false);
+		map.addEntity(EntityType.BARREL, 8,6,true);
+		switcher.add(false);
+		vertic.add(true);
+		map.addEntity(EntityType.BARREL, 11, 6,true);
+		switcher.add(false);
+		vertic.add(true);
+		map.addEntity(EntityType.BARREL, 11,12,false);
+		switcher.add(false);
+		vertic.add(false);
+		map.addEntity(EntityType.BARREL, 14,11,true);
+		switcher.add(false);
+		vertic.add(true);
+		*/
+		map.addEntity(EntityType.BARREL, 6, 0, false);
+		map.addEntity(EntityType.BARREL, 7, 6, false);
+		map.addEntity(EntityType.BARREL, 1, 2, false);
+		map.addEntity(EntityType.BARREL, 3, 7, false);
+		map.addEntity(EntityType.BARREL, 5, 9, false);
+		map.addEntity(EntityType.BARREL, 6, 7, false);
+		map.addEntity(EntityType.BARREL, 7, 8, false);
+		map.addEntity(EntityType.BARREL, 9, 5, false);
+		map.addEntity(EntityType.BARREL, 12, 8, false);
+		map.addEntity(EntityType.BARREL, 14, 6, false);
+		map.addEntity(EntityType.BARREL, 13, 11, false);
+		
+		map.addEntity(EntityType.BANANA, 2, 0, false);
+		map.addEntity(EntityType.BANANA, 11, 0, false);
+		map.addEntity(EntityType.BANANA, 2, 9, false);
+		map.addEntity(EntityType.BANANA, 9, 13, false);
+		map.addEntity(EntityType.BANANA, 14, 10, false);
+		map.addEntity(EntityType.BANANA, 7, 9, false);
+		map.addEntity(EntityType.BANANA, 6, 9, false);
+		map.addEntity(EntityType.BANANA, 6, 8, false);
+		map.addEntity(EntityType.CHERRY, 0, 2, false);
+		map.addEntity(EntityType.CHERRY, 2, 13, false);
+		map.addEntity(EntityType.CHERRY, 11, 9, false);
+		map.addEntity(EntityType.CHERRY, 7, 2, false);
+		map.addEntity(EntityType.CHERRY, 7, 13, false);
+		map.addEntity(EntityType.MANGO, 0, 5, false);
+		map.addEntity(EntityType.MANGO, 7, 5, false);
+		map.addEntity(EntityType.MANGO, 5, 6, false);
+		map.addEntity(EntityType.MANGO, 13, 4, false);
+		map.addEntity(EntityType.MANGO, 4, 14, false);
+		/*
 		map.addEntity(EntityType.BARREL, 2,5,false);
 		switcher.add(false);
 		vertic.add(false);
@@ -314,6 +377,7 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		map.addEntity(EntityType.MANGO, 7, 5, false);
 		map.addEntity(EntityType.MANGO, 5, 6, false);
 		map.addEntity(EntityType.MANGO, 13, 4, false);
+		*/
 	}
 	public void setUpLevelHard(){
 		// to add
