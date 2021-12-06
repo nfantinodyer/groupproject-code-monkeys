@@ -10,6 +10,7 @@ public class LeaderBoard {
 	public String ScoreCount = "Score: " + playerName;// intialized new scorecount 
 	JLabel scoreLabel = new JLabel("Score: 0"); // //added jlabel to display the single line text
 
+
 	
 	private TreeMap<Integer,String > easy = new TreeMap<Integer,String>(Collections.reverseOrder());
 	private TreeMap<Integer,String> medium = new TreeMap<Integer,String>(Collections.reverseOrder());
@@ -40,7 +41,7 @@ public class LeaderBoard {
 			hard.put(48, "ruy");
 			hard.put(38, "bad");
 			hard.put(47,"chris");
-		
+			
 			
 			
 			if(m=="easy")
@@ -70,12 +71,19 @@ public class LeaderBoard {
 		new LeaderBoard("huk","easy",25);
 		
 	}
+	 /*public void updateLeaderboard(String player, Object Leaderboard) {
+		 	this.ScoreCount = player;
+	        LeaderboardPane board = player.get();
+	        
+	 }
+	 */
 	  public void GameEntry(String name, int score) {
 	    	this.playerName = name;
 	    	this.playerScore = score;
 	    }
-		public void setPlayerName(String playerName) {
+		public void setPlayerName(String playerName, int board) {
 			this.playerName = playerName;
+			this.playerScore = board; // set for the first player to insert name 
 		}
 		public void setPlayerScore(int playerScore) {
 			this.playerScore = playerScore;
@@ -100,7 +108,6 @@ public class LeaderBoard {
 		
 	}
 	
-	
 	public void makeFile()
 	{
 		try
@@ -119,6 +126,7 @@ public class LeaderBoard {
 
 	    
 	}
+
 	public void writeFile()
 	{
 		try
