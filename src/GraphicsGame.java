@@ -621,7 +621,9 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			if (program.getLevelsBeat() == 3) {
 				if (level.getScore() > program.getHardScore()) {
 					program.setHardScore(level.getScore());
-					program.setLeaderBoard("PLAYER", s, program.getHardScore());
+					program.setLeaderBoard("PLAYER", "hard", program.getHardScore());
+					program.setLeaderBoard("PLAYER", "medium", program.getMediumScore());
+					program.setLeaderBoard("PLAYER", "easy", program.getEasyScore());
 				}
 				//GParagraph win = new GParagraph("YOU WIN!", WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
 				//program.add(win);
@@ -637,13 +639,13 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				if (program.getLevelsBeat() == 2) {
 					if (level.getScore() > program.getMediumScore()) {
 						program.setMediumScore(level.getScore());
-						program.setLeaderBoard("PLAYER", s, program.getMediumScore());
+						//program.setLeaderBoard("PLAYER", s, program.getMediumScore());
 					}
 				}
 				else {
 					if (level.getScore() > program.getEasyScore()) {
 						program.setEasyScore(level.getScore());
-						program.setLeaderBoard("PLAYER", s, program.getEasyScore());
+						//program.setLeaderBoard("PLAYER", s, program.getEasyScore());
 					}
 				}
 				//GParagraph win = new GParagraph("YOU WIN! ONTO NEXT LEVEL!", WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
