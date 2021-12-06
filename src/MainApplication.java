@@ -190,6 +190,10 @@ public class MainApplication extends GraphicsProgram {
 	public void switchToLead() {
 		switchToScreen(leadPane);
 	}
+	
+	public void setLeaderBoard(String username, String size, int score) {
+		leadPane.setLeaderBoard(username, size, score);
+	}
 
 	public static void main(String[] args) {
 		new MainApplication().start();

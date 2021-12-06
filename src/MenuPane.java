@@ -1,15 +1,17 @@
 import java.awt.Color;
 import java.awt.event.MouseEvent;
+import java.awt.event.KeyEvent;
 
 import acm.graphics.GImage;
 import acm.graphics.GObject;
+import java.util.Vector;
 
 public class MenuPane extends GraphicsPane {
 	
 	// you will use program to get access to all of the GraphicsProgram calls
 	private MainApplication program; 
 	private LeaderboardPane lp;
-								
+	
 	private GButton rect;
 	private GButton exit;
 	private GButton lead;
@@ -48,7 +50,7 @@ public class MenuPane extends GraphicsPane {
 	public void mousePressed(MouseEvent e) {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
 		if (obj == rect) {
-			program.switchToCharSelect();
+				program.switchToCharSelect();
 		}
 		else if(obj == exit)
 		{

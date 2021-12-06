@@ -2,7 +2,6 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.swing.Timer;
@@ -622,12 +621,14 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 			if (program.getLevelsBeat() == 3) {
 				if (level.getScore() > program.getHardScore()) {
 					program.setHardScore(level.getScore());
+					program.setLeaderBoard("PLAYER", s, program.getHardScore());
 				}
 				//GParagraph win = new GParagraph("YOU WIN!", WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
 				//program.add(win);
 				
 				System.out.println("\nWIN\n");			
 				//LevelSelectPane levelSelect = new LevelSelectPane(program, monkey);
+				program.removeLevelsBeat();
 				program.pause(3000);
 				//program.remove(win);
 				program.switchToLead();
@@ -636,11 +637,13 @@ public class GraphicsGame extends GraphicsPane implements ActionListener {
 				if (program.getLevelsBeat() == 2) {
 					if (level.getScore() > program.getMediumScore()) {
 						program.setMediumScore(level.getScore());
+						program.setLeaderBoard("PLAYER", s, program.getMediumScore());
 					}
 				}
 				else {
 					if (level.getScore() > program.getEasyScore()) {
 						program.setEasyScore(level.getScore());
+						program.setLeaderBoard("PLAYER", s, program.getEasyScore());
 					}
 				}
 				//GParagraph win = new GParagraph("YOU WIN! ONTO NEXT LEVEL!", WINDOW_WIDTH/2, WINDOW_HEIGHT/2);

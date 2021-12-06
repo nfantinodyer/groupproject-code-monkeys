@@ -25,6 +25,12 @@ public class LeaderboardPane extends GraphicsPane {
 		score = new GParagraph(l.getValues(),40,250);
 		score.setFont("Arial-35");
 	}
+	
+	public void setLeaderBoard(String username, String size, int score ) {
+		l.add(username, size, score);
+		this.score = new GParagraph(l.getValues(), 40, 250);
+		this.score.setFont("Arial-35");
+	}
 
 	@Override
 	public void showContents() {
