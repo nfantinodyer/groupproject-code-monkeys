@@ -347,24 +347,27 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		map.addEntity(EntityType.CHARACTER, 0, 0, false);
 		
 		//0 vertical make file and read it
-		ArrayList<Integer> wallPositions = new ArrayList<Integer>();
+	    ArrayList<WallPosition> wallPositions = new ArrayList<WallPosition>();
 	    try {
 	        FileReader fr = new FileReader("wall_positions.txt");
 	        BufferedReader br = new BufferedReader(fr);
 	        String line;
 	        while ((line = br.readLine()) != null) {
-	            wallPositions.add(Integer.parseInt(line));
+	            String[] parts = line.split(",");
+	            int x = Integer.parseInt(parts[0]);
+	            int y = Integer.parseInt(parts[1]);
+	            wallPositions.add(new WallPosition(x, y));
 	        }
 	        br.close();
 	    } catch (IOException e) {
 	        e.printStackTrace();
 	    }
-	    for (int i = 0; i < 25; i++) {
-	        if(wallPositions.contains(i)) {
-	            map.addEntity(EntityType.WALL, i,0, false);
-	            walls.add(new Entities(EntityType.WALL, i,0, false));
-	        }
+
+	    for (WallPosition wallPosition : wallPositions) {
+	        map.addEntity(EntityType.WALL, wallPosition.getX(), wallPosition.getY(), false);
+	        walls.add(new Entities(EntityType.WALL, wallPosition.getX(), wallPosition.getY(), false));
 	    }
+
 		//1 vertical
 		for (int i = 0; i < 25; i++) {
 			if(i==0||i==2||i==3||i==4||i==5||i==6||i==8||i==9||i==10||i==11||i==12||i==13||i==14||i==15||i==16||i==17||i==18) {
