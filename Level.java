@@ -367,49 +367,6 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 	        map.addEntity(EntityType.WALL, wallPosition.getX(), wallPosition.getY(), false);
 	        walls.add(new Entities(EntityType.WALL, wallPosition.getX(), wallPosition.getY(), false));
 	    }
-
-		//1 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==0||i==2||i==3||i==4||i==5||i==6||i==8||i==9||i==10||i==11||i==12||i==13||i==14||i==15||i==16||i==17||i==18) {
-				map.addEntity(EntityType.WALL, i,1, false);
-				walls.add(new Entity(EntityType.WALL, i,1, false));	
-			}
-		}
-		//2 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==0||i==6||i==8||i==18||i==19||i==20||i==21||i==22||i==23) {
-				map.addEntity(EntityType.WALL, i,2, false);
-				walls.add(new Entity(EntityType.WALL,i,2, false));	
-			}
-		}
-		//3 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==0||i==1||i==2||i==3||i==4||i==6||i==7||i==8||i==10||i==11||i==12||i==13||i==14||i==16) {
-				map.addEntity(EntityType.WALL,i,3, false);
-				walls.add(new Entity(EntityType.WALL,i,3, false));	
-			}
-		}
-		//4 vertical
-		for (int i = 0; i < 25; i++) {
-			if(/*i==4||*/i==14||i==16||i==18||i==19||i==20||i==21||i==22||i==23) {
-				map.addEntity(EntityType.WALL, i,4, false);
-				walls.add(new Entity(EntityType.WALL,i,4, false));	
-			}
-		}
-		//5 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==1||i==2||i==3||i==4||i==6||i==8||i==9||i==10||i==11||i==12||i==14||i==16||i==18) {
-				map.addEntity(EntityType.WALL, i,5, false);
-				walls.add(new Entity(EntityType.WALL, i,5, false));	
-			}
-		}
-		//6 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==6||i==12||i==14||i==16||i==18||i==20||i==21||i==22||i==23||i==24) {
-				map.addEntity(EntityType.WALL, i,6, false);
-				walls.add(new Entity(EntityType.WALL, i,6, false));	
-			}
-		}
 		//7 vertical
 		for (int i = 0; i < 25; i++) {
 			if(i==0||i==1||i==2||i==3||i==4||i==6||i==7||i==8||i==9||i==10||i==11||i==12||i==14||i==16||i==17||i==18) {
