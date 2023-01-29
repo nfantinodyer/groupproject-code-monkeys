@@ -4,6 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.awt.*;
 import acm.program.*;
 
@@ -346,177 +349,27 @@ public class Level extends GraphicsProgram implements EventListener, ActionListe
 		//player
 		map.addEntity(EntityType.CHARACTER, 0, 0, false);
 		
-		//0 vertical
-		for (int i = 0; i < 25; i++) {
-			if(/*i==8||*/i==20||i==21||i==22||i==23||i==24) {
-				map.addEntity(EntityType.WALL, i,0, false);
-				walls.add(new Entity(EntityType.WALL, i,0, false));	
-			}
-		}	
-		//1 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==0||i==2||i==3||i==4||i==5||i==6||i==8||i==9||i==10||i==11||i==12||i==13||i==14||i==15||i==16||i==17||i==18) {
-				map.addEntity(EntityType.WALL, i,1, false);
-				walls.add(new Entity(EntityType.WALL, i,1, false));	
-			}
-		}
-		//2 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==0||i==6||i==8||i==18||i==19||i==20||i==21||i==22||i==23) {
-				map.addEntity(EntityType.WALL, i,2, false);
-				walls.add(new Entity(EntityType.WALL,i,2, false));	
-			}
-		}
-		//3 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==0||i==1||i==2||i==3||i==4||i==6||i==7||i==8||i==10||i==11||i==12||i==13||i==14||i==16) {
-				map.addEntity(EntityType.WALL,i,3, false);
-				walls.add(new Entity(EntityType.WALL,i,3, false));	
-			}
-		}
-		//4 vertical
-		for (int i = 0; i < 25; i++) {
-			if(/*i==4||*/i==14||i==16||i==18||i==19||i==20||i==21||i==22||i==23) {
-				map.addEntity(EntityType.WALL, i,4, false);
-				walls.add(new Entity(EntityType.WALL,i,4, false));	
-			}
-		}
-		//5 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==1||i==2||i==3||i==4||i==6||i==8||i==9||i==10||i==11||i==12||i==14||i==16||i==18) {
-				map.addEntity(EntityType.WALL, i,5, false);
-				walls.add(new Entity(EntityType.WALL, i,5, false));	
-			}
-		}
-		//6 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==6||i==12||i==14||i==16||i==18||i==20||i==21||i==22||i==23||i==24) {
-				map.addEntity(EntityType.WALL, i,6, false);
-				walls.add(new Entity(EntityType.WALL, i,6, false));	
-			}
-		}
-		//7 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==0||i==1||i==2||i==3||i==4||i==6||i==7||i==8||i==9||i==10||i==11||i==12||i==14||i==16||i==17||i==18) {
-				map.addEntity(EntityType.WALL, i,7, false);
-				walls.add(new Entity(EntityType.WALL, i,7, false));	
-			}
-		}
-		//8 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==0||i==6||i==12||i==14||i==20||i==21||i==22||i==23||i==24) {
-				map.addEntity(EntityType.WALL, i,8, false);
-				walls.add(new Entity(EntityType.WALL, i,8, false));	
-			}
-		}
-		//9 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==0||i==1||i==2||i==3||i==4||i==5||i==6||i==8||i==9||i==10||i==11||i==12||i==14||i==15||i==16||i==17||i==18||i==19||i==20) {
-				map.addEntity(EntityType.WALL, i,9, false);
-				walls.add(new Entity(EntityType.WALL, i,9, false));	
-			}
-		}
-		//10 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==8||i==14||i==22||i==23) {
-				map.addEntity(EntityType.WALL, i,10, false);
-				walls.add(new Entity(EntityType.WALL, i,10, false));	
-			}
-		}
-		//11 vertical
-		for (int i = 0; i < 25; i++) {
-			if(/*i==0||*/i==1||i==2||i==4||i==5||i==6||i==7||i==8||i==9||i==10||i==11||i==12||i==14||i==16||i==17||i==18||i==19||i==20||i==21||i==22||i==23) {
-				map.addEntity(EntityType.WALL, i,11, false);
-				walls.add(new Entity(EntityType.WALL, i,11, false));	
-			}
-		}
-		//12 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==2||i==4||i==12||i==14||i==17/*||i==23*/) {
-				map.addEntity(EntityType.WALL, i,12, false);
-				walls.add(new Entity(EntityType.WALL, i,12, false));	
-			}
-		}
-		//13 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==1||i==2||i==4||i==5||i==6||i==7||i==9||i==10||i==12||i==14||i==16||i==17||i==19||i==20||i==21||i==22||i==23) {
-				map.addEntity(EntityType.WALL, i,13, false);
-				walls.add(new Entity(EntityType.WALL, i,13, false));	
-			}
-		}
-		//14 vertical
-		for (int i = 0; i < 25; i++) {
-			if(/*i==1||*/i==9||i==10||i==12||i==14||i==16||i==19) {
-				map.addEntity(EntityType.WALL, i,14, false);
-				walls.add(new Entity(EntityType.WALL, i,14, false));	
-			}
-		}
-		//15 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==1||i==2||i==3||i==4||i==5||i==6||i==7||i==8||i==9||i==10||i==12||i==14||i==16||i==18||i==19||i==20||i==21||i==22||i==23||i==24) {
-				map.addEntity(EntityType.WALL, i,15, false);
-				walls.add(new Entity(EntityType.WALL, i,15, false));	
-			}
-		}
-		//16 vertical
-		map.addEntity(EntityType.WALL, 14,16, false);
-		walls.add(new Entity(EntityType.WALL, 14,16, false));
-		//17 vert fix
-		for (int i = 0; i < 25; i++) {
-			if(i==1||i==2||i==3||i==4||i==5||i==6||i==7||i==8||i==9||i==10||i==11||i==12||i==13||i==14||i==16||i==17||i==18) {
-				map.addEntity(EntityType.WALL, i,17, false);
-				walls.add(new Entity(EntityType.WALL, i,17, false));	
-			}
-		}
-		//18 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==18||i==20||i==22||i==23) {
-				map.addEntity(EntityType.WALL, i,18, false);
-				walls.add(new Entity(EntityType.WALL, i,18, false));	
-			}
-		}
-		//19 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==0||i==1||i==2||i==3||i==4||i==6||i==8||i==9||i==10||i==11||i==12||i==14||i==15||i==16||i==18||i==20||i==22||i==23) {
-				map.addEntity(EntityType.WALL, i,19, false);
-				walls.add(new Entity(EntityType.WALL, i,19, false));	
-			}
-		}
-		//20 vertical fix
-		for (int i = 0; i < 25; i++) {
-			if(i==4||i==6||i==8||i==12||i==16||i==18||i==20||i==22) {
-				map.addEntity(EntityType.WALL, i,20, false);
-				walls.add(new Entity(EntityType.WALL,i,20, false));	
-			}
-		}
-		//21 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==1||i==2||i==3||i==4||i==6||i==8||i==10||i==12||i==13||i==14||i==16||i==18||i==20||i==22||i==23||i==24) {
-				map.addEntity(EntityType.WALL,i,21, false);
-				walls.add(new Entity(EntityType.WALL, i,21, false));	
-			}
-		}
-		//22 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==1||i==6||i==8||i==10||i==14||i==16||i==18||i==20||i==23||i==24) {
-				map.addEntity(EntityType.WALL, i,22, false);
-				walls.add(new Entity(EntityType.WALL, i,22, false));	
-			}
-		}
-		//23 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==1||i==2||i==3||i==4||i==5||i==6||i==8||i==10||i==11||i==12||i==14||i==15||i==16||i==18||i==20||i==21||i==22||i==23||i==24) {
-				map.addEntity(EntityType.WALL, i,23, false);
-				walls.add(new Entity(EntityType.WALL, i,23, false));	
-			}
-		}
-		//24 vertical
-		for (int i = 0; i < 25; i++) {
-			if(i==8||i==12||i==18) {
-				map.addEntity(EntityType.WALL, i,24, false);
-				walls.add(new Entity(EntityType.WALL, i,24, false));	
-			}
-		}
+		//0 vertical make file and read it
+	    ArrayList<WallPosition> wallPositions = new ArrayList<WallPosition>();
+	    try {
+	        FileReader fr = new FileReader("wall_positions.txt");
+	        BufferedReader br = new BufferedReader(fr);
+	        String line;
+	        while ((line = br.readLine()) != null) {
+	            String[] parts = line.split(",");
+	            int x = Integer.parseInt(parts[0]);
+	            int y = Integer.parseInt(parts[1]);
+	            wallPositions.add(new WallPosition(x, y));
+	        }
+	        br.close();
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+
+	    for (WallPosition wallPosition : wallPositions) {
+	        map.addEntity(EntityType.WALL, wallPosition.getX(), wallPosition.getY(), false);
+	        walls.add(new Entity(EntityType.WALL, wallPosition.getX(), wallPosition.getY(), false));
+	    }
 		//barrels
 		/*
 		map.addEntity(EntityType.BARREL, 19,6,true);
