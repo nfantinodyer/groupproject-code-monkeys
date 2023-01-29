@@ -24,3 +24,6 @@ for wallPositions {
     map.addEntity(x,y);
     walls.add(x,y);
 }
+
+#it works
+It prints the same map as it did with the super long and hard to read code, but now it's easier to edit. 
